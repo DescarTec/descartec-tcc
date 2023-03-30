@@ -697,3 +697,4 @@ FodyWeavers.xsd
 backend/fullchain.pem
 backend/privkey.key
 backend/privkey.pem
+/backend/.mysql-data/_data

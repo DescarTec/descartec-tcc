@@ -2,13 +2,13 @@
 version: '3'
 services:
   dotnet-sdk:
-    container_name: descartecApi
+    container_name: descartecapi
     build: .
     volumes:
       - ./Properties:/usr/share/app/Properties
       #- ./src:/usr/share/app/src
     ports:
-      - 5000:5000
+      - 5004:80
     restart: unless-stopped
 
   descartecbase:
@@ -22,7 +22,7 @@ services:
       MYSQL_DATABASE: descartec
       MYSQL_ROOT_PASSWORD: "bob@123"
     ports:
-      - 3309:3308
+      - 3308:3306
     volumes:
       - "./.mysql-data/_data:/var/lib/mysql"
     
