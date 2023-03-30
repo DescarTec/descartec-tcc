@@ -6,16 +6,16 @@ EXPOSE 5004
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["descartec-api/descartec-api.csproj", "descartec-api/"]
-RUN dotnet restore "descartec-api/descartec-api.csproj"
+COPY ["DescarTec.Api/DescarTec.Api.csproj", "DescarTec.Api/"]
+RUN dotnet restore "DescarTec.Api/DescarTec.Api.csproj"
 COPY . .
-WORKDIR "/src/descartec-api"
-RUN dotnet build "descartec-api.csproj" -c Release -o /app/build
+WORKDIR "/src/descartecapi"
+RUN dotnet build "DescarTec.Api.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "descartec-api.csproj" -c Release -o /app/publish
+RUN dotnet publish "DescarTec.Api.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "descartec-api.dll"]
+ENTRYPOINT ["dotnet", "DescarTec.Api.dll"]
