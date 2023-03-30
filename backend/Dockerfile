@@ -9,7 +9,8 @@ WORKDIR /src
 COPY ["DescarTec.Api/DescarTec.Api.csproj", "DescarTec.Api/"]
 RUN dotnet restore "DescarTec.Api/DescarTec.Api.csproj"
 COPY . .
-WORKDIR "/src/descartecapi"
+WORKDIR "/src/DescarTec.Api"
+RUN ls
 RUN dotnet build "DescarTec.Api.csproj" -c Release -o /app/build
 
 FROM build AS publish

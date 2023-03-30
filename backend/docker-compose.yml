@@ -1,4 +1,3 @@
-
 version: '3'
 services:
   dotnet-sdk:
@@ -9,7 +8,7 @@ services:
       #- ./src:/usr/share/app/src
     ports:
       - 5004:80
-    restart: unless-stopped
+    restart: always
 
   descartecbase:
     container_name: descartecdb
@@ -29,4 +28,4 @@ services:
 networks:
   default:
     external:
-      name: descartec-network    
+      name: descartec-network
