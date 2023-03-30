@@ -1,4 +1,5 @@
 using DescarTec.Api.Config.Context;
+using DescarTec.Api.Config.InjecaoDependencia;
 using DescarTec.Api.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -60,8 +61,8 @@ builder.Services.AddAuthentication(options =>
     });
 
 // Injecao de dependencias
-//ServicesIoc.Config(builder.Services);
-//RepositoryIoc.Config(builder.Services);
+ServicesIoc.Config(builder.Services);
+RepositoryIoc.Config(builder.Services);
 
 builder.Services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo { Title = "Descartec", Version = "v1" }); });
 
