@@ -64,7 +64,33 @@ builder.Services.AddAuthentication(options =>
 ServicesIoc.Config(builder.Services);
 RepositoryIoc.Config(builder.Services);
 
-builder.Services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo { Title = "Descartec", Version = "v1" }); });
+builder.Services.AddSwaggerGen(c => {
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Descartec", Version = "v1" });
+    var securityScheme = new OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        BearerFormat = "JWT",
+        Description = "JWT Authorization header using the Bearer scheme.",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.ApiKey
+    };
+    c.AddSecurityDefinition("Bearer", securityScheme);
+    var securityRequirement = new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            new string[] {}
+        }
+    };
+    c.AddSecurityRequirement(securityRequirement);
+});
 
 WebApplication app = builder.Build();
 
@@ -72,7 +98,10 @@ WebApplication app = builder.Build();
 
 app.UseDeveloperExceptionPage();
 app.UseSwagger();
-app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Descartec v1"));
+app.UseSwaggerUI(options =>
+{
+    options.SwaggerEndpoint("/swagger/v1/swagger.json", "Descartec v1");
+});
 
 //app.UseHttpsRedirection();
 
