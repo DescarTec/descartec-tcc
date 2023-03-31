@@ -43,9 +43,8 @@ namespace DescarTec.Api.Migrations
                     DataNascimento = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Endereco = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Endereco2 = table.Column<string>(type: "longtext", nullable: true)
+                    Cep = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Cep = table.Column<int>(type: "int", nullable: false),
                     UserName = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     NormalizedUserName = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true)

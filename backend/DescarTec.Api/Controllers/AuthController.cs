@@ -54,6 +54,22 @@ namespace DescarTec.Api.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
+        [HttpPost("add-user-to-admin-role")]
+        public async Task<ActionResult> AddUserToAdminRole([FromBody] Guid userId)
+        {
+            try
+            {
+                await _authService.AddUserToAdminRole(userId);
+
+                return Ok(true);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpGet("get-current-user")]
         public async Task<ActionResult> GetCurrentUser()
         {

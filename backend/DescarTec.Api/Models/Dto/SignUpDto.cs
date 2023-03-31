@@ -19,10 +19,8 @@ namespace DescarTec.Api.Domain.Models.DTOs
         [Required(ErrorMessage = "Endereco is required")]
         public string Endereco { get; set; }
 
-        public string? Endereco2 { get; set; }
-
         [Required(ErrorMessage = "Cep is required")]
-        public int Cep { get; set; }
+        public string Cep { get; set; }
 
         [EmailAddress]
         [Required(ErrorMessage = "Email is required")]

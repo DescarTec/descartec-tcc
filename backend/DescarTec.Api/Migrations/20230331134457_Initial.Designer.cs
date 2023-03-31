@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DescarTec.Api.Migrations
 {
     [DbContext(typeof(MySqlContext))]
-    [Migration("20230330212542_Initial")]
+    [Migration("20230331134457_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -57,8 +57,9 @@ namespace DescarTec.Api.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<int>("Cep")
-                        .HasColumnType("int");
+                    b.Property<string>("Cep")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -80,9 +81,6 @@ namespace DescarTec.Api.Migrations
 
                     b.Property<string>("Endereco")
                         .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Endereco2")
                         .HasColumnType("longtext");
 
                     b.Property<bool>("LockoutEnabled")

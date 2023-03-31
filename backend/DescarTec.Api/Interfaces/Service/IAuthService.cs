@@ -12,6 +12,7 @@ namespace DescarTec.Api.Interfaces.Service
         Task<bool> DeleteUser(Guid userId);
         Task<bool> SignUp(SignUpDto signUpDto);
         Task<SsoDto> SignIn(SignInDto signInDto);
+        Task AddUserToAdminRole(Guid userId);
         Task<ApplicationUser> GetCurrentUser();
     }
 }

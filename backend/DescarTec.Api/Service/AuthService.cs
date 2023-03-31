@@ -3,7 +3,9 @@ using DescarTec.Api.Interfaces.Repository;
 using DescarTec.Api.Interfaces.Service;
 using DescarTec.Api.Models;
 using DescarTec.Api.Models.Dto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -95,7 +97,6 @@ public class AuthService : IAuthService
             CpfCnpj = signUpDto.CpfCnpj,
             Cep = signUpDto.Cep,
             Endereco = signUpDto.Endereco,
-            Endereco2 = signUpDto.Endereco2,
             DataNascimento = signUpDto.DataNascimento,
             Nome = signUpDto.NomeCompleto,
             PhoneNumber = signUpDto.PhoneNumber,
@@ -109,7 +110,33 @@ public class AuthService : IAuthService
             else
                 throw new ArgumentException("Cadastro do usuário falhou.");
 
+        // If this is the first user, add admin role
+        var isFirstUser = await _userManager.Users.CountAsync() == 1;
+        if (isFirstUser)
+        {
+            var roleResult = await _userManager.AddToRoleAsync(user, "Admin");
+            if (!roleResult.Succeeded)
+            {
+                throw new ArgumentException("Falha ao adicionar o usuário ao papel de administrador.");
+            }
+        }
+
         return true;
+    }
+
+    private async Task AddUserToRoleAsync(Guid userId, string roleName)
+    {
+        ApplicationUser user = await _userManager.FindByIdAsync(userId.ToString());
+        if (user == null)
+            throw new ArgumentException("User not found.");
+
+        await _userManager.AddToRoleAsync(user, roleName);
+    }
+
+    [Authorize(Roles = "Admin")]
+    public async Task AddUserToAdminRole(Guid userId)
+    {
+        await AddUserToRoleAsync(userId, "Admin");
     }
 
     public async Task<SsoDto> SignIn(SignInDto signInDto)

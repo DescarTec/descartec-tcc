@@ -22,7 +22,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: myAllowSpecificOrigins,
         policyBuilder =>
         {
-            policyBuilder.WithOrigins("https://nicolasbuscarini.github.io");
+            policyBuilder.WithOrigins("https://descartec.github.io");
         });
 });
 
