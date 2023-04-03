@@ -6,7 +6,7 @@ export class UserDto {
 
 	constructor(id:string, userName: string, Email: string) {
 		this.id = id;
-		this.userName = userName;
+		this['username'] = userName;
 		this.Email = Email
 	}
 	

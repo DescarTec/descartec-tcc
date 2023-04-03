@@ -8,7 +8,7 @@ import {
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { AccountService } from '../../impl/services/account.service';
+import { AccountService } from 'src/app/domain/services/account.service';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
@@ -30,7 +30,7 @@ export class ErrorInterceptor implements HttpInterceptor {
         }
 
         if (err.status === 401) {
-          // auto logout if 401 response returned from api
+          // logout if 401 response returned from api
           this.accountService.reset();
           location.reload();
         }
