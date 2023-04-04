@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://host.docker.internal:5004'
+  apiUrl: 'http://host.docker.internal:5004'
 };
 
 /*
