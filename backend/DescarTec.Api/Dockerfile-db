@@ -1,0 +1,3 @@
+FROM mysql/mysql-server:8.0.20-aarch64
+EXPOSE 3308
+ADD startup.sql /docker-entrypoint-initdb.d
