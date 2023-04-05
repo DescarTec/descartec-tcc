@@ -11,6 +11,7 @@ RUN dotnet build
 
 WORKDIR /usr/share/app/bin/Debug/net6.0
 
-EXPOSE 5004
+EXPOSE 80
+EXPOSE 443
 
 ENTRYPOINT ["dotnet", "DescarTec.Api.dll"]

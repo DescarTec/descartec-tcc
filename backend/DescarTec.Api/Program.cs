@@ -40,6 +40,19 @@ builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()
 
 builder.Services.AddControllers();
 
+builder.Services.Configure<KestrelServerOptions>(options =>
+{
+    var crt = "/usr/share/app/server.pfx";
+    var cert = new X509Certificate2(crt, "bob@123");
+
+    options.Listen(IPAddress.Any, 80); // http
+    options.Listen(IPAddress.Any, 443, listenOptions => // https
+    {
+        listenOptions.UseHttps(cert);
+    });
+});
+
+
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
