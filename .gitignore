@@ -698,3 +698,6 @@ backend/fullchain.pem
 backend/privkey.key
 backend/privkey.pem
 /backend/.mysql-data/_data
+/backend/DescarTec.Api/.mysql-data/_data
+/backend/DescarTec.Api/server.key
+/backend/DescarTec.Api/server.crt
