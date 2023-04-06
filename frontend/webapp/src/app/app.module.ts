@@ -4,15 +4,16 @@ import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { MenuComponent } from './view/shared/menu/menu.component';
 import { HomeComponent } from './view/pages/home/home.component';
 import { FooterComponent } from './view/shared/footer/footer.component';
-import { LoginComponent } from './view/pages/auth/login/login.component';
+import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
+import { ErrorInterceptor } from './core/handlers/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,6 @@ import { LoginComponent } from './view/pages/auth/login/login.component';
     MenuComponent,
     HomeComponent,
     FooterComponent,
-    LoginComponent
   ],
   imports: [
     CommonModule,
@@ -28,12 +28,16 @@ import { LoginComponent } from './view/pages/auth/login/login.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    MdbCollapseModule, 
+    ReactiveFormsModule,
+    MdbCollapseModule,     
     TypeaheadModule.forRoot(),
     BrowserAnimationsModule,
     CollapseModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

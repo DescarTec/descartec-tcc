@@ -31,9 +31,11 @@ export class AccountRepository {
       );
   }
 
-  login(name: string, password: string): Observable<SsoDto> {
+  login(username: string, password: string): Observable<SsoDto> {
+    console.log({ username, password });
+    console.log(`${this.apiUrl}/api/Auth/sign-in`);
     return this.httpClient
-      .post<SsoDto>(`${this.apiUrl}/api/Auth/sign-in`, { name, password })
+      .post<SsoDto>(`${this.apiUrl}/api/Auth/sign-in`, { username, password })
       .pipe(
         map((ret: SsoDto) => {
           return ret;

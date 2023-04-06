@@ -2,10 +2,15 @@ using DescarTec.Api.Config.Context;
 using DescarTec.Api.Config.InjecaoDependencia;
 using DescarTec.Api.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
+using Microsoft.AspNetCore.Server.Kestrel.Https;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System.Net;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
@@ -22,7 +27,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: myAllowSpecificOrigins,
         policyBuilder =>
         {
-            policyBuilder.WithOrigins("https://descartec.github.io");
+            policyBuilder.WithOrigins("http://localhost:5006");
         });
 });
 
@@ -34,6 +39,21 @@ builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()
     .AddDefaultTokenProviders();
 
 builder.Services.AddControllers();
+
+builder.Services.Configure<KestrelServerOptions>(options =>
+{
+    //var crt = "server.pfx"; // Localhost
+    var crt = "/usr/share/app/server.pfx"; // Docker
+
+    var cert = new X509Certificate2(crt, "bob@123");
+
+    options.Listen(IPAddress.Any, 80); // http
+    options.Listen(IPAddress.Any, 443, listenOptions => // https
+    {
+        listenOptions.UseHttps(cert);
+    });
+});
+
 
 builder.Services.AddAuthentication(options =>
 {
@@ -103,7 +123,9 @@ app.UseSwaggerUI(options =>
     options.SwaggerEndpoint("/swagger/v1/swagger.json", "Descartec v1");
 });
 
-//app.UseHttpsRedirection();
+app.UseHttpsRedirection(); // Redireciona todas as solicitações HTTP para HTTPS
+
+app.UseHsts();
 
 app.UseRouting();
 
