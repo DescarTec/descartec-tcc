@@ -106,7 +106,6 @@ namespace DescarTec.Api.Controllers
             try
             {
                 ApplicationUser user = await _authService.GetUserById(id);
-                //UserDto userDTO = user.UserDTO();
 
                 return Ok(user);
             }

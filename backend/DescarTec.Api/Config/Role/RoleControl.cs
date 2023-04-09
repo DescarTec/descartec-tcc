@@ -5,12 +5,12 @@ namespace DescarTec.Api.Config.Role
 {
     public static class RoleControl
     {
-        public static async Task AddAdminRole(this IServiceProvider serviceProvider)
+        public static async Task AddAdminRole(this IServiceScope scope)
         {
             try
             {
+                var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<ApplicationRole>>();
                 // Obter o serviço de gerenciamento de roles
-                var roleManager = serviceProvider.GetRequiredService<RoleManager<ApplicationRole>>();
 
                 // Verificar se a role "Admin" já existe
                 var adminRoleExists = await roleManager.RoleExistsAsync("Admin");

@@ -3,7 +3,7 @@ using DescarTec.Api.Interfaces.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
-namespace MarketPlace.Impl.Repository;
+namespace DescarTec.Api.Repository;
 
 public class GenericRepository<T, TKey> : IGenericRepository<T, TKey> where T : class where TKey : struct
 {

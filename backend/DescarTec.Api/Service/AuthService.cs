@@ -16,15 +16,17 @@ namespace DescarTec.Api.Service;
 public class AuthService : IAuthService
 {
     private readonly IUserRepository _userRepository;
+    private readonly IEnderecoRepository _enderecoRepository;
 
     private readonly IConfiguration _configuration;
     private readonly IHttpContextAccessor _httpContextAccessor;
     private readonly UserManager<ApplicationUser> _userManager;
 
-    public AuthService(IUserRepository userRepository, IConfiguration configuration, UserManager<ApplicationUser> userManager,
+    public AuthService(IUserRepository userRepository, IEnderecoRepository enderecoRepository, IConfiguration configuration, UserManager<ApplicationUser> userManager,
         IHttpContextAccessor httpContextAccessor)
     {
         _userRepository = userRepository;
+        _enderecoRepository = enderecoRepository;
 
         _configuration = configuration;
         _httpContextAccessor = httpContextAccessor;
@@ -71,6 +73,23 @@ public class AuthService : IAuthService
         return true;
     }
 
+    private Endereco CreateEndereco(SignUpDto signUpDto)
+    {
+        Endereco endereco = new()
+        {
+            Cep = signUpDto.Cep,
+            Bairro = signUpDto.Bairro,
+            Complemento = signUpDto.Complemento,
+            Ddd = signUpDto.Ddd,
+            Ibge = signUpDto.Ibge,
+            Localidade = signUpDto.Localidade,
+            Logradouro = signUpDto.Logradouro,
+            Uf = signUpDto.Uf,
+        };
+
+        return endereco;
+    }
+
     public async Task<bool> SignUp(SignUpDto signUpDto)
     {
         ApplicationUser? userExists = await _userManager.FindByNameAsync(signUpDto.Username);
@@ -95,12 +114,11 @@ public class AuthService : IAuthService
             SecurityStamp = Guid.NewGuid().ToString(),
             UserName = signUpDto.Username,
             CpfCnpj = signUpDto.CpfCnpj,
-            Cep = signUpDto.Cep,
-            Endereco = signUpDto.Endereco,
             DataNascimento = signUpDto.DataNascimento,
             Nome = signUpDto.NomeCompleto,
             PhoneNumber = signUpDto.PhoneNumber,
         };
+        user.Endereco = this.CreateEndereco(signUpDto);
 
         var result = await _userManager.CreateAsync(user, signUpDto.Password);
 

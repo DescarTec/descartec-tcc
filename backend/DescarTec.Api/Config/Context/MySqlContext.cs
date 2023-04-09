@@ -12,4 +12,5 @@ public class MySqlContext : IdentityDbContext<ApplicationUser, ApplicationRole, 
 
     public DbSet<ApplicationUser> User { get; set; } = null!;
     public DbSet<ApplicationRole> Role { get; set; } = null!;
+    public DbSet<Endereco> Endereco { get; set; } = null!;
 }

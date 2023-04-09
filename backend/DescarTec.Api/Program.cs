@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
-using Microsoft.AspNetCore.Server.Kestrel.Https;
+using DescarTec.Api.Config.Role;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -42,8 +42,8 @@ builder.Services.AddControllers();
 
 builder.Services.Configure<KestrelServerOptions>(options =>
 {
-    //var crt = "server.pfx"; // Localhost
-    var crt = "/usr/share/app/server.pfx"; // Docker
+    var crt = "server.pfx"; // Localhost
+    //var crt = "/usr/share/app/server.pfx"; // Docker
 
     var cert = new X509Certificate2(crt, "bob@123");
 
@@ -106,7 +106,7 @@ builder.Services.AddSwaggerGen(c => {
                     Id = "Bearer"
                 }
             },
-            new string[] {}
+            Array.Empty<string>()
         }
     };
     c.AddSecurityRequirement(securityRequirement);
@@ -135,6 +135,11 @@ app.UseCors(p =>
     p.AllowAnyHeader();
     p.AllowAnyOrigin();
 });
+
+using (var scope = app.Services.CreateScope())
+{
+    await scope.AddAdminRole();
+}
 
 app.UseAuthentication();
 app.UseAuthorization();
