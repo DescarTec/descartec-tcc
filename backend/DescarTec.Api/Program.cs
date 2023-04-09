@@ -47,8 +47,8 @@ builder.Services.Configure<KestrelServerOptions>(options =>
 
     var cert = new X509Certificate2(crt, "bob@123");
 
-    options.Listen(IPAddress.Any, 80); // http
-    options.Listen(IPAddress.Any, 443, listenOptions => // https
+    options.Listen(IPAddress.Any, 88); // http
+    options.Listen(IPAddress.Any, 444, listenOptions => // https
     {
         listenOptions.UseHttps(cert);
     });
@@ -123,7 +123,7 @@ app.UseSwaggerUI(options =>
     options.SwaggerEndpoint("/swagger/v1/swagger.json", "Descartec v1");
 });
 
-app.UseHttpsRedirection(); // Redireciona todas as solicitações HTTP para HTTPS
+app.UseHttpsRedirection(); // Redireciona todas as solicitaï¿½ï¿½es HTTP para HTTPS
 
 app.UseHsts();
 

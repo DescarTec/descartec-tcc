@@ -7,8 +7,8 @@ services:
       - ./Properties:/usr/share/app/Properties
       #- ./src:/usr/share/app/src
     ports:
-      - 5004:80
-      - 5005:443
+      - 5004:88
+      - 5005:444
     restart: always
 
   descartecbase:
