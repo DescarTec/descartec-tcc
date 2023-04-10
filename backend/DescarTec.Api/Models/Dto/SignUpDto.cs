@@ -36,9 +36,6 @@ namespace DescarTec.Api.Models.Dto
         [Required(ErrorMessage = "Logradouro is required")]
         public string Logradouro { get; set; }
 
-        [Required(ErrorMessage = "Complemento is required")]
-        public string Complemento { get; set; }
-
         [Required(ErrorMessage = "Bairro is required")]
         public string Bairro { get; set; }
 

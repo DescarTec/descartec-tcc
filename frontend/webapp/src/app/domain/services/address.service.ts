@@ -17,7 +17,6 @@ export class AddressService {
         return {
           cep: address.cep,
           logradouro: address.logradouro,
-          complemento: address.complemento,
           bairro: address.bairro,
           localidade: address.localidade,
           uf: address.uf,
@@ -33,7 +32,6 @@ export class AddressService {
 export class Address {
   cep: string;
   logradouro: string;
-  complemento: string;
   bairro: string;
   localidade: string;
   uf: string;
@@ -43,7 +41,6 @@ export class Address {
   constructor(
     cep: string, 
     logradouro: string, 
-    complemento: string, 
     bairro: string, 
     localidade: string, 
     uf: string, 
@@ -52,7 +49,6 @@ export class Address {
 ) {
     this.cep = cep
     this.logradouro = logradouro
-    this.complemento = complemento
     this.bairro = bairro
     this.localidade = localidade
     this.uf = uf

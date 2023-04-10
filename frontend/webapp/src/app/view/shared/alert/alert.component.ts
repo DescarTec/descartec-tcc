@@ -5,7 +5,12 @@ import { Subscription } from 'rxjs';
 import { AlertService } from 'src/app/domain/services/alert.service';
 import { Alert, AlertType } from 'src/app/models/alert';
 
-@Component({ selector: 'alert', templateUrl: 'alert.component.html' })
+@Component(
+    { 
+        selector: 'alert', 
+        templateUrl: 'alert.component.html', 
+        styleUrls: ['alert.component.scss']
+})
 export class AlertComponent implements OnInit, OnDestroy {
     @Input() id = 'default-alert';
     @Input() fade = true;
