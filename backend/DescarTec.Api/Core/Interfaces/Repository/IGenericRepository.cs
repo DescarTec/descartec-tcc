@@ -1,4 +1,4 @@
-﻿namespace DescarTec.Api.Interfaces.Repository
+﻿namespace DescarTec.Api.Core.Interfaces.Repository
 {
     public interface IGenericRepository<T, T_KEY>
     where T : class

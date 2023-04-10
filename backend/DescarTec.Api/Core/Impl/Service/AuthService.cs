@@ -1,6 +1,5 @@
-﻿using DescarTec.Api.Domain.Models.DTOs;
-using DescarTec.Api.Interfaces.Repository;
-using DescarTec.Api.Interfaces.Service;
+﻿using DescarTec.Api.Core.Interfaces.Repository;
+using DescarTec.Api.Core.Interfaces.Service;
 using DescarTec.Api.Models;
 using DescarTec.Api.Models.Dto;
 using Microsoft.AspNetCore.Authorization;
@@ -11,7 +10,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace DescarTec.Api.Service;
+namespace DescarTec.Api.Core.Impl.Service;
 
 public class AuthService : IAuthService
 {
@@ -118,7 +117,7 @@ public class AuthService : IAuthService
             Nome = signUpDto.NomeCompleto,
             PhoneNumber = signUpDto.PhoneNumber,
         };
-        user.Endereco = this.CreateEndereco(signUpDto);
+        user.Endereco = CreateEndereco(signUpDto);
 
         var result = await _userManager.CreateAsync(user, signUpDto.Password);
 

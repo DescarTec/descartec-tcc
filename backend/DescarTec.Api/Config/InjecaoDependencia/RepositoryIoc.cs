@@ -1,6 +1,5 @@
-﻿using DescarTec.Api.Interfaces.Repository;
-using DescarTec.Api.Repository;
-using MarketPlace.Impl.Repository;
+﻿using DescarTec.Api.Core.Impl.Repository;
+using DescarTec.Api.Core.Interfaces.Repository;
 
 namespace DescarTec.Api.Config.InjecaoDependencia
 {

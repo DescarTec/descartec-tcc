@@ -1,5 +1,5 @@
-﻿using DescarTec.Api.Interfaces.Service;
-using DescarTec.Api.Service;
+﻿using DescarTec.Api.Core.Impl.Service;
+using DescarTec.Api.Core.Interfaces.Service;
 
 namespace DescarTec.Api.Config.InjecaoDependencia
 {

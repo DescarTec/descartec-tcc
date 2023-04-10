@@ -1,8 +1,7 @@
-﻿using DescarTec.Api.Domain.Models.DTOs;
-using DescarTec.Api.Models;
+﻿using DescarTec.Api.Models;
 using DescarTec.Api.Models.Dto;
 
-namespace DescarTec.Api.Interfaces.Service
+namespace DescarTec.Api.Core.Interfaces.Service
 {
     public interface IAuthService
     {

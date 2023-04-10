@@ -1,0 +1,78 @@
+﻿<div class="card">
+    <h4 class="card-header">Register</h4>
+    <div class="card-body">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <label class="form-label">Nome Completo</label>
+                <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['firstName'].errors }" />
+                <div *ngIf="submitted && f['firstName'].errors" class="invalid-feedback">
+                    <div *ngIf="f['firstName'].errors['required']">Nome Completo é obrigatório</div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Username</label>
+                <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['username'].errors }" />
+                <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
+                    <div *ngIf="f['username'].errors['required']">Username é obrigatório</div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Senha</label>
+                <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" />
+                <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+                    <div *ngIf="f['password'].errors['required']">Senha é obrigatório</div>
+                    <div *ngIf="f['password'].errors['minlength']">Password must be at least 6 characters</div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Confirmar Senha</label>
+                <input type="password" formControlName="passwordConfirm" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['passwordConfirm'].errors }" />
+                <div *ngIf="submitted && f['passwordConfirm'].errors" class="invalid-feedback">
+                    <div *ngIf="f['passwordConfirm'].errors['required']">Confirmar Senha é obrigatório</div>
+                    <div *ngIf="f['passwordConfirm'].errors['mustMatch']">Senhas não conferem</div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">CEP</label>
+								<input type="text" formControlName="cep" class="form-control"
+									[ngClass]="{ 'is-invalid': submitted && f['cep'].errors }"
+									maxLength="9"
+									(input)="formatarCep($event)"
+								/>
+								<div *ngIf="submitted && f['cep'].errors" class="invalid-feedback">
+									<div *ngIf="f['cep'].errors['required']">CEP é obrigatório</div>
+                </div>
+            </div>
+
+						<div *ngIf="showAddressFields" class="mb-3">
+							<div class="form-group">
+									<label for="logradouro">Rua/Logradouro</label>
+									<input type="text" id="logradouro" formControlName="logradouro" class="form-control" readonly>
+							</div>
+					
+							<div class="form-group">
+									<label for="bairro">Bairro</label>
+									<input type="text" id="bairro" formControlName="bairro" class="form-control" readonly>
+							</div>
+					
+							<div class="form-group">
+									<label for="localidade">Cidade</label>
+									<input type="text" id="localidade" formControlName="localidade" class="form-control" readonly>
+							</div>
+					
+							<div class="form-group">
+									<label for="uf">Estado</label>
+									<input type="text" id="uf" formControlName="uf" class="form-control" readonly>
+							</div>
+					</div>
+					
+            <div>
+                <button [disabled]="loading" class="btn btn-primary">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm me-1"></span>
+                    Registrar
+                </button>
+                <a routerLink="../login" class="btn btn-link">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>

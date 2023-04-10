@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using DescarTec.Api.Models;
 
-namespace DescarTec.Api.Domain.Models.DTOs
+namespace DescarTec.Api.Models.Dto
 {
     public partial class SignUpDto
     {

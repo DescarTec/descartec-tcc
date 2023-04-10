@@ -1,5 +1,4 @@
-﻿using DescarTec.Api.Domain.Models.DTOs;
-using DescarTec.Api.Interfaces.Service;
+﻿using DescarTec.Api.Core.Interfaces.Service;
 using DescarTec.Api.Models;
 using DescarTec.Api.Models.Dto;
 using Microsoft.AspNetCore.Authorization;

@@ -1,10 +1,9 @@
 ﻿using DescarTec.Api.Config.Context;
-using DescarTec.Api.Interfaces.Repository;
+using DescarTec.Api.Core.Interfaces.Repository;
 using DescarTec.Api.Models;
-using DescarTec.Api.Repository;
 using Microsoft.EntityFrameworkCore;
 
-namespace MarketPlace.Impl.Repository;
+namespace DescarTec.Api.Core.Impl.Repository;
 
 public class UserRepository : GenericRepository<ApplicationUser, Guid>, IUserRepository
 {

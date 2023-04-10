@@ -1,8 +1,8 @@
 ﻿using DescarTec.Api.Config.Context;
-using DescarTec.Api.Interfaces.Repository;
+using DescarTec.Api.Core.Interfaces.Repository;
 using DescarTec.Api.Models;
 
-namespace DescarTec.Api.Repository
+namespace DescarTec.Api.Core.Impl.Repository
 {
     public class EnderecoRepository : GenericRepository<Endereco, Guid>, IEnderecoRepository
     {
@@ -11,6 +11,6 @@ namespace DescarTec.Api.Repository
         {
             _context = context;
         }
-    
+
     }
 }

@@ -1,9 +1,9 @@
 ﻿using DescarTec.Api.Config.Context;
-using DescarTec.Api.Interfaces.Repository;
+using DescarTec.Api.Core.Interfaces.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
-namespace DescarTec.Api.Repository;
+namespace DescarTec.Api.Core.Impl.Repository;
 
 public class GenericRepository<T, TKey> : IGenericRepository<T, TKey> where T : class where TKey : struct
 {
