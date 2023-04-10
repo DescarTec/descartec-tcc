@@ -14,7 +14,6 @@ import { HomeComponent } from './view/pages/home/home.component';
 import { FooterComponent } from './view/shared/footer/footer.component';
 import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
 import { ErrorInterceptor } from './core/handlers/error.interceptor';
-import { TextMaskModule } from 'angular2-text-mask';
 import { AlertComponent } from './view/shared/alert';
 
 @NgModule({
@@ -33,7 +32,6 @@ import { AlertComponent } from './view/shared/alert';
     FormsModule,
     ReactiveFormsModule,
     MdbCollapseModule,     
-    TextMaskModule,
     TypeaheadModule.forRoot(),
     BrowserAnimationsModule,
     CollapseModule.forRoot()

@@ -701,3 +701,4 @@ backend/privkey.pem
 /backend/DescarTec.Api/.mysql-data/_data
 /backend/DescarTec.Api/server.key
 /backend/DescarTec.Api/server.crt
+backend/.config/dotnet-tools.json

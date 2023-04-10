@@ -1,12 +1,9 @@
 version: '3'
-
 services:
-  webapp:
-    build:
-      context: .
-      dockerfile: Dockerfile
+  app:
+    build: .
     ports:
-      - "5006:5006"
+      - '5006:5006'
     volumes:
-      - .:/app
-    command: npm start -- --port 5006
+      - './:/app'
+    command: npm run serve

@@ -5,7 +5,7 @@ COPY . .
 
 #CMD ["/bin/sh", "-ec", "while :; do echo '.'; sleep 6 ; done"]
 
-
+RUN dotnet restore
 RUN dotnet build
 
 
