@@ -7,7 +7,6 @@ namespace DescarTec.Api.Models
 {
     public class ApplicationUser : IdentityUser<Guid>
     {
-        public string CpfCnpj { get; set; } = null!;
         public string Nome { get; set; } = null!;
         public DateTime DataNascimento { get; set; }
         public Guid EnderecoId { get; set; }

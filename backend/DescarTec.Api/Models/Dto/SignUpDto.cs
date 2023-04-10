@@ -24,9 +24,6 @@ namespace DescarTec.Api.Models.Dto
         [Required(ErrorMessage = "Password is required")]
         public string PasswordConfirm { get; set; }
 
-        [Required(ErrorMessage = "Cpf/Cnpj is required")]
-        public string CpfCnpj { get; set; }
-
         [Required(ErrorMessage = "PhoneNumber is required")]
         public string PhoneNumber { get; set; }
 

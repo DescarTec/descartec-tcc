@@ -83,7 +83,7 @@ export class AccountService {
   }
 
   register(user: SignUpDto) {
-    return this.accountRepository.register(user, this.language);
+    return this.accountRepository.register(user);
   }
 
 }

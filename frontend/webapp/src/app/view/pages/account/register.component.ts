@@ -5,6 +5,8 @@ import { first } from 'rxjs/operators';
 import { AccountService } from '../../../domain/services/account.service';
 import { AlertService } from '../../../domain/services/alert.service';
 import { AddressService, Address } from 'src/app/domain/services/address.service';
+import { SsoDto } from 'src/app/models/dto/ssoDto';
+import { SignUpDto } from 'src/app/models/dto/signUpDTO';
 
 @Component({ templateUrl: 'register.component.html' })
 export class RegisterComponent implements OnInit {
@@ -26,8 +28,7 @@ export class RegisterComponent implements OnInit {
 
 	ngOnInit() {
 		this.form = this.formBuilder.group({
-			firstName: ['', Validators.required],
-			lastName: ['', Validators.required],
+			completeName: ['', Validators.required],
 			username: ['', Validators.required],
 			password: ['', [Validators.required, Validators.minLength(6)]],
 			passwordConfirm: ['', Validators.required],
@@ -35,12 +36,9 @@ export class RegisterComponent implements OnInit {
 			phoneNumber: ['', Validators.required],
 			cep: ['', Validators.required],
 			logradouro: ['', Validators.required],
-			complemento: [''],
 			bairro: ['', Validators.required],
 			localidade: ['', Validators.required],
-			uf: ['', Validators.required],
-			ibge: [''],
-			ddd: ['']
+			uf: ['', Validators.required]
 		}/*, { validator: this.checkPasswords }*/);
 
 		this.form.get('cep')?.valueChanges.subscribe(value => {
@@ -48,7 +46,6 @@ export class RegisterComponent implements OnInit {
 			if (value && value.length === 8) {
 				//this.alertService.info('Buscando endereço...');
 				this.addressService.getAddressByCep(value).subscribe( { next: (address) => {
-
 					this.address = address;
 					if (!address.logradouro) {
 						this.alertService.error('CEP não encontrado.');
@@ -91,13 +88,17 @@ export class RegisterComponent implements OnInit {
 		// reset alerts on submit
 		this.alertService.clear();
 
+		console.log(this.form.value);
+		console.log(this.form.invalid);
+
 		// stop here if form is invalid
 		if (this.form.invalid) {
 			return;
 		}
-
+		
 		this.loading = true;
-		this.accountService.register(this.form.value)
+		let user = new SignUpDto(this.form, this.address!) ;
+		this.accountService.register(user)
 			.pipe(first())
 			.subscribe({
 				next: () => {

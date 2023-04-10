@@ -42,8 +42,8 @@ builder.Services.AddControllers();
 
 builder.Services.Configure<KestrelServerOptions>(options =>
 {
-    var crt = "server.pfx"; // Localhost
-    //var crt = "/usr/share/app/server.pfx"; // Docker
+    //var crt = "server.pfx"; // Localhost
+    var crt = "/usr/share/app/server.pfx"; // Docker
 
     var cert = new X509Certificate2(crt, "bob@123");
 

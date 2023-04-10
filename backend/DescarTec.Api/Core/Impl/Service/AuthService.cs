@@ -96,20 +96,11 @@ public class AuthService : IAuthService
         if (userExists != null)
             throw new ArgumentException("Email already exists!");
 
-        signUpDto.CpfCnpj = signUpDto.CpfCnpj.Replace(".", "");
-        signUpDto.CpfCnpj = signUpDto.CpfCnpj.Replace(" ", "");
-        signUpDto.CpfCnpj = signUpDto.CpfCnpj.Replace("-", "");
-
-        userExists = await _userRepository.GetByCpfCnpjAsync(signUpDto.CpfCnpj);
-        if (userExists != null)
-            throw new ArgumentException("CPF/CNPJ already exists!");
-
         ApplicationUser user = new()
         {
             Email = signUpDto.Email,
             SecurityStamp = Guid.NewGuid().ToString(),
             UserName = signUpDto.Username,
-            CpfCnpj = signUpDto.CpfCnpj,
             DataNascimento = signUpDto.DataNascimento,
             Nome = signUpDto.NomeCompleto,
             PhoneNumber = signUpDto.PhoneNumber,

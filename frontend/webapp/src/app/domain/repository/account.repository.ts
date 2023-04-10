@@ -18,14 +18,16 @@ export class AccountRepository {
 
   constructor(private httpClient: HttpClient) {}
 
-  register(newUser: SignUpDto, language: number): Observable<SignUpDto> {
+  register(newUser: SignUpDto): Observable<SignUpDto> {
+    console.log(newUser);
     return this.httpClient
       .post<SignUpDto>(
-        `${this.apiUrl}/api/Auth/sign-up?language=` + language,
+        `${this.apiUrl}/api/Auth/sign-up`,
         newUser
       )
       .pipe(
         map((ret) => {
+          console.log(ret);
           return ret;
         })
       );

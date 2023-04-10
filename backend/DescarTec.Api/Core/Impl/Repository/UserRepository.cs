@@ -19,10 +19,4 @@ public class UserRepository : GenericRepository<ApplicationUser, Guid>, IUserRep
 
         return list;
     }
-
-    public async Task<ApplicationUser?> GetByCpfCnpjAsync(string cpfCnpj)
-    {
-        ApplicationUser? applicationUser = await _context.User.Where(p => p.CpfCnpj.Equals(cpfCnpj)).FirstOrDefaultAsync();
-        return applicationUser;
-    }
 }
