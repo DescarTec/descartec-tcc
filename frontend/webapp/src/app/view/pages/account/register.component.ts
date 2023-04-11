@@ -5,8 +5,8 @@ import { first } from 'rxjs/operators';
 import { AccountService } from '../../../domain/services/account.service';
 import { AlertService } from '../../../domain/services/alert.service';
 import { AddressService, Address } from 'src/app/domain/services/address.service';
-import { SsoDto } from 'src/app/models/dto/ssoDto';
 import { SignUpDto } from 'src/app/models/dto/signUpDTO';
+import { addressValidator, confirmPasswordValidator, passwordValidator } from '../../../utils/validators';
 
 @Component({ templateUrl: 'register.component.html' })
 export class RegisterComponent implements OnInit {
@@ -31,18 +31,25 @@ export class RegisterComponent implements OnInit {
 			completeName: ['', Validators.required],
 			username: ['', Validators.required],
 			password: ['', [Validators.required, Validators.minLength(6)]],
-			passwordConfirm: ['', Validators.required],
+			passwordConfirm: ['', [Validators.required]],
 			email: ['', [Validators.required, Validators.email]],
 			phoneNumber: ['', Validators.required],
-			cep: ['', Validators.required],
+			cep: ['', Validators.required, ],
 			logradouro: ['', Validators.required],
 			bairro: ['', Validators.required],
 			localidade: ['', Validators.required],
 			uf: ['', Validators.required]
-		}/*, { validator: this.checkPasswords }*/);
+		}, 
+		{  
+			validators: [
+				confirmPasswordValidator('password', 'passwordConfirm'), 
+				addressValidator(this.address),
+				passwordValidator()
+			] 
+		});
 
 		this.form.get('cep')?.valueChanges.subscribe(value => {
-			if (value && value.length === 8 && value.includes('-')) { return console.log(value) }
+			if (value && value.length === 8 && value.includes('-')) { return }
 			if (value && value.length === 8) {
 				//this.alertService.info('Buscando endereço...');
 				this.addressService.getAddressByCep(value).subscribe( { next: (address) => {
@@ -72,13 +79,6 @@ export class RegisterComponent implements OnInit {
 		});
 	}
 
-	checkPasswords() {
-		const password = this.f['password'].value;
-		const passwordConfirm = this.f['passwordConfirm'].value;
-
-		return password === passwordConfirm ? null : { notMatch: true };
-	}
-
 	// convenience getter for easy access to form fields
 	get f() { return this.form.controls; }
 
@@ -87,9 +87,6 @@ export class RegisterComponent implements OnInit {
 
 		// reset alerts on submit
 		this.alertService.clear();
-
-		console.log(this.form.value);
-		console.log(this.form.invalid);
 
 		// stop here if form is invalid
 		if (this.form.invalid) {
@@ -111,6 +108,26 @@ export class RegisterComponent implements OnInit {
 				}
 			});
 	}
+
+	onPhoneKeyPress(event: any) {
+		const pattern = /[0-9]/;
+		const inputChar = String.fromCharCode(event.charCode);
+		if (!pattern.test(inputChar)) {
+		  event.preventDefault();
+		} else {
+		  const input = event.target as HTMLInputElement;
+		  const inputLength = input.value.length;
+		  if (inputLength === 0) {
+			input.value = '(' + input.value;
+		  }
+		  if (inputLength === 3) {
+			input.value = input.value + ') ';
+		  }
+		  if (inputLength === 10) {
+			input.value = input.value + '-';
+		  }
+		}
+	  }
 
 	formatarCep(event: any) {
 		let cep = event.target.value.replace(/\D/g, '');
