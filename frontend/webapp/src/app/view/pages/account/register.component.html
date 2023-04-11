@@ -20,9 +20,10 @@
                 <label class="form-label">Celular</label>
                 <input type="text" formControlName="phoneNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['phoneNumber'].errors }" (keypress)="onPhoneKeyPress($event)" />
                 <div *ngIf="submitted && f['phoneNumber'].errors" class="invalid-feedback">
-                  <div *ngIf="f['phoneNumber'].errors['required']">Celular é obrigatório</div>
+                    <div *ngIf="f['phoneNumber'].errors['required']">Celular é obrigatório</div>
                 </div>
-              </div>              
+            </div>
+                           
             <div class="mb-3">
                 <label class="form-label">Username</label>
                 <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['username'].errors }" />
@@ -35,7 +36,8 @@
                 <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" />
                 <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
                     <div *ngIf="f['password'].errors['required']">Senha é obrigatório</div>
-                    <div *ngIf="f['password'].errors['minlength']">Password must be at least 6 characters</div>
+                    <div *ngIf="f['password'].errors['minlength']">Senha deve conter no mínimo 6 caracteres</div>
+                    <div *ngIf="f['password'].errors['passwordInvalid']">Senha deve conter <br>- 1 carácter especial, <br>- 1 letra maiúscula, <br>- 1 letra minúscula <br>- 1 numero </div>
                 </div>
             </div>
             <div class="mb-3">
@@ -43,18 +45,19 @@
                 <input type="password" formControlName="passwordConfirm" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['passwordConfirm'].errors }" />
                 <div *ngIf="submitted && f['passwordConfirm'].errors" class="invalid-feedback">
                     <div *ngIf="f['passwordConfirm'].errors['required']">Confirmar Senha é obrigatório</div>
-                    <div *ngIf="f['passwordConfirm'].errors['mustMatch']">Senhas não conferem</div>
+                    <div *ngIf="f['passwordConfirm'].errors['confirmPassword']">As senhas devem ser iguais</div>
                 </div>
             </div>
             <div class="mb-3">
                 <label class="form-label">CEP</label>
-								<input type="text" formControlName="cep" class="form-control"
-									[ngClass]="{ 'is-invalid': submitted && f['cep'].errors }"
-									maxLength="9"
-									(input)="formatarCep($event)"
-								/>
-								<div *ngIf="submitted && f['cep'].errors" class="invalid-feedback">
-									<div *ngIf="f['cep'].errors['required']">CEP é obrigatório</div>
+                <input type="text" formControlName="cep" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f['cep'].errors }"
+                    maxLength="9"
+                    (input)="formatarCep($event)"
+                />
+                <div *ngIf="submitted && f['cep'].errors" class="invalid-feedback">
+                    <div *ngIf="f['cep'].errors['required']">CEP é obrigatório</div>
+                    <div *ngIf="f['cep'].errors['invalidCep']">CEP é inválido</div>
                 </div>
             </div>
 

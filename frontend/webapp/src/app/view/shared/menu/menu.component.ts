@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AccountService } from 'src/app/domain/services/account.service';
 
 @Component({
   selector: 'app-menu',
@@ -6,12 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
-
+  
+  isLogged = false;
   selected?: string = "";
   
-  constructor() { }
+  constructor(
+    private accountService: AccountService
+  ) {   }
 
   ngOnInit(): void {
+    this.accountService.currentUserObservable.subscribe((currentUser) => {
+      this.isLogged = currentUser !== null;
+    });
+  }
+
+  logout(): void {
+    this.accountService.reset()
   }
 
   isMenuOpen = false;

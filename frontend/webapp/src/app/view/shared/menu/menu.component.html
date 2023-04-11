@@ -9,8 +9,9 @@
       </div>
     </div>
     <div class="navbar-nav ml-auto">
-      <a class="nav-link disabled" href="#" aria-disabled="true">Meu Perfil</a>
-      <button class="btn btn-light" type="button" routerLink="/account/login">Login</button>
+      <a *ngIf="isLogged" class="nav-link" routerLink="/user/profile">Meu Perfil</a>
+      <a *ngIf="isLogged" class="nav-link" (click)="logout()">Logout</a>
+      <a *ngIf="!isLogged" class="nav-link" routerLink="/account/login">Login</a>
     </div>
     <button class="navbar-toggler" type="button" (click)="toggleMenu()" aria-expanded="false" aria-label="Toggle navigation">
       <i class="fas fa-bars"></i>
