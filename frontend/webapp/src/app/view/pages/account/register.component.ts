@@ -43,7 +43,6 @@ export class RegisterComponent implements OnInit {
 		{  
 			validators: [
 				confirmPasswordValidator('password', 'passwordConfirm'), 
-				addressValidator(this.address),
 				passwordValidator()
 			] 
 		});
@@ -57,9 +56,11 @@ export class RegisterComponent implements OnInit {
 					if (!address.logradouro) {
 						this.alertService.error('CEP não encontrado.');
 						this.showAddressFields = false;
+						this.f['cep'].setErrors({ invalidCep: true });
 						return;
 					}
 					this.showAddressFields = true;
+					this.f['cep'].setErrors(null);
 
 					this.form.patchValue({
 						logradouro: address.logradouro,
@@ -71,6 +72,8 @@ export class RegisterComponent implements OnInit {
 				error: (error) => {
 					this.alertService.error(error);
 					this.showAddressFields = false;
+					this.f['cep'].setErrors({ invalidCep: true });
+
 				}			
 			});
 			} else {
