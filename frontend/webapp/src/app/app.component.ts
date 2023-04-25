@@ -19,9 +19,8 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    const apiKey = process.env['GOOGLE_MAPS_API_KEY'];
     const script = document.createElement('script');
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&callback=initMap`;
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${environment.googleMapsApiKey}&callback=initMap`;
     document.head.appendChild(script);
   }
   
