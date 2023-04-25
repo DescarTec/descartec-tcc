@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { User } from './models/user';
 import { AccountService } from './domain/services/account.service';
+import { environment } from 'src/environments/environment';
+
+declare var google: any;
 
 @Component({
   selector: 'app-root',
@@ -15,6 +18,12 @@ export class AppComponent {
       this.accountService.currentUserObservable.subscribe(x => this.user = x);
   }
 
+  ngOnInit() {
+    const script = document.createElement('script');
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${environment.googleMapsApiKey}&callback=initMap`;
+    document.head.appendChild(script);
+  }
+  
   logout() {
       this.accountService.reset();
   }

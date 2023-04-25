@@ -15,6 +15,7 @@ import { FooterComponent } from './view/shared/footer/footer.component';
 import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
 import { ErrorInterceptor } from './core/handlers/error.interceptor';
 import { AlertComponent } from './view/shared/alert';
+import { MapaComponent } from './view/pages/mapa/mapa.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AlertComponent } from './view/shared/alert';
     MenuComponent,
     HomeComponent,
     FooterComponent,
-    AlertComponent
+    AlertComponent,
+    MapaComponent
   ],
   imports: [
     CommonModule,
