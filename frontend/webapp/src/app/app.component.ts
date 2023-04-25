@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { User } from './models/user';
 import { AccountService } from './domain/services/account.service';
+import { AlertService } from './domain/services/alert.service';
 import { environment } from 'src/environments/environment';
 
 declare var google: any;
@@ -19,8 +20,14 @@ export class AppComponent {
   }
 
   ngOnInit() {
+    this.loadMapsScript();
+  }
+
+  loadMapsScript() {
     const script = document.createElement('script');
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${environment.googleMapsApiKey}&callback=initMap`;
+    script.async = true;
+    script.defer = true;
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${environment.googleMapsApiKey}`;
     document.head.appendChild(script);
   }
   

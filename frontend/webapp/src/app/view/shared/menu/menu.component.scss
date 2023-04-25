@@ -1,11 +1,40 @@
+@import '../../../../colors';
+
 .custom-top-bar {
     padding-bottom: 1%;
-    background-color: #2e1e45;
+    background-color: $cor-escura;
+    color: white !important;
     margin-bottom: 1%;
-}
+  
+    a {
+      color: white;
+  
+      &:hover {
+        color: $cor-destaque;
+      }
+    }
+
+    button {
+        color: white;
+        border-color: transparent;
+
+        &:hover {
+            color: $cor-destaque;
+        }
+    }
+
+    i {
+        color: white;
+    
+        &:hover {
+          color: $cor-destaque;
+        }
+      }
+  }
+  
 
 .custom-color {
-    color: #f8f4ee;
+    color: white !important;
 }
 
 .custom-search {

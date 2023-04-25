@@ -1,6 +1,7 @@
 declare var google: any;
 
 import { Component, OnInit } from '@angular/core';
+import { AlertService } from 'src/app/domain/services/alert.service';
 
 @Component({
   selector: 'app-mapa',
@@ -11,16 +12,35 @@ export class MapaComponent implements OnInit {
   lat!: number;
   lng!: number;
 
+  constructor(private alertService: AlertService) {}
+
   ngOnInit() {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(position => {
-        this.lat = position.coords.latitude;
-        this.lng = position.coords.longitude;
+      console.log("if");
+      console.log(navigator.geolocation);
 
-        this.initializeMap();
-      });
+      navigator.geolocation.getCurrentPosition(
+        position => {
+          this.lat = position.coords.latitude;
+          this.lng = position.coords.longitude;
+    
+          this.initializeMap();
+        },
+        error => {
+          console.log("erro");
+          console.log(error);
+          this.alertService.warn("Geolocalização não está habilitada. Habilite a geolocalização para visualizar esta página.");
+        }
+      );
+    } else {
+      console.log("else");
+      console.log(navigator.geolocation);
+
+      // Geolocalização não está habilitada
+      this.alertService.warn("Geolocalização não está habilitada. Habilite a geolocalização para visualizar esta página.");
     }
   }
+
 
   initializeMap() {
     const mapOptions = {
