@@ -733,7 +733,14 @@ let MapaComponent = /*#__PURE__*/(() => {
   class MapaComponent {
     constructor(alertService) {
       this.alertService = alertService;
+      this.driverIcon = {
+        url: 'assets/mapa/icon1.png',
+        scaledSize: new google.maps.Size(50, 50),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(25, 25) // ponto de ancoragem
+      };
     }
+
     ngOnInit() {
       if (navigator.geolocation) {
         console.log("if");
@@ -742,6 +749,9 @@ let MapaComponent = /*#__PURE__*/(() => {
           this.lat = position.coords.latitude;
           this.lng = position.coords.longitude;
           this.initializeMap();
+          setInterval(() => {
+            this.updateDriverPosition();
+          }, 15000);
         }, error => {
           console.log("erro");
           console.log(error);
@@ -763,22 +773,24 @@ let MapaComponent = /*#__PURE__*/(() => {
         zoom: 12
       };
       const map = new google.maps.Map(document.getElementById('map'), mapOptions);
-      // Adicione marcadores aos pontos específicos
-      const marker1 = new google.maps.Marker({
+      this.driverMarker = new google.maps.Marker({
         position: {
-          lat: this.lat + 0.01,
-          lng: this.lng + 0.01
+          lat: this.lat,
+          lng: this.lng
         },
         map: map,
-        title: 'Ponto 1'
+        icon: this.driverIcon,
+        title: 'Motorista'
       });
-      const marker2 = new google.maps.Marker({
-        position: {
-          lat: this.lat - 0.01,
-          lng: this.lng - 0.01
-        },
-        map: map,
-        title: 'Ponto 2'
+    }
+    updateDriverPosition() {
+      // Simule uma nova posição do motorista
+      const newLat = this.lat + (Math.random() - 0.5) / 100;
+      const newLng = this.lng + (Math.random() - 0.5) / 100;
+      // Atualize a posição do marcador do motorista
+      this.driverMarker.setPosition({
+        lat: newLat,
+        lng: newLng
       });
     }
   }
