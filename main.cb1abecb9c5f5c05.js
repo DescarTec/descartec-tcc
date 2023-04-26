@@ -95,7 +95,7 @@ let AppComponent = /*#__PURE__*/(() => {
       this.accountService.currentUserObservable.subscribe(x => this.user = x);
     }
     ngOnInit() {
-      //this.loadMapsScript();
+      this.loadMapsScript();
     }
     loadMapsScript() {
       const script = document.createElement('script');
