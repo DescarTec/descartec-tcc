@@ -1,12 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'colors';
 
-@font-face {
-  font-family: 'agent-orange';
-  src: url('./assets/fonts/agent-orange/AgentOrange.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
 
 body {
   background-color: $cor-primaria;
