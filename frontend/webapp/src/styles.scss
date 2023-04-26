@@ -1,1 +1,57 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'colors';
+
+@font-face {
+  font-family: 'agent-orange';
+  src: url('./assets/fonts/agent-orange/AgentOrange.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  background-color: $cor-primaria;
+  color: white;
+  text-align: justify;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+h1 {
+  font-size: 3rem;
+  color: white;
+
+}
+
+.custom-button {
+  background-color : $cor-secundaria;
+  border-color: $cor-secundaria;
+  color: white;
+
+  &:hover{
+    background-color : $cor-escura;
+    border-color: $cor-escura;
+    color: white;
+  }
+  // &:focus{
+  //   box-shadow: 2px 2px 2px 2px $cor-primaria;
+  // }
+}
+
+.custom-link{
+  color: white;
+  &:hover{
+    color: $cor-primaria;
+  }
+}
+
+
+
+.card-custom{
+  background-color: $cor-destaque;
+  padding: 5% 5% 5% 5%;
+  -webkit-box-shadow: 20px 20px 0px -1px rgb(0, 0, 0);
+  -moz-box-shadow: 20px 20px 0px -1px rgb(0, 0, 0);
+  box-shadow: 20px 20px 0px -1px rgb(0, 0, 0);  
+  border: 4px solid #000000; 
+  border-radius : 5px;
+  margin: 5px 5px 5px 5px;
+}

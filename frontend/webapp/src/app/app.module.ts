@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { InjectionToken, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +15,7 @@ import { FooterComponent } from './view/shared/footer/footer.component';
 import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
 import { ErrorInterceptor } from './core/handlers/error.interceptor';
 import { AlertComponent } from './view/shared/alert';
+import { MapaComponent } from './view/pages/mapa/mapa.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AlertComponent } from './view/shared/alert';
     MenuComponent,
     HomeComponent,
     FooterComponent,
-    AlertComponent
+    AlertComponent,
+    MapaComponent
   ],
   imports: [
     CommonModule,
@@ -37,6 +39,7 @@ import { AlertComponent } from './view/shared/alert';
     CollapseModule.forRoot()
   ],
   providers: [
+    { provide: Window, useValue: window },
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
   ],

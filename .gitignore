@@ -702,3 +702,4 @@ backend/privkey.pem
 /backend/DescarTec.Api/server.key
 /backend/DescarTec.Api/server.crt
 backend/.config/dotnet-tools.json
+frontend/webapp/src/environments/environment.ts
