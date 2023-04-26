@@ -20,7 +20,7 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    //this.loadMapsScript();
+    this.loadMapsScript();
   }
 
   loadMapsScript() {

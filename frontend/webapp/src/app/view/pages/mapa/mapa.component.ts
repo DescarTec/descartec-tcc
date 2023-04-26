@@ -11,6 +11,14 @@ import { AlertService } from 'src/app/domain/services/alert.service';
 export class MapaComponent implements OnInit {
   lat!: number;
   lng!: number;
+  driverMarker!: any;
+
+  driverIcon = {
+    url: 'assets/mapa/icon1.png', // caminho para o ícone
+    scaledSize: new google.maps.Size(50, 50), // tamanho do ícone
+    origin: new google.maps.Point(0, 0), // ponto de origem
+    anchor: new google.maps.Point(25, 25) // ponto de ancoragem
+  };
 
   constructor(private alertService: AlertService) {}
 
@@ -25,6 +33,10 @@ export class MapaComponent implements OnInit {
           this.lng = position.coords.longitude;
     
           this.initializeMap();
+          setInterval(() => {
+            this.updateDriverPosition();
+          }, 15000);
+          
         },
         error => {
           console.log("erro");
@@ -49,17 +61,21 @@ export class MapaComponent implements OnInit {
     };
     const map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-    // Adicione marcadores aos pontos específicos
-    const marker1 = new google.maps.Marker({
-      position: { lat: this.lat + 0.01, lng: this.lng + 0.01 },
+    this.driverMarker = new google.maps.Marker({
+      position: { lat: this.lat, lng: this.lng },
       map: map,
-      title: 'Ponto 1'
-    });
-
-    const marker2 = new google.maps.Marker({
-      position: { lat: this.lat - 0.01, lng: this.lng - 0.01 },
-      map: map,
-      title: 'Ponto 2'
+      icon: this.driverIcon,
+      title: 'Motorista'
     });
   }
+
+  updateDriverPosition() {
+    // Simule uma nova posição do motorista
+    const newLat = this.lat + (Math.random() - 0.5) / 100;
+    const newLng = this.lng + (Math.random() - 0.5) / 100;
+  
+    // Atualize a posição do marcador do motorista
+    this.driverMarker.setPosition({ lat: newLat, lng: newLng });
+  }
+  
 }
