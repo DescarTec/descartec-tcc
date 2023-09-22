@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DescarTec.Api.Migrations
 {
     [DbContext(typeof(MySqlContext))]
-    [Migration("20230409135634_Initial")]
+    [Migration("20230727162713_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -61,10 +61,6 @@ namespace DescarTec.Api.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("CpfCnpj")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
                     b.Property<DateTime>("DataNascimento")
                         .HasColumnType("datetime(6)");
 
@@ -105,6 +101,10 @@ namespace DescarTec.Api.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("tinyint(1)");
 
+                    b.Property<string>("PosicaoId")
+                        .IsRequired()
+                        .HasColumnType("varchar(255)");
+
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("longtext");
 
@@ -126,6 +126,8 @@ namespace DescarTec.Api.Migrations
                         .IsUnique()
                         .HasDatabaseName("UserNameIndex");
 
+                    b.HasIndex("PosicaoId");
+
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
@@ -140,9 +142,6 @@ namespace DescarTec.Api.Migrations
 
                     b.Property<string>("Cep")
                         .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Complemento")
                         .HasColumnType("longtext");
 
                     b.Property<string>("Ddd")
@@ -167,6 +166,22 @@ namespace DescarTec.Api.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Endereco");
+                });
+
+            modelBuilder.Entity("DescarTec.Api.Models.Posicao", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<decimal>("Latitude")
+                        .HasColumnType("decimal(65,30)");
+
+                    b.Property<decimal>("Longetude")
+                        .HasColumnType("decimal(65,30)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Posicao");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
@@ -276,7 +291,15 @@ namespace DescarTec.Api.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("DescarTec.Api.Models.Posicao", "Posicao")
+                        .WithMany()
+                        .HasForeignKey("PosicaoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Endereco");
+
+                    b.Navigation("Posicao");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>

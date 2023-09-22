@@ -1,16 +1,16 @@
-﻿<div class="card-custom">
-    <h4>Login</h4>
+﻿<div class="custom-card">
+    <h4>LOGIN</h4>
     <div class="card-body">
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class="mb-3">
-                <label class="form-label">Username</label>
+                <label class="form-label">USUARIO</label>
                 <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['username'].errors }" />
                 <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
                     <div *ngIf="f['username'].errors['required']"><span style="color: rgba(252, 71, 58, 0.979)">Username is required</span></div>
                 </div>
             </div>
             <div class="mb-3">
-                <label class="form-label">Password</label>
+                <label class="form-label">SENHA</label>
                 <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" />
                 <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
                     <div *ngIf="f['password'].errors['required']"><span style="color: rgba(252, 71, 58, 0.979)">Password is required</span></div>
@@ -19,9 +19,9 @@
             <div>
                 <button [disabled]="loading" class="btn btn-primary custom-button" >
                     <span *ngIf="loading" class="spinner-border spinner-border-sm me-1"></span>
-                    Login
+                    LOGIN
                 </button>
-                <a routerLink="../register" class="btn btn-link custom-link">Register</a>
+                <a routerLink="../register" class="btn btn-link custom-link">REGISTRAR-SE</a>
             </div>
         </form>
     </div>

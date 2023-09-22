@@ -10,20 +10,12 @@ namespace DescarTec.Api.Models
         public string Nome { get; set; } = null!;
         public DateTime DataNascimento { get; set; }
         public Guid EnderecoId { get; set; }
+
         [ForeignKey("EnderecoId")]
         public Endereco Endereco { get; set; } = null!;
-    }
 
-    public class Endereco
-    {
-        public Guid Id { get; set; }
-        [Required]
-        public string Cep { get; set; } = null!;
-        public string Logradouro { get; set; } = null!;
-        public string? Bairro { get; set; }
-        public string? Localidade { get; set; }
-        public string Uf { get; set; } = null!;
-        public string Ibge { get; set; } = null!;
-        public string Ddd { get; set; } = null!;
+        [JsonIgnore]
+        [ForeignKey("PosicaoId")]
+        public Posicao Posicao{ get; set; } = null!;
     }
 }

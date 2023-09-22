@@ -1,23 +1,23 @@
-﻿<div class="card-custom">
-    <h4>Register</h4>
+﻿<div class="custom-card">
+    <h4>REGISTRAR-SE</h4>
     <div class="card-body">
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class="mb-3">
-                <label class="form-label">Nome Completo</label>
+                <label class="form-label">NOME COMPLETO</label>
                 <input type="text" formControlName="completeName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['completeName'].errors }" />
                 <div *ngIf="submitted && f['completeName'].errors" class="invalid-feedback" >
                     <div *ngIf="f['completeName'].errors['required']"><span style="color: rgba(252, 71, 58, 0.979)">Nome Completo é obrigatório</span></div>
                 </div>
             </div>
             <div class="mb-3">
-                <label class="form-label">E-mail</label>
+                <label class="form-label">E-MAIL</label>
                 <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" />
                 <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
                     <div *ngIf="f['email'].errors['required']"><span style="color: rgba(252, 71, 58, 0.979)">E-mail é obrigatório</span></div>
                 </div>
             </div>
             <div class="mb-3">
-                <label class="form-label">Celular</label>
+                <label class="form-label">CELULAR</label>
                 <input type="text" formControlName="phoneNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['phoneNumber'].errors }" (keypress)="onPhoneKeyPress($event)" />
                 <div *ngIf="submitted && f['phoneNumber'].errors" class="invalid-feedback">
                     <div *ngIf="f['phoneNumber'].errors['required']"><span style="color: rgba(252, 71, 58, 0.979)">Celular é obrigatório</span></div>
@@ -25,14 +25,14 @@
             </div>
                            
             <div class="mb-3">
-                <label class="form-label">Username</label>
+                <label class="form-label">USUARIO</label>
                 <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['username'].errors }" />
                 <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
                     <div *ngIf="f['username'].errors['required']"><span style="color: rgba(252, 71, 58, 0.979)">Username é obrigatório</span></div>
                 </div>
             </div>
             <div class="mb-3">
-                <label class="form-label">Senha</label>
+                <label class="form-label">SENHA</label>
                 <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" />
                 <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
                     <div *ngIf="f['password'].errors['required']"><span style="color: rgba(252, 71, 58, 0.979)">Senha é obrigatório</span></div>
@@ -41,7 +41,7 @@
                 </div>
             </div>
             <div class="mb-3">
-                <label class="form-label">Confirmar Senha</label>
+                <label class="form-label">CONFIRMAR SENHA</label>
                 <input type="password" formControlName="passwordConfirm" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['passwordConfirm'].errors }" />
                 <div *ngIf="submitted && f['passwordConfirm'].errors" class="invalid-feedback">
                     <div *ngIf="f['passwordConfirm'].errors['required']"><span style="color: rgba(252, 71, 58, 0.979)">Confirmar Senha é obrigatório</span></div>
@@ -63,22 +63,22 @@
 
 						<div *ngIf="showAddressFields" class="mb-3">
 							<div class="form-group">
-									<label for="logradouro">Rua/Logradouro</label>
+									<label for="logradouro">RUA/LOGADOURO</label>
 									<input type="text" id="logradouro" formControlName="logradouro" class="form-control" readonly>
 							</div>
 					
 							<div class="form-group">
-									<label for="bairro">Bairro</label>
+									<label for="bairro">BAIRRO</label>
 									<input type="text" id="bairro" formControlName="bairro" class="form-control" readonly>
 							</div>
 					
 							<div class="form-group">
-									<label for="localidade">Cidade</label>
+									<label for="localidade">CIDADE</label>
 									<input type="text" id="localidade" formControlName="localidade" class="form-control" readonly>
 							</div>
 					
 							<div class="form-group">
-									<label for="uf">Estado</label>
+									<label for="uf">ESTADO</label>
 									<input type="text" id="uf" formControlName="uf" class="form-control" readonly>
 							</div>
 					</div>
@@ -86,7 +86,7 @@
             <div>
                 <button [disabled]="loading" class="btn custom-button">
                     <span *ngIf="loading" class="spinner-border spinner-border-sm me-1"></span>
-                    Registrar
+                    REGISTRAR
                 </button>
                 <a routerLink="../login" class="btn btn-link custom-link">Cancel</a>
             </div>
