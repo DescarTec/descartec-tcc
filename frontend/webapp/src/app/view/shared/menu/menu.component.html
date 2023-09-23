@@ -1,20 +1,21 @@
-<nav class="navbar navbar-expand-lg navbar-light custom-top-bar">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">DescarTec</a>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup" [ngClass]="{'show': isMenuOpen}">
-      <div class="navbar-nav">
-        <a class="nav-link" aria-current="page" href="#">Home</a>
-        <a class="nav-link" href="#">Informações</a>        
-        <a class="nav-link" routerLink="/mapa" aria-disabled="false">Mapa</a>
+<div class="row"><div class="col-12 custom-titulo"> <a class="navbar-brand" href="#">DescarTec</a></div></div>
+<div class="row"><div class="col-12">
+  <nav class="navbar navbar-expand-lg navbar-light custom-top-bar">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup" [ngClass]="{'show': isMenuOpen}">
+        <div class="navbar-nav">
+          <a class="nav-link" aria-current="page" href="#">Home</a>
+          <a class="nav-link" href="#">Informações</a>        
+          <a class="nav-link" routerLink="/mapa" aria-disabled="false">Mapa</a>
+        </div>
+      </div>
+      <div class="navbar-nav ">
+        <button *ngIf="isLogged" class="nav-link" (click)="logout()" class="custom-center">Logout</button>
+        <button *ngIf="!isLogged" class="nav-link" routerLink="/account/login" class="custom-center">Login</button>
+      </div>
+      <div class="navbar-toggler" type="button" (click)="toggleMenu()" aria-expanded="false" aria-label="Toggle navigation" style="border-color: transparent;">
+        <img src="../../../../assets/svg/Menu.svg" style="width: 40px; height: 40px;">
       </div>
     </div>
-    <div class="navbar-nav ml-auto">
-      <a *ngIf="isLogged" class="nav-link" routerLink="/user/profile">Meu Perfil</a>
-      <a *ngIf="isLogged" class="nav-link" (click)="logout()">Logout</a>
-      <a *ngIf="!isLogged" class="nav-link" routerLink="/account/login">Login</a>
-    </div>
-    <button class="navbar-toggler" type="button" (click)="toggleMenu()" aria-expanded="false" aria-label="Toggle navigation">
-      <i class="fas fa-bars"></i>
-    </button>
-  </div>
-</nav>
+  </nav>
+</div></div>

@@ -1,47 +1,62 @@
 @import '../../../../colors';
 
+.custom-titulo{
+  display: flex;
+  justify-content: center;
+  background-color: $cor-fundo;
+  a {
+    color: $cor-destaque !important;
+    &:hover {
+      color: $cor-pastel;
+    }
+    &::after{
+      color: $cor-primaria;
+    }
+  }
+
+}
+
 .custom-top-bar {
-    background-color: $cor-escura;
-    color: white !important;
+    background-color: white;
+    color: black !important;
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+
   
     a {
-      color: white;
+      color: black;
   
       &:hover {
-        color: $cor-destaque;
+        color: $cor-primaria;
       }
       &::after{
-        color: $cor-destaque;
+        color: $cor-primaria;
       }
     }
 
     button {
-        color: white;
-        border-color: transparent;
-
-        &:hover {
-            color: $cor-destaque;
-        }
-        &::after{
-            color: $cor-destaque;
-        }
+      background: $cor-primaria;
+      border: 2px black solid;
+      box-shadow: 3px 3px 0px black;
+      font-family: 'ClashDisplay-Bold';
+      color: black;
     }
 
     i {
         color: white;
     
         &:hover {
-          color: $cor-destaque;
+          color: $cor-primaria;
         }
         &::after{
-            color: $cor-destaque;
+            color: $cor-primaria;
         }
         
       }
   }  
 
 .custom-color {
-    color: white !important;
+    color: black !important;
 }
 
 .custom-search {

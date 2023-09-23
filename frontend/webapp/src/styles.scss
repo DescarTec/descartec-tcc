@@ -1,51 +1,87 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'colors';
-
+@import 'fonts';
 
 body {
-  background-color: white;
+  background-color: $cor-fundo;
   color: black;
   text-align: justify;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'ClashDisplay-Regular';
+}
+
+.custom-center {
+  display: flex;
+  justify-content: center;
+}
+
+.custom-body {
+  background-color: $cor-fundo;
+  padding: 0;
+  height: 100%;
+  padding-bottom: 2%;
 }
 
 h1 {
-  font-size: 3rem;
+  font-family: 'ClashDisplay-Bold';
   color: black;
 
 }
 
+
 .custom-button {
-  background-color : $cor-secundaria;
+  background-color: $cor-secundaria;
   border-color: $cor-secundaria;
   color: white;
 
-  &:hover{
-    background-color : $cor-escura;
+  &:hover {
+    background-color: $cor-escura;
     border-color: $cor-escura;
     color: white;
   }
+
   // &:focus{
   //   box-shadow: 2px 2px 2px 2px $cor-primaria;
   // }
 }
 
-.custom-link{
+
+.custom-button-card {
+  width: 100%;
+  height: 100%;
+  background: $cor-destaque;
+  box-shadow: 10px 10px 0px black;
+  border-radius: 40px;
+  border: 4px black solid;
+  font-family: ClashDisplay-Bold;
   color: white;
-  &:hover{
+}
+
+.custom-link {
+  color: white;
+
+  &:hover {
     color: $cor-primaria;
   }
 }
 
 
 
-.custom-card{
-  background-color: $cor-destaque;
-  padding: 5% 5% 5% 5%;
-  -webkit-box-shadow: 10px 10px 0px -1px rgb(0, 0, 0);
-  -moz-box-shadow: 10px 10px 0px -1px rgb(0, 0, 0);
-  box-shadow: 10px 10px 0px -1px rgb(0, 0, 0);  
-  border: 4px solid #000000; 
-  border-radius : 5px;
-  margin: 5px 5px 5px 5px;
+.custom-card {
+  width: 100%;
+  height: 100%;
+  background: $cor-primaria;
+  box-shadow: 10px 10px 0px black;
+  border-radius: 40px;
+  border: 4px black solid;
+}
+
+@media only screen and (max-width: 767px) {
+  .only-desktop {
+    display:none;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .only-mobile {
+    display:none;
+  }
 }
