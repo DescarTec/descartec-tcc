@@ -1,17 +1,2 @@
 @import '../../../../colors';
 
-.custom-page {
-    background-color: $cor-fundo;
-    color: black;
-    padding: 2%;
-
-    > h1 {
-        color: black;
-    }
-}
-
-.custom-topic {
-    border-bottom: 3px solid black;
-    background-color: $cor-fundo;
-    padding: 2%;
-}

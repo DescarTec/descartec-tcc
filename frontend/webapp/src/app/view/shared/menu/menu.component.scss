@@ -25,7 +25,7 @@
   
     a {
       color: black;
-  
+      font-family: 'ClashDisplay-Medium';
       &:hover {
         color: $cor-primaria;
       }
@@ -39,7 +39,11 @@
       border: 2px black solid;
       box-shadow: 3px 3px 0px black;
       font-family: 'ClashDisplay-Bold';
-      color: black;
+      color: white;
+      &:hover {
+        background-color: $cor-destaque;
+        color: white;
+      }
     }
 
     i {

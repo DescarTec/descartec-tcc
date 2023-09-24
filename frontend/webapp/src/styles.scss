@@ -5,7 +5,7 @@
 body {
   background-color: $cor-fundo;
   color: black;
-  text-align: justify;
+  //text-align: justify;
   font-family: 'ClashDisplay-Regular';
 }
 
@@ -49,30 +49,67 @@ h1 {
   width: 100%;
   height: 100%;
   background: $cor-destaque;
-  box-shadow: 10px 10px 0px black;
-  border-radius: 40px;
-  border: 4px black solid;
+  border: 2px black solid;
+  box-shadow: 3px 3px 0px black;
+  border-radius: 3px;
   font-family: ClashDisplay-Bold;
   color: white;
+  &:hover {
+    background-color: $cor-primaria;
+    color: white;
+  }
 }
 
 .custom-link {
-  color: white;
+  color: $cor-destaque;
 
   &:hover {
     color: $cor-primaria;
   }
 }
 
+h2{
+  font-family: ClashDisplay-Semibold;
+}
 
+.custom-page {
+  background-color: $cor-fundo;
+  color: black;
+  padding: 2%;
+
+  > h1 {
+      color: black;
+  }
+}
+
+.custom-topic {
+  border-bottom: 3px solid black;
+  background-color: $cor-fundo;
+  padding: 2%;
+}
 
 .custom-card {
   width: 100%;
   height: 100%;
-  background: $cor-primaria;
+  background: white;
   box-shadow: 10px 10px 0px black;
-  border-radius: 40px;
+  border-radius: 4pxpx;
   border: 4px black solid;
+  padding: 5%;
+  label {
+    font-family: ClashDisplay-Medium;
+  }
+  button {
+    background: $cor-sucesso;
+    border: 2px black solid;
+    box-shadow: 3px 3px 0px black;
+    font-family: 'ClashDisplay-Bold';
+    color: white;
+    &:hover {
+      background-color: $cor-destaque;
+      color: white;
+    }
+  }
 }
 
 @media only screen and (max-width: 767px) {

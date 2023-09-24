@@ -1,5 +1,5 @@
 ﻿<div class="custom-card">
-    <h4>REGISTRAR-SE</h4>
+    <h2>REGISTRAR-SE</h2>
     <div class="card-body">
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class="mb-3">
@@ -84,11 +84,11 @@
 					</div>
 					
             <div>
-                <button [disabled]="loading" class="btn custom-button">
+                <button [disabled]="loading">
                     <span *ngIf="loading" class="spinner-border spinner-border-sm me-1"></span>
                     REGISTRAR
                 </button>
-                <a routerLink="../login" class="btn btn-link custom-link">Cancel</a>
+                <a routerLink="../login" class="btn btn-link custom-link">Já registrado?</a>
             </div>
         </form>
     </div>
