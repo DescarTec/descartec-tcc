@@ -332,15 +332,15 @@ __webpack_require__.r(__webpack_exports__);
 
 function LoginComponent_div_9_div_1_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div")(1, "span", 13);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div")(1, "span", 14);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](2, "Username is required");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]()();
   }
 }
 function LoginComponent_div_9_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div", 11);
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](1, LoginComponent_div_9_div_1_Template, 3, 0, "div", 12);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div", 12);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](1, LoginComponent_div_9_div_1_Template, 3, 0, "div", 13);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
@@ -351,15 +351,15 @@ function LoginComponent_div_9_Template(rf, ctx) {
 }
 function LoginComponent_div_14_div_1_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div")(1, "span", 13);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div")(1, "span", 14);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](2, "Password is required");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]()();
   }
 }
 function LoginComponent_div_14_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div", 11);
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](1, LoginComponent_div_14_div_1_Template, 3, 0, "div", 12);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div", 12);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](1, LoginComponent_div_14_div_1_Template, 3, 0, "div", 13);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
@@ -370,7 +370,7 @@ function LoginComponent_div_14_Template(rf, ctx) {
 }
 function LoginComponent_span_17_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](0, "span", 14);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](0, "span", 15);
   }
 }
 const _c0 = function (a0) {
@@ -429,34 +429,34 @@ let LoginComponent = /*#__PURE__*/(() => {
     selectors: [["ng-component"]],
     decls: 21,
     vars: 11,
-    consts: [[1, "card-custom"], [1, "card-body"], [3, "formGroup", "ngSubmit"], [1, "mb-3"], [1, "form-label"], ["type", "text", "formControlName", "username", 1, "form-control", 3, "ngClass"], ["class", "invalid-feedback", 4, "ngIf"], ["type", "password", "formControlName", "password", 1, "form-control", 3, "ngClass"], [1, "btn", "btn-primary", "custom-button", 3, "disabled"], ["class", "spinner-border spinner-border-sm me-1", 4, "ngIf"], ["routerLink", "../register", 1, "btn", "btn-link", "custom-link"], [1, "invalid-feedback"], [4, "ngIf"], [2, "color", "rgba(252, 71, 58, 0.979)"], [1, "spinner-border", "spinner-border-sm", "me-1"]],
+    consts: [[1, "custom-card"], [2, "font-family", "ClashDisplay-Semibold"], [1, "card-body"], [3, "formGroup", "ngSubmit"], [1, "mb-3"], [1, "form-label"], ["type", "text", "formControlName", "username", 1, "form-control", 3, "ngClass"], ["class", "invalid-feedback", 4, "ngIf"], ["type", "password", "formControlName", "password", 1, "form-control", 3, "ngClass"], [3, "disabled"], ["class", "spinner-border spinner-border-sm me-1", 4, "ngIf"], ["routerLink", "../register", 1, "btn", "btn-link", "custom-link"], [1, "invalid-feedback"], [4, "ngIf"], [2, "color", "rgba(252, 71, 58, 0.979)"], [1, "spinner-border", "spinner-border-sm", "me-1"]],
     template: function LoginComponent_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div", 0)(1, "h4");
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](2, "Login");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div", 0)(1, "h2", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](2, "LOGIN");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](3, "div", 1)(4, "form", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](3, "div", 2)(4, "form", 3);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("ngSubmit", function LoginComponent_Template_form_ngSubmit_4_listener() {
           return ctx.onSubmit();
         });
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](5, "div", 3)(6, "label", 4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](7, "Username");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](5, "div", 4)(6, "label", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](7, "USUARIO");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](8, "input", 5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](9, LoginComponent_div_9_Template, 2, 1, "div", 6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](8, "input", 6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](9, LoginComponent_div_9_Template, 2, 1, "div", 7);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](10, "div", 3)(11, "label", 4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](12, "Password");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](10, "div", 4)(11, "label", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](12, "SENHA");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](13, "input", 7);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](14, LoginComponent_div_14_Template, 2, 1, "div", 6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](13, "input", 8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](14, LoginComponent_div_14_Template, 2, 1, "div", 7);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](15, "div")(16, "button", 8);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](17, LoginComponent_span_17_Template, 1, 0, "span", 9);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](18, " Login ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](15, "div")(16, "button", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](17, LoginComponent_span_17_Template, 1, 0, "span", 10);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](18, " LOGIN ");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](19, "a", 10);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](20, "Register");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](19, "a", 11);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](20, "REGISTRAR-SE");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]()()()()();
       }
       if (rf & 2) {
@@ -699,22 +699,22 @@ function RegisterComponent_div_39_Template(rf, ctx) {
 function RegisterComponent_div_40_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div", 3)(1, "div", 20)(2, "label", 21);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](3, "Rua/Logradouro");
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](3, "RUA/LOGADOURO");
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](4, "input", 22);
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](5, "div", 20)(6, "label", 23);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](7, "Bairro");
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](7, "BAIRRO");
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](8, "input", 24);
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](9, "div", 20)(10, "label", 25);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](11, "Cidade");
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](11, "CIDADE");
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](12, "input", 26);
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](13, "div", 20)(14, "label", 27);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](15, "Estado");
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](15, "ESTADO");
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](16, "input", 28);
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]()();
@@ -867,30 +867,30 @@ let RegisterComponent = /*#__PURE__*/(() => {
     selectors: [["ng-component"]],
     decls: 47,
     vars: 32,
-    consts: [[1, "card-custom"], [1, "card-body"], [3, "formGroup", "ngSubmit"], [1, "mb-3"], [1, "form-label"], ["type", "text", "formControlName", "completeName", 1, "form-control", 3, "ngClass"], ["class", "invalid-feedback", 4, "ngIf"], ["type", "text", "formControlName", "email", 1, "form-control", 3, "ngClass"], ["type", "text", "formControlName", "phoneNumber", 1, "form-control", 3, "ngClass", "keypress"], ["type", "text", "formControlName", "username", 1, "form-control", 3, "ngClass"], ["type", "password", "formControlName", "password", 1, "form-control", 3, "ngClass"], ["type", "password", "formControlName", "passwordConfirm", 1, "form-control", 3, "ngClass"], ["type", "text", "formControlName", "cep", "maxLength", "9", 1, "form-control", 3, "ngClass", "input"], ["class", "mb-3", 4, "ngIf"], [1, "btn", "custom-button", 3, "disabled"], ["class", "spinner-border spinner-border-sm me-1", 4, "ngIf"], ["routerLink", "../login", 1, "btn", "btn-link", "custom-link"], [1, "invalid-feedback"], [4, "ngIf"], [2, "color", "rgba(252, 71, 58, 0.979)"], [1, "form-group"], ["for", "logradouro"], ["type", "text", "id", "logradouro", "formControlName", "logradouro", "readonly", "", 1, "form-control"], ["for", "bairro"], ["type", "text", "id", "bairro", "formControlName", "bairro", "readonly", "", 1, "form-control"], ["for", "localidade"], ["type", "text", "id", "localidade", "formControlName", "localidade", "readonly", "", 1, "form-control"], ["for", "uf"], ["type", "text", "id", "uf", "formControlName", "uf", "readonly", "", 1, "form-control"], [1, "spinner-border", "spinner-border-sm", "me-1"]],
+    consts: [[1, "custom-card"], [1, "card-body"], [3, "formGroup", "ngSubmit"], [1, "mb-3"], [1, "form-label"], ["type", "text", "formControlName", "completeName", 1, "form-control", 3, "ngClass"], ["class", "invalid-feedback", 4, "ngIf"], ["type", "text", "formControlName", "email", 1, "form-control", 3, "ngClass"], ["type", "text", "formControlName", "phoneNumber", 1, "form-control", 3, "ngClass", "keypress"], ["type", "text", "formControlName", "username", 1, "form-control", 3, "ngClass"], ["type", "password", "formControlName", "password", 1, "form-control", 3, "ngClass"], ["type", "password", "formControlName", "passwordConfirm", 1, "form-control", 3, "ngClass"], ["type", "text", "formControlName", "cep", "maxLength", "9", 1, "form-control", 3, "ngClass", "input"], ["class", "mb-3", 4, "ngIf"], [3, "disabled"], ["class", "spinner-border spinner-border-sm me-1", 4, "ngIf"], ["routerLink", "../login", 1, "btn", "btn-link", "custom-link"], [1, "invalid-feedback"], [4, "ngIf"], [2, "color", "rgba(252, 71, 58, 0.979)"], [1, "form-group"], ["for", "logradouro"], ["type", "text", "id", "logradouro", "formControlName", "logradouro", "readonly", "", 1, "form-control"], ["for", "bairro"], ["type", "text", "id", "bairro", "formControlName", "bairro", "readonly", "", 1, "form-control"], ["for", "localidade"], ["type", "text", "id", "localidade", "formControlName", "localidade", "readonly", "", 1, "form-control"], ["for", "uf"], ["type", "text", "id", "uf", "formControlName", "uf", "readonly", "", 1, "form-control"], [1, "spinner-border", "spinner-border-sm", "me-1"]],
     template: function RegisterComponent_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div", 0)(1, "h4");
-        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](2, "Register");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div", 0)(1, "h2");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](2, "REGISTRAR-SE");
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](3, "div", 1)(4, "form", 2);
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("ngSubmit", function RegisterComponent_Template_form_ngSubmit_4_listener() {
           return ctx.onSubmit();
         });
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](5, "div", 3)(6, "label", 4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](7, "Nome Completo");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](7, "NOME COMPLETO");
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](8, "input", 5);
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](9, RegisterComponent_div_9_Template, 2, 1, "div", 6);
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](10, "div", 3)(11, "label", 4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](12, "E-mail");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](12, "E-MAIL");
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](13, "input", 7);
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](14, RegisterComponent_div_14_Template, 2, 1, "div", 6);
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](15, "div", 3)(16, "label", 4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](17, "Celular");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](17, "CELULAR");
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](18, "input", 8);
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("keypress", function RegisterComponent_Template_input_keypress_18_listener($event) {
@@ -900,19 +900,19 @@ let RegisterComponent = /*#__PURE__*/(() => {
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](19, RegisterComponent_div_19_Template, 2, 1, "div", 6);
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](20, "div", 3)(21, "label", 4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](22, "Username");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](22, "USUARIO");
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](23, "input", 9);
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](24, RegisterComponent_div_24_Template, 2, 1, "div", 6);
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](25, "div", 3)(26, "label", 4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](27, "Senha");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](27, "SENHA");
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](28, "input", 10);
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](29, RegisterComponent_div_29_Template, 4, 3, "div", 6);
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](30, "div", 3)(31, "label", 4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](32, "Confirmar Senha");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](32, "CONFIRMAR SENHA");
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](33, "input", 11);
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](34, RegisterComponent_div_34_Template, 3, 2, "div", 6);
@@ -930,10 +930,10 @@ let RegisterComponent = /*#__PURE__*/(() => {
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](40, RegisterComponent_div_40_Template, 17, 0, "div", 13);
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](41, "div")(42, "button", 14);
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](43, RegisterComponent_span_43_Template, 1, 0, "span", 15);
-        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](44, " Registrar ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](44, " REGISTRAR ");
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](45, "a", 16);
-        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](46, "Cancel");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](46, "J\u00E1 registrado?");
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]()()()()();
       }
       if (rf & 2) {
