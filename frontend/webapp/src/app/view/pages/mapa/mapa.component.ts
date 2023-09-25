@@ -2,6 +2,7 @@ declare var google: any;
 
 import { Component, OnInit } from '@angular/core';
 import { AlertService } from 'src/app/domain/services/alert.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-mapa',
@@ -12,9 +13,11 @@ export class MapaComponent implements OnInit {
   lat!: number;
   lng!: number;
   driverMarker!: any;
+  relativePath = environment.relativePath
+
 
   driverIcon = {
-    url: 'assets/mapa/icon1.png', // caminho para o ícone
+    url: `${this.relativePath}assets/mapa/icon1.png`, // caminho para o ícone
     scaledSize: new google.maps.Size(50, 50), // tamanho do ícone
     origin: new google.maps.Point(0, 0), // ponto de origem
     anchor: new google.maps.Point(25, 25) // ponto de ancoragem
@@ -24,7 +27,6 @@ export class MapaComponent implements OnInit {
 
   ngOnInit() {
     if (navigator.geolocation) {
-      console.log("if");
       console.log(navigator.geolocation);
 
       navigator.geolocation.getCurrentPosition(

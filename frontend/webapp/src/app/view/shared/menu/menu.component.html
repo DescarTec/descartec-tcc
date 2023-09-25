@@ -5,7 +5,7 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup" [ngClass]="{'show': isMenuOpen}">
         <div class="navbar-nav">
           <a class="nav-link" aria-current="page" href="#">Home</a>
-          <a class="nav-link" href="#">Informações</a>        
+          <a class="nav-link" href="/info">Informações</a>        
           <a class="nav-link" routerLink="/mapa" aria-disabled="false">Mapa</a>
         </div>
       </div>
@@ -14,7 +14,7 @@
         <button *ngIf="!isLogged" class="nav-link" routerLink="/account/login" class="custom-center">Login</button>
       </div>
       <div class="navbar-toggler" type="button" (click)="toggleMenu()" aria-expanded="false" aria-label="Toggle navigation" style="border-color: transparent;">
-        <img src="../../../../assets/svg/Menu.svg" style="width: 40px; height: 40px;">
+        <img [src]="relativePath + 'assets/svg/Menu.svg'" style="width: 40px; height: 40px;">
       </div>
     </div>
   </nav>
