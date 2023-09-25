@@ -645,50 +645,58 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "HomeComponent": () => (/* binding */ HomeComponent)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 4650);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ 4793);
+/* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/environments/environment */ 2340);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 4650);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ 4793);
+
 
 
 let HomeComponent = /*#__PURE__*/(() => {
   class HomeComponent {
-    constructor() {}
+    constructor() {
+      this.relativePath = src_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.relativePath;
+    }
     ngOnInit() {}
   }
   HomeComponent.ɵfac = function HomeComponent_Factory(t) {
     return new (t || HomeComponent)();
   };
-  HomeComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
+  HomeComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({
     type: HomeComponent,
     selectors: [["app-home"]],
     decls: 23,
-    vars: 0,
-    consts: [[1, "custom-topic"], [1, "row"], [1, "col-md-8"], [1, "row", 2, "margin-block", "3%"], [1, "col-lg-3"], ["routerLink", "/account/register", 1, "custom-button-card", "custom-center"], [1, "col-md-4"], [1, "custom-card", "custom-center", "only-desktop"], ["src", "/assets/images/home/home.png", "alt", "home-page"], [1, "custom-topic", 2, "background-color", "white"]],
+    vars: 1,
+    consts: [[1, "custom-topic"], [1, "row"], [1, "col-md-8"], [1, "row", 2, "margin-block", "3%"], [1, "col-lg-3"], ["routerLink", "/account/register", 1, "custom-button-card", "custom-center"], [1, "col-md-4"], [1, "custom-card", "custom-center", "only-desktop"], ["alt", "home-page", 3, "src"], [1, "custom-topic", 2, "background-color", "white"]],
     template: function HomeComponent_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0)(1, "div", 1)(2, "div", 2)(3, "h1");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, "DescarTec");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "h2");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](6, "Uma solu\u00E7\u00E3o inteligente para obter informa\u00E7\u00F5es e controle da coleta do seu lixo!");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "p");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](8, "Cadastre-se para ter acesso a todo o conte\u00FAdo de nossa p\u00E1gina.");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "div", 3)(10, "div", 4)(11, "button", 5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](12, "Registre-se");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()()()();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "div", 6)(14, "div", 7);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](15, "img", 8);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()()()();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "div", 9)(17, "div", 1)(18, "div", 2)(19, "h2");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](20, "\u00C9 um coletor?");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](21, "p");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](22, "Fa\u00E7a parte da nossa equipe. Preencha seu cadastro e avise a todos em sua regi\u00E3o quando sair\u00E1 para coleta.");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()()()();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 0)(1, "div", 1)(2, "div", 2)(3, "h1");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](4, "DescarTec");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](5, "h2");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](6, "Uma solu\u00E7\u00E3o inteligente para obter informa\u00E7\u00F5es e controle da coleta do seu lixo!");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](7, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](8, "Cadastre-se para ter acesso a todo o conte\u00FAdo de nossa p\u00E1gina.");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](9, "div", 3)(10, "div", 4)(11, "button", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](12, "Registre-se");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()()()();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](13, "div", 6)(14, "div", 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](15, "img", 8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()()()();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](16, "div", 9)(17, "div", 1)(18, "div", 2)(19, "h2");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](20, "\u00C9 um coletor?");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](21, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](22, "Fa\u00E7a parte da nossa equipe. Preencha seu cadastro e avise a todos em sua regi\u00E3o quando sair\u00E1 para coleta.");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()()()();
+      }
+      if (rf & 2) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](15);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("src", ctx.relativePath + "assets/images/home/home.png", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsanitizeUrl"]);
       }
     },
-    dependencies: [_angular_router__WEBPACK_IMPORTED_MODULE_1__.RouterLink]
+    dependencies: [_angular_router__WEBPACK_IMPORTED_MODULE_2__.RouterLink]
   });
   return HomeComponent;
 })();
@@ -762,25 +770,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "MapaComponent": () => (/* binding */ MapaComponent)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 4650);
-/* harmony import */ var src_app_domain_services_alert_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/app/domain/services/alert.service */ 2322);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ 6895);
+/* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/environments/environment */ 2340);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 4650);
+/* harmony import */ var src_app_domain_services_alert_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/domain/services/alert.service */ 2322);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ 6895);
+
 
 
 
 function MapaComponent_p_3_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "p");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1, "Buscando sua localiza\u00E7\u00E3o... Para visualiza\u00E7\u00E3o, autorizar localiza\u00E7\u00E3o em seu navegador");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "p");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](1, "Buscando sua localiza\u00E7\u00E3o... Para visualiza\u00E7\u00E3o, autorizar localiza\u00E7\u00E3o em seu navegador");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
   }
 }
 let MapaComponent = /*#__PURE__*/(() => {
   class MapaComponent {
     constructor(alertService) {
       this.alertService = alertService;
+      this.relativePath = src_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.relativePath;
       this.driverIcon = {
-        url: 'assets/mapa/icon1.png',
+        url: `${this.relativePath}assets/mapa/icon1.png`,
         scaledSize: new google.maps.Size(50, 50),
         origin: new google.maps.Point(0, 0),
         anchor: new google.maps.Point(25, 25) // ponto de ancoragem
@@ -789,7 +800,6 @@ let MapaComponent = /*#__PURE__*/(() => {
 
     ngOnInit() {
       if (navigator.geolocation) {
-        console.log("if");
         console.log(navigator.geolocation);
         navigator.geolocation.getCurrentPosition(position => {
           this.lat = position.coords.latitude;
@@ -841,9 +851,9 @@ let MapaComponent = /*#__PURE__*/(() => {
     }
   }
   MapaComponent.ɵfac = function MapaComponent_Factory(t) {
-    return new (t || MapaComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_domain_services_alert_service__WEBPACK_IMPORTED_MODULE_0__.AlertService));
+    return new (t || MapaComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](src_app_domain_services_alert_service__WEBPACK_IMPORTED_MODULE_1__.AlertService));
   };
-  MapaComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({
+  MapaComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({
     type: MapaComponent,
     selectors: [["app-mapa"]],
     decls: 5,
@@ -851,19 +861,19 @@ let MapaComponent = /*#__PURE__*/(() => {
     consts: [[4, "ngIf"], ["id", "map", 2, "height", "500px"]],
     template: function MapaComponent_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div")(1, "p");
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](2, "mapa works!");
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](3, MapaComponent_p_3_Template, 2, 0, "p", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](4, "div", 1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div")(1, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](2, "mapa works!");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](3, MapaComponent_p_3_Template, 2, 0, "p", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](4, "div", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
       }
       if (rf & 2) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", !ctx.lat || !ctx.lng);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngIf", !ctx.lat || !ctx.lng);
       }
     },
-    dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_2__.NgIf]
+    dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_3__.NgIf]
   });
   return MapaComponent;
 })();
@@ -1223,7 +1233,8 @@ const environment = {
   //apiUrl: 'https://host.docker.internal:5005',
   //apiUrl: 'https://localhost:443',
   port: 5006,
-  googleMapsApiKey: "AIzaSyCrqgHM60UNwwy_cw2_N7CORsw0LQAHS0Q"
+  googleMapsApiKey: "AIzaSyCrqgHM60UNwwy_cw2_N7CORsw0LQAHS0Q",
+  relativePath: '/descartec-tcc/'
 };
 
 /***/ }),
