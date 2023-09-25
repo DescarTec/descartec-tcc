@@ -780,7 +780,7 @@ let MapaComponent = /*#__PURE__*/(() => {
     constructor(alertService) {
       this.alertService = alertService;
       this.driverIcon = {
-        url: 'assets/images/mapa/icon1.png',
+        url: 'assets/mapa/icon1.png',
         scaledSize: new google.maps.Size(50, 50),
         origin: new google.maps.Point(0, 0),
         anchor: new google.maps.Point(25, 25) // ponto de ancoragem
