@@ -408,9 +408,7 @@ let AccountRepository = /*#__PURE__*/(() => {
     }
     register(newUser) {
       console.log(newUser);
-      return this.httpClient.post(`${this.apiUrl}/api/Auth/sign-up`, newUser, {
-        withCredentials: true
-      }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.map)(ret => {
+      return this.httpClient.post(`${this.apiUrl}/api/Auth/sign-up`, newUser).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.map)(ret => {
         console.log(ret);
         return ret;
       }));
@@ -424,8 +422,6 @@ let AccountRepository = /*#__PURE__*/(() => {
       return this.httpClient.post(`${this.apiUrl}/api/Auth/sign-in`, {
         username,
         password
-      }, {
-        withCredentials: true
       }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.map)(ret => {
         return ret;
       }));
@@ -672,36 +668,37 @@ let HomeComponent = /*#__PURE__*/(() => {
   HomeComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({
     type: HomeComponent,
     selectors: [["app-home"]],
-    decls: 23,
+    decls: 24,
     vars: 1,
-    consts: [[1, "custom-topic"], [1, "row"], [1, "col-md-8"], [1, "row", 2, "margin-block", "3%"], [1, "col-lg-3"], ["routerLink", "/account/register", 1, "custom-button-card", "custom-center"], [1, "col-md-4"], [1, "custom-card", "custom-center", "only-desktop"], ["alt", "home-page", 3, "src"], [1, "custom-topic", 2, "background-color", "white"]],
+    consts: [[1, "custom-topic"], [1, "row"], [1, "col-md-8"], [1, "row", 2, "margin-block", "1%"], [1, "col-lg-3"], ["routerLink", "/account/register", 1, "custom-button-card", "custom-center"], [1, "col-md-4"], [1, "custom-card", "custom-center", "only-desktop"], ["alt", "home-page", 2, "width", "100%", "height", "100%", 3, "src"], [1, "custom-topic-alt"], [1, "col-md-23"]],
     template: function HomeComponent_Template(rf, ctx) {
       if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 0)(1, "div", 1)(2, "div", 2)(3, "h1");
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](4, "DescarTec");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](4, "BEM-VINDO");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](5, "h2");
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](6, "Uma solu\u00E7\u00E3o inteligente para obter informa\u00E7\u00F5es e controle da coleta do seu lixo!");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](5, "br");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](6, "h2");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](7, "Temos uma solu\u00E7\u00E3o inteligente para obter informa\u00E7\u00F5es e controle da coleta do seu lixo inserv\u00EDvel!");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](7, "p");
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](8, "Cadastre-se para ter acesso a todo o conte\u00FAdo de nossa p\u00E1gina.");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](8, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](9, "Cadastre-se para ter acesso a todo o conte\u00FAdo de nossa p\u00E1gina.");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](9, "div", 3)(10, "div", 4)(11, "button", 5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](12, "Registre-se");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](10, "div", 3)(11, "div", 4)(12, "button", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](13, "Registre-se");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()()()();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](13, "div", 6)(14, "div", 7);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](15, "img", 8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](14, "div", 6)(15, "div", 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](16, "img", 8);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()()()();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](16, "div", 9)(17, "div", 1)(18, "div", 2)(19, "h2");
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](20, "\u00C9 um coletor?");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](17, "div", 9)(18, "div", 1)(19, "div", 10)(20, "h2");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](21, "\u00C9 um coletor?");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](21, "p");
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](22, "Fa\u00E7a parte da nossa equipe. Preencha seu cadastro e avise a todos em sua regi\u00E3o quando sair\u00E1 para coleta.");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](22, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](23, "Fa\u00E7a parte da nossa equipe. Preencha seu cadastro e avise a todos em sua regi\u00E3o quando sair\u00E1 para coleta.");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()()()();
       }
       if (rf & 2) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](15);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("src", ctx.relativePath + "assets/images/home/home.png", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsanitizeUrl"]);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](16);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("src", ctx.relativePath + "assets/images/home/caminhao-de-lixo.png", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsanitizeUrl"]);
       }
     },
     dependencies: [_angular_router__WEBPACK_IMPORTED_MODULE_2__.RouterLink]
@@ -733,7 +730,7 @@ let InformacaoComponent = /*#__PURE__*/(() => {
     selectors: [["app-informacao"]],
     decls: 32,
     vars: 0,
-    consts: [[1, "custom-topic"], [1, "custom-topic", 2, "background-color", "white"], [1, "row"], [1, "col-md-12"]],
+    consts: [[1, "custom-topic"], [1, "custom-topic-alt"], [1, "row"], [1, "col-md-12"]],
     template: function InformacaoComponent_Template(rf, ctx) {
       if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0)(1, "h1");
@@ -798,7 +795,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function MapaComponent_p_3_Template(rf, ctx) {
+function MapaComponent_p_2_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "p");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](1, "Buscando sua localiza\u00E7\u00E3o... Para visualiza\u00E7\u00E3o, autorizar localiza\u00E7\u00E3o em seu navegador");
@@ -876,20 +873,19 @@ let MapaComponent = /*#__PURE__*/(() => {
   MapaComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({
     type: MapaComponent,
     selectors: [["app-mapa"]],
-    decls: 5,
+    decls: 4,
     vars: 1,
     consts: [[4, "ngIf"], ["id", "map", 2, "height", "500px"]],
     template: function MapaComponent_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div")(1, "p");
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](2, "mapa works!");
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](3, MapaComponent_p_3_Template, 2, 0, "p", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](4, "div", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](1, "br");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](2, MapaComponent_p_2_Template, 2, 0, "p", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](3, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
       }
       if (rf & 2) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](2);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngIf", !ctx.lat || !ctx.lng);
       }
     },
@@ -1115,7 +1111,7 @@ let FooterComponent = /*#__PURE__*/(() => {
       }
     },
     dependencies: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["ɵNgNoValidate"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.NgForm],
-    styles: [".custom-footer[_ngcontent-%COMP%] {\n  border-radius: 3px 3px 0px 0px;\n  text-align: center;\n}\n\n.custom-copyright[_ngcontent-%COMP%] {\n  border-top: 3px solid black;\n  border-bottom: 3px solid black;\n  background-color: #3c3434;\n}\n\n.custom-footer[_ngcontent-%COMP%] {\n  border-top: 3px solid black;\n  background-color: #c3b49e;\n}"]
+    styles: [".custom-footer[_ngcontent-%COMP%] {\n  border-radius: 3px 3px 0px 0px;\n  text-align: center;\n}\n\n.custom-copyright[_ngcontent-%COMP%] {\n  border-top: 3px solid black;\n  border-bottom: 3px solid black;\n  background-color: #40503d;\n}\n\n.custom-footer[_ngcontent-%COMP%] {\n  border-top: 3px solid black;\n  background-color: #7d9c76;\n}"]
   });
   return FooterComponent;
 })();
@@ -1144,11 +1140,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function MenuComponent_button_19_Template(rf, ctx) {
+function MenuComponent_button_18_Template(rf, ctx) {
   if (rf & 1) {
     const _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "button", 15);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function MenuComponent_button_19_Template_button_click_0_listener() {
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "button", 14);
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function MenuComponent_button_18_Template_button_click_0_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵrestoreView"](_r3);
       const ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵnextContext"]();
       return _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵresetView"](ctx_r2.logout());
@@ -1157,9 +1153,9 @@ function MenuComponent_button_19_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
   }
 }
-function MenuComponent_button_20_Template(rf, ctx) {
+function MenuComponent_button_19_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "button", 16);
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "button", 15);
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](1, "Login");
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
   }
@@ -1197,39 +1193,42 @@ let MenuComponent = /*#__PURE__*/(() => {
   MenuComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineComponent"]({
     type: MenuComponent,
     selectors: [["app-menu"]],
-    decls: 23,
+    decls: 22,
     vars: 6,
-    consts: [[1, "row"], [1, "col-12", "custom-titulo"], ["href", "#", 1, "navbar-brand"], [1, "col-12"], [1, "navbar", "navbar-expand-lg", "navbar-light", "custom-top-bar"], [1, "container-fluid"], ["id", "navbarNavAltMarkup", 1, "collapse", "navbar-collapse", 3, "ngClass"], [1, "navbar-nav"], ["aria-current", "page", "href", "#", 1, "nav-link"], ["routerLink", "/info", "aria-disabled", "false", 1, "nav-link"], ["routerLink", "/mapa", "aria-disabled", "false", 1, "nav-link"], ["class", "nav-link", "class", "custom-center", 3, "click", 4, "ngIf"], ["class", "nav-link", "routerLink", "/account/login", "class", "custom-center", 4, "ngIf"], ["type", "button", "aria-expanded", "false", "aria-label", "Toggle navigation", 1, "navbar-toggler", 2, "border-color", "transparent", "padding", "0", 3, "click"], [2, "width", "40px", "height", "40px", 3, "src"], [1, "custom-center", 3, "click"], ["routerLink", "/account/login", 1, "custom-center"]],
+    consts: [[1, "row"], [1, "col-12"], [1, "navbar", "navbar-expand-lg", "navbar-light", "custom-top-bar"], [1, "container-fluid"], ["id", "navbarNavAltMarkup", 1, "collapse", "navbar-collapse", 3, "ngClass"], [1, "navbar-nav"], ["href", "#", 1, "navbar-brand"], ["aria-current", "page", "href", "#", 1, "nav-link"], ["routerLink", "/info", "aria-disabled", "false", 1, "nav-link"], ["routerLink", "/mapa", "aria-disabled", "false", 1, "nav-link"], ["class", "nav-link", "class", "custom-center", 3, "click", 4, "ngIf"], ["class", "nav-link", "routerLink", "/account/login", "class", "custom-center", 4, "ngIf"], ["type", "button", "aria-expanded", "false", "aria-label", "Toggle navigation", 1, "navbar-toggler", 2, "border-color", "transparent", "padding", "0", 3, "click"], [2, "width", "40px", "height", "40px", 3, "src"], [1, "custom-center", 3, "click"], ["routerLink", "/account/login", 1, "custom-center"]],
     template: function MenuComponent_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "div", 0)(1, "div", 1)(2, "h1")(3, "a", 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](4, "DescarTec");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()()()();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](5, "app-notificacao");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](6, "div", 0)(7, "div", 3)(8, "nav", 4)(9, "div", 5)(10, "div", 6)(11, "div", 7)(12, "a", 8);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](13, "Home");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](0, "app-notificacao");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](1, "div", 0)(2, "div", 1)(3, "nav", 2)(4, "div", 3)(5, "div", 4)(6, "div", 5)(7, "a", 6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](8, "DESCARTEC");
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](14, "a", 9);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](15, "Informa\u00E7\u00F5es");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](9, "a", 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](10, "HOME");
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](16, "a", 10);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](17, "Mapa");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](11, "a", 8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](12, "INFORMA\u00C7\u00D5ES");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](13, "a", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](14, "MAPA");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](15, "a", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](16, "SOBRE N\u00D3S");
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()()();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](18, "div", 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](17, "div", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](18, MenuComponent_button_18_Template, 2, 0, "button", 10);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](19, MenuComponent_button_19_Template, 2, 0, "button", 11);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](20, MenuComponent_button_20_Template, 2, 0, "button", 12);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](21, "div", 13);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function MenuComponent_Template_div_click_21_listener() {
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](20, "div", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function MenuComponent_Template_div_click_20_listener() {
           return ctx.toggleMenu();
         });
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](22, "img", 14);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](21, "img", 13);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()()()()();
       }
       if (rf & 2) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](10);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](5);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵpureFunction1"](4, _c0, ctx.isMenuOpen));
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](13);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngIf", ctx.isLogged);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngIf", !ctx.isLogged);
@@ -1238,7 +1237,7 @@ let MenuComponent = /*#__PURE__*/(() => {
       }
     },
     dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_4__.NgClass, _angular_common__WEBPACK_IMPORTED_MODULE_4__.NgIf, _angular_router__WEBPACK_IMPORTED_MODULE_5__.RouterLink, _notificacao_notificacao_component__WEBPACK_IMPORTED_MODULE_2__.NotificacaoComponent],
-    styles: [".custom-titulo[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: center;\n  background-color: #FFFBEA;\n}\n.custom-titulo[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n  color: #FF9635 !important;\n}\n.custom-titulo[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]:hover {\n  color: #f9d16a;\n}\n.custom-titulo[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]::after {\n  color: #DD7DFF;\n}\n\n@media only screen and (max-width: 991px) {\n  .custom-titulo[_ngcontent-%COMP%] {\n    padding-bottom: 1rem;\n  }\n}\n@media only screen and (max-width: 530px) {\n  .custom-titulo[_ngcontent-%COMP%] {\n    margin-bottom: 0;\n    margin-top: 12px;\n  }\n}\n.custom-top-bar[_ngcontent-%COMP%] {\n  background-color: white;\n  color: black !important;\n  border-top: 3px solid black;\n  border-bottom: 3px solid black;\n}\n.custom-top-bar[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n  color: black;\n  font-family: \"ClashDisplay-Medium\";\n}\n.custom-top-bar[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]:hover {\n  color: #DD7DFF;\n}\n.custom-top-bar[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]::after {\n  color: #DD7DFF;\n}\n.custom-top-bar[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  background: #DD7DFF;\n  border: 2px black solid;\n  box-shadow: 3px 3px 0px black;\n  font-family: \"ClashDisplay-Bold\";\n  color: white;\n}\n.custom-top-bar[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]:hover {\n  background-color: #FF9635;\n  color: white;\n}\n.custom-top-bar[_ngcontent-%COMP%]   i[_ngcontent-%COMP%] {\n  color: white;\n}\n.custom-top-bar[_ngcontent-%COMP%]   i[_ngcontent-%COMP%]:hover {\n  color: #DD7DFF;\n}\n.custom-top-bar[_ngcontent-%COMP%]   i[_ngcontent-%COMP%]::after {\n  color: #DD7DFF;\n}\n\n.custom-color[_ngcontent-%COMP%] {\n  color: black !important;\n}\n\n.custom-search[_ngcontent-%COMP%] {\n  padding-inline: 30px;\n}"]
+    styles: [".custom-titulo[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: center;\n  background-color: #e6fde1;\n}\n.custom-titulo[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n  color: black;\n}\n.custom-titulo[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]:hover {\n  color: #f9d16a;\n}\n.custom-titulo[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]::after {\n  color: #fcae56;\n}\n\n@media only screen and (max-width: 991px) {\n  .custom-titulo[_ngcontent-%COMP%] {\n    padding-bottom: 1rem;\n  }\n}\n@media only screen and (max-width: 530px) {\n  .custom-titulo[_ngcontent-%COMP%] {\n    margin-bottom: 0;\n    margin-top: 12px;\n  }\n}\n.custom-top-bar[_ngcontent-%COMP%] {\n  background-color: #72fd56;\n  color: black !important;\n  border-top: 3px solid black;\n  border-bottom: 3px solid black;\n}\n.custom-top-bar[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n  color: black;\n  font-family: \"ClashDisplay-Medium\";\n}\n.custom-top-bar[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]:hover {\n  color: #fcae56;\n}\n.custom-top-bar[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]::after {\n  color: #fcae56;\n}\n.custom-top-bar[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  background: #fcae56;\n  border: 2px black solid;\n  box-shadow: 3px 3px 0px black;\n  font-family: \"ClashDisplay-Bold\";\n  color: white;\n  border-radius: 1px;\n}\n.custom-top-bar[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]:hover {\n  background-color: #f39a14;\n  color: white;\n}\n.custom-top-bar[_ngcontent-%COMP%]   i[_ngcontent-%COMP%] {\n  color: white;\n}\n.custom-top-bar[_ngcontent-%COMP%]   i[_ngcontent-%COMP%]:hover {\n  color: #fcae56;\n}\n.custom-top-bar[_ngcontent-%COMP%]   i[_ngcontent-%COMP%]::after {\n  color: #fcae56;\n}\n\n.custom-color[_ngcontent-%COMP%] {\n  color: black !important;\n}\n\n.custom-search[_ngcontent-%COMP%] {\n  padding-inline: 30px;\n}"]
   });
   return MenuComponent;
 })();
@@ -1337,7 +1336,7 @@ let NotificacaoComponent = /*#__PURE__*/(() => {
       }
     },
     dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_2__.NgClass, _angular_common__WEBPACK_IMPORTED_MODULE_2__.NgIf],
-    styles: [".notificacao[_ngcontent-%COMP%] {\n  position: fixed;\n  top: 12px;\n  right: 24px;\n  z-index: 1000;\n}\n\n.tooltip[_ngcontent-%COMP%] {\n  position: fixed;\n  display: inline-block;\n  border-bottom: 1px dotted black;\n  \n}\n\n\n.tooltip[_ngcontent-%COMP%]   .tooltiptext[_ngcontent-%COMP%] {\n  display: none;\n}\n\n.tooltip[_ngcontent-%COMP%]   .tooltiptext[_ngcontent-%COMP%]::after {\n  content: \"  \";\n  position: absolute;\n  top: 10%;\n  left: 100%; \n  margin-top: -10px;\n  border-width: 8px;\n  border-style: solid;\n  border-color: transparent transparent transparent black;\n}\n\n.tooltip.show[_ngcontent-%COMP%]   .tooltiptext.show[_ngcontent-%COMP%] {\n  display: block;\n  width: 240px;\n  padding: 5px 0;\n  background-color: #D8FF4A;\n  color: black;\n  text-align: center;\n  border-radius: 1px;\n  top: 5px;\n  right: 45px;\n  \n  position: absolute;\n  z-index: 1000;\n  border: 3px solid black;\n}\n\n\n.notification-count[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 0;\n  right: 0;\n  background-color: red;\n  color: white;\n  border-radius: 50%;\n  width: 12px;\n  height: 12px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  font-size: 10px;\n  font-weight: bold;\n  z-index: 1001; \n  border: 1px solid black;\n}"]
+    styles: [".notificacao[_ngcontent-%COMP%] {\n  position: fixed;\n  bottom: 24px;\n  right: 24px;\n  z-index: 1000;\n}\n\n.tooltip[_ngcontent-%COMP%] {\n  position: fixed;\n  display: inline-block;\n  border-bottom: 1px dotted black;\n  \n}\n\n\n.tooltip[_ngcontent-%COMP%]   .tooltiptext[_ngcontent-%COMP%] {\n  display: none;\n}\n\n.tooltip[_ngcontent-%COMP%]   .tooltiptext[_ngcontent-%COMP%]::after {\n  content: \"  \";\n  position: absolute;\n  top: 10%;\n  left: 100%; \n  margin-top: -10px;\n  border-width: 8px;\n  border-style: solid;\n  border-color: transparent transparent transparent black;\n}\n\n.tooltip.show[_ngcontent-%COMP%]   .tooltiptext.show[_ngcontent-%COMP%] {\n  display: block;\n  width: 240px;\n  padding: 5px 0;\n  background-color: #D8FF4A;\n  color: black;\n  text-align: center;\n  border-radius: 1px;\n  top: 5px;\n  right: 45px;\n  \n  position: absolute;\n  z-index: 1000;\n  border: 3px solid black;\n}\n\n\n.notification-count[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 0;\n  right: 0;\n  background-color: red;\n  color: white;\n  border-radius: 50%;\n  width: 12px;\n  height: 12px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  font-size: 10px;\n  font-weight: bold;\n  z-index: 1001; \n  border: 1px solid black;\n}"]
   });
   return NotificacaoComponent;
 })();

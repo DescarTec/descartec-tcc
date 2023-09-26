@@ -73,7 +73,7 @@
   font-style: normal;
 }
 body {
-  background-color: #FFFBEA;
+  background-color: #e6fde1;
   color: black;
   font-family: "ClashDisplay-Regular";
 }
@@ -84,7 +84,7 @@ body {
 }
 
 .custom-body {
-  background-color: #FFFBEA;
+  background-color: #e6fde1;
   padding: 0;
   height: 100%;
   padding-bottom: 2%;
@@ -93,47 +93,58 @@ body {
 h1 {
   font-family: "ClashDisplay-Bold";
   color: black;
+  font-size: 4rem;
+}
+
+h2 {
+  font-family: "ClashDisplay-Semibold";
+  font-size: 3rem;
+}
+
+p {
+  font-family: "ClashDisplay-Regular";
+  font-size: 1.5rem;
+}
+
+button {
+  font-size: 1.5rem;
 }
 
 .custom-button {
-  background-color: #c3b49e;
-  border-color: #c3b49e;
-  color: white;
+  background-color: rgba(95, 129, 105, 0.6862745098);
+  border-color: rgba(95, 129, 105, 0.6862745098);
+  color: black;
+  border-radius: 1px;
 }
 .custom-button:hover {
-  background-color: #3c3434;
-  border-color: #3c3434;
-  color: white;
+  background-color: #343c34;
+  border-color: #343c34;
+  color: black;
 }
 
 .custom-button-card {
   width: 100%;
   height: 100%;
-  background: #FF9635;
+  background: #fcae56;
   border: 2px black solid;
   box-shadow: 3px 3px 0px black;
-  border-radius: 3px;
+  border-radius: 1px;
   font-family: ClashDisplay-Bold;
   color: white;
 }
 .custom-button-card:hover {
-  background-color: #DD7DFF;
-  color: white;
+  background-color: #f39a14;
 }
 
 .custom-link {
-  color: #FF9635;
+  color: #FFF;
 }
 .custom-link:hover {
-  color: #DD7DFF;
-}
-
-h2 {
-  font-family: ClashDisplay-Semibold;
+  color: #fcae56;
 }
 
 .custom-page {
-  background-color: #FFFBEA;
+  background-color: #e6fde1;
   color: black;
   padding: 2%;
 }
@@ -143,16 +154,22 @@ h2 {
 
 .custom-topic {
   border-bottom: 3px solid black;
-  background-color: #FFFBEA;
+  background-color: #e6fde1;
+  padding: 2%;
+}
+
+.custom-topic-alt {
+  border-bottom: 3px solid black;
+  background-color: #a4ff92;
   padding: 2%;
 }
 
 .custom-card {
   width: 100%;
   height: 100%;
-  background: white;
+  background: #a4ff92;
   box-shadow: 10px 10px 0px black;
-  border-radius: 4pxpx;
+  border-radius: 4px;
   border: 4px black solid;
   padding: 5%;
 }
@@ -165,9 +182,10 @@ h2 {
   box-shadow: 3px 3px 0px black;
   font-family: "ClashDisplay-Bold";
   color: white;
+  border-radius: 1px;
 }
 .custom-card button:hover {
-  background-color: #FF9635;
+  background-color: #FFF;
   color: white;
 }
 
