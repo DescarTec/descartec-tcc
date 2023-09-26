@@ -23,7 +23,7 @@ export class AccountRepository {
     return this.httpClient
       .post<SignUpDto>(
         `${this.apiUrl}/api/Auth/sign-up`,
-        newUser
+        newUser, { withCredentials: true }
       )
       .pipe(
         map((ret) => {
@@ -37,7 +37,7 @@ export class AccountRepository {
     console.log({ username, password });
     console.log(`${this.apiUrl}/api/Auth/sign-in`);
     return this.httpClient
-      .post<SsoDto>(`${this.apiUrl}/api/Auth/sign-in`, { username, password })
+      .post<SsoDto>(`${this.apiUrl}/api/Auth/sign-in`, { username, password }, { withCredentials: true })
       .pipe(
         map((ret: SsoDto) => {
           return ret;

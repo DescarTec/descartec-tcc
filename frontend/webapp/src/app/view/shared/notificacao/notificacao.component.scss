@@ -5,7 +5,7 @@
     top: 12px;
     right: 24px;
     z-index: 1000;
-    cursor: pointer;
+    
 }
 
 .tooltip {
@@ -17,20 +17,8 @@
 
 /* Tooltip text */
 .tooltip .tooltiptext {
-    z-index: 1000;
-    display: block;
-    width: 240px;
-    background-color: $cor-terciaria;
-    color: black;
-    text-align: center;
-    padding: 5px 0;
-    border-radius: 1px;
-    top: -35px;
-    right: 5px;
-    /* Position the tooltip text - see examples below! */
-    position: absolute;
-    z-index: 1000;
-    border: 3px solid black;
+    display: none;
+
 }
 
 .tooltip .tooltiptext::after {
@@ -44,8 +32,21 @@
     border-color: transparent transparent transparent black;
   }
 
-.tooltip.show {
+.tooltip.show .tooltiptext.show{
     display: block;
+    width: 240px;
+    padding: 5px 0;
+    background-color: $cor-terciaria;
+    color: black;
+    text-align: center;
+    border-radius: 1px;
+    top: 5px;
+    right: 45px;
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1000;
+    border: 3px solid black;
+
 }
 
 /* notification.component.scss */
