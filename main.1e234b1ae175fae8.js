@@ -408,7 +408,9 @@ let AccountRepository = /*#__PURE__*/(() => {
     }
     register(newUser) {
       console.log(newUser);
-      return this.httpClient.post(`${this.apiUrl}/api/Auth/sign-up`, newUser).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.map)(ret => {
+      return this.httpClient.post(`${this.apiUrl}/api/Auth/sign-up`, newUser, {
+        withCredentials: true
+      }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.map)(ret => {
         console.log(ret);
         return ret;
       }));
@@ -422,6 +424,8 @@ let AccountRepository = /*#__PURE__*/(() => {
       return this.httpClient.post(`${this.apiUrl}/api/Auth/sign-in`, {
         username,
         password
+      }, {
+        withCredentials: true
       }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.map)(ret => {
         return ret;
       }));
