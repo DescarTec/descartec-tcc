@@ -1289,14 +1289,14 @@ let NotificacaoComponent = /*#__PURE__*/(() => {
     selectors: [["app-notificacao"]],
     decls: 23,
     vars: 5,
-    consts: [[1, "notificacao", 3, "click"], [2, "width", "40px", "height", "40px", 3, "src"], ["class", "notification-count", 4, "ngIf"], [1, "tooltip", 3, "ngClass"], [1, "tooltiptext"], [1, "row"], [1, "col-12"], [1, "notification-count"]],
+    consts: [[1, "notificacao"], [2, "width", "40px", "height", "40px", 3, "src", "click"], ["class", "notification-count", 4, "ngIf"], [1, "tooltip", 3, "ngClass"], [1, "tooltiptext"], [1, "row"], [1, "col-12"], [1, "notification-count"]],
     template: function NotificacaoComponent_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function NotificacaoComponent_Template_div_click_0_listener() {
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 0)(1, "img", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function NotificacaoComponent_Template_img_click_1_listener() {
           return ctx.toggleTooltip();
         });
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](1, "img", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](2, NotificacaoComponent_div_2_Template, 2, 1, "div", 2);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](3, "div", 3)(4, "span", 4)(5, "div", 5)(6, "div", 6);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](7, " testeeeeeeeeeeeeeeeeee teste ");
