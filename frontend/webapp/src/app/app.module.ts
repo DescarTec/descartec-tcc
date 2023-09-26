@@ -17,6 +17,7 @@ import { ErrorInterceptor } from './core/handlers/error.interceptor';
 import { AlertComponent } from './view/shared/alert';
 import { MapaComponent } from './view/pages/mapa/mapa.component';
 import { InformacaoComponent } from './view/pages/informacao/informacao.component';
+import { NotificacaoComponent } from './view/shared/notificacao/notificacao.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { InformacaoComponent } from './view/pages/informacao/informacao.componen
     FooterComponent,
     AlertComponent,
     MapaComponent,
-    InformacaoComponent
+    InformacaoComponent,
+    NotificacaoComponent
   ],
   imports: [
     CommonModule,
