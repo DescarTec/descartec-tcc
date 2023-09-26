@@ -1,11 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using DescarTec.Api.Models.Abstract;
 
 namespace DescarTec.Api.Models
 {
-    public class Posicao
+    public class Posicao : Coordenadas
     {
-        public string Id { get; set; }
-        public decimal Latitude { get; set; }
-        public decimal Longetude { get; set; }
+        public Guid Id { get; set; }
     }
 }

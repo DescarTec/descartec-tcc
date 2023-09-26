@@ -1,6 +1,8 @@
-﻿namespace DescarTec.Api.Models.Request
+﻿using DescarTec.Api.Models.Abstract;
+
+namespace DescarTec.Api.Models.Request
 {
-    class SetPosicaoRequest : Coordenadas
+    public class SetPosicaoRequest : Coordenadas
     {
     }
 }
