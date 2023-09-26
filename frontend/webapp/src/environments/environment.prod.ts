@@ -3,6 +3,7 @@ export const environment = {
   apiUrl: 'https://144.22.138.210:5005',
   //apiUrl: 'https://host.docker.internal:5005',
   //apiUrl: 'https://localhost:443',
-  port: 5006
-
+  port: 5006,
+  googleMapsApiKey: "preencher",
+  relativePath: '/descartec-tcc/',
 };

@@ -16,6 +16,8 @@ import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
 import { ErrorInterceptor } from './core/handlers/error.interceptor';
 import { AlertComponent } from './view/shared/alert';
 import { MapaComponent } from './view/pages/mapa/mapa.component';
+import { InformacaoComponent } from './view/pages/informacao/informacao.component';
+import { NotificacaoComponent } from './view/shared/notificacao/notificacao.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { MapaComponent } from './view/pages/mapa/mapa.component';
     HomeComponent,
     FooterComponent,
     AlertComponent,
-    MapaComponent
+    MapaComponent,
+    InformacaoComponent,
+    NotificacaoComponent
   ],
   imports: [
     CommonModule,

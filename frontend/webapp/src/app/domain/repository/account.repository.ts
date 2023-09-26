@@ -16,7 +16,7 @@ export class AccountRepository {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
 
   register(newUser: SignUpDto): Observable<SignUpDto> {
     console.log(newUser);

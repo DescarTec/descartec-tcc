@@ -14,6 +14,7 @@ declare var google: any;
 export class AppComponent {
   title = 'DescarTec';
   user?: User | null;
+  static relativePath = environment.relativePath;
 
   constructor(private accountService: AccountService) {
       this.accountService.currentUserObservable.subscribe(x => this.user = x);

@@ -2,15 +2,17 @@
 
 .custom-footer {
     border-radius: 3px 3px 0px 0px;
-    margin-top: 12px;
-    text-align: center;
-    color: white;
+    text-align: center;    
 }
 
 .custom-copyright{
-    background-color: $cor-escura;
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+
+    background-color: $cor-fundo-footer-claro;
 }
 
 .custom-footer{
-    background-color: $cor-secundaria;
+    border-top: 3px solid black;
+    background-color: $cor-fundo-footer-escuro;
 }
