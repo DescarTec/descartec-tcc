@@ -3,10 +3,10 @@
 .custom-titulo{
   display: flex;
   justify-content: center;
-  background-color: $cor-fundo;
+  background-color: $cor-titulo-fundo;
   
   a {
-    color: $cor-destaque !important;
+    color: black;
     &:hover {
       color: $cor-pastel;
     }
@@ -29,7 +29,7 @@
 }
 
 .custom-top-bar {
-    background-color: white;
+    background-color: $cor-fundo-claro;
     color: black !important;
     border-top: 3px solid black;
     border-bottom: 3px solid black;
@@ -52,8 +52,10 @@
       box-shadow: 3px 3px 0px black;
       font-family: 'ClashDisplay-Bold';
       color: white;
+      border-radius: 1px;
+
       &:hover {
-        background-color: $cor-destaque;
+        background-color: $cor-primaria-escura;
         color: white;
       }
     }
