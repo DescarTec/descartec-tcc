@@ -557,6 +557,7 @@ let AlertService = /*#__PURE__*/(() => {
     }
     // convenience methods
     success(message, options) {
+      console.log(message);
       this.alert(new src_app_models_alert__WEBPACK_IMPORTED_MODULE_0__.Alert({
         ...options,
         type: src_app_models_alert__WEBPACK_IMPORTED_MODULE_0__.AlertType.Success,
@@ -564,6 +565,7 @@ let AlertService = /*#__PURE__*/(() => {
       }));
     }
     error(message, options) {
+      console.log(message);
       this.alert(new src_app_models_alert__WEBPACK_IMPORTED_MODULE_0__.Alert({
         ...options,
         type: src_app_models_alert__WEBPACK_IMPORTED_MODULE_0__.AlertType.Error,
@@ -571,6 +573,7 @@ let AlertService = /*#__PURE__*/(() => {
       }));
     }
     info(message, options) {
+      console.log(message);
       this.alert(new src_app_models_alert__WEBPACK_IMPORTED_MODULE_0__.Alert({
         ...options,
         type: src_app_models_alert__WEBPACK_IMPORTED_MODULE_0__.AlertType.Info,
@@ -578,6 +581,7 @@ let AlertService = /*#__PURE__*/(() => {
       }));
     }
     warn(message, options) {
+      console.log(message);
       this.alert(new src_app_models_alert__WEBPACK_IMPORTED_MODULE_0__.Alert({
         ...options,
         type: src_app_models_alert__WEBPACK_IMPORTED_MODULE_0__.AlertType.Warning,

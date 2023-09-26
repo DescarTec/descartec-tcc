@@ -415,7 +415,8 @@ let LoginComponent = /*#__PURE__*/(() => {
           this.router.navigateByUrl(returnUrl);
         },
         error: error => {
-          this.alertService.error(error);
+          console.error(error);
+          this.alertService.error(error.error);
           this.loading = false;
         }
       });
@@ -823,7 +824,8 @@ let RegisterComponent = /*#__PURE__*/(() => {
           });
         },
         error: error => {
-          this.alertService.error(error);
+          console.error(error);
+          this.alertService.error(error.error);
           this.loading = false;
         }
       });
