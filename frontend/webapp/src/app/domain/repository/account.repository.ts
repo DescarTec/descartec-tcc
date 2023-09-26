@@ -16,14 +16,14 @@ export class AccountRepository {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
 
   register(newUser: SignUpDto): Observable<SignUpDto> {
     console.log(newUser);
     return this.httpClient
       .post<SignUpDto>(
         `${this.apiUrl}/api/Auth/sign-up`,
-        newUser, { withCredentials: true }
+        newUser
       )
       .pipe(
         map((ret) => {
@@ -37,7 +37,7 @@ export class AccountRepository {
     console.log({ username, password });
     console.log(`${this.apiUrl}/api/Auth/sign-in`);
     return this.httpClient
-      .post<SsoDto>(`${this.apiUrl}/api/Auth/sign-in`, { username, password }, { withCredentials: true })
+      .post<SsoDto>(`${this.apiUrl}/api/Auth/sign-in`, { username, password })
       .pipe(
         map((ret: SsoDto) => {
           return ret;
