@@ -808,7 +808,7 @@ let MapaComponent = /*#__PURE__*/(() => {
       this.alertService = alertService;
       this.relativePath = src_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.relativePath;
       this.driverIcon = {
-        url: `${this.relativePath}assets/mapa/icon1.png`,
+        url: `${this.relativePath}assets/images/mapa/icon1.png`,
         scaledSize: new google.maps.Size(50, 50),
         origin: new google.maps.Point(0, 0),
         anchor: new google.maps.Point(25, 25) // ponto de ancoragem
@@ -1355,11 +1355,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 const environment = {
   production: true,
-  apiUrl: 'https://descartec-api.ddns.net:5005',
+  apiUrl: 'https://144.22.138.210:5005',
   //apiUrl: 'https://host.docker.internal:5005',
   //apiUrl: 'https://localhost:443',
   port: 5006,
-  googleMapsApiKey: "AIzaSyCrqgHM60UNwwy_cw2_N7CORsw0LQAHS0Q",
+  googleMapsApiKey: "preencher",
   relativePath: '/descartec-tcc/'
 };
 
