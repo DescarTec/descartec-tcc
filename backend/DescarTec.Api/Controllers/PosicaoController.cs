@@ -9,14 +9,14 @@ namespace DescarTec.Api.Controllers
     [ApiController]
     public class PosicaoController : ControllerBase
     {
-        private readonly PosicaoService _posicaoService;
+        //private readonly PosicaoService _posicaoService;
 
         [HttpPost("SetPosicaoCurrentUser")]
         public async Task<ActionResult> SetPosicaoCurrentUser([FromBody] SetPosicaoRequest posicao)
         {
             try
             {
-                await _posicaoService.SetPosicaoCurrentUser(posicao);
+                //await _posicaoService.SetPosicaoCurrentUser(posicao);
 
                 return Ok(true);
             }
