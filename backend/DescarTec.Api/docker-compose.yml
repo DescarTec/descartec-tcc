@@ -1,6 +1,6 @@
 version: '3'
 services:
-  dotnet-sdk:
+  descartecapi:
     container_name: descartecapi
     build: .
     volumes:
@@ -21,6 +21,7 @@ services:
     environment:
       MYSQL_DATABASE: descartec
       MYSQL_ROOT_PASSWORD: "bob@123"
+      MYSQL_HOST: "%"
     ports:
       - 3308:3306
     volumes:

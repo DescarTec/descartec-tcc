@@ -3,6 +3,7 @@ using DescarTec.Api.Models;
 using DescarTec.Api.Models.Dto;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Cors;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ namespace DescarTec.Api.Controllers
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("_myAllowSpecificOrigins")]
     public class AuthController : ControllerBase
     {
         private readonly IAuthService _authService;
