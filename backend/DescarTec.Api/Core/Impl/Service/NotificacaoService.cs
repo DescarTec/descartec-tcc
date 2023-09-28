@@ -64,13 +64,14 @@ namespace DescarTec.Api.Core.Impl.Service
             try
             {
                 var result = await _notificacaoRepository.GetByUserIdAsync(curretUser.Id);
-
+                var totalNaoLidos = result.Where(x => !x.Lido).Count();
                 NotificacaoMeta meta = new()
                 {
-                    TotalNaoLidos = result.Where(x => x.Lido!).Count()
+                    TotalNaoLidos = totalNaoLidos
                 };
+                var count = result.Count;
 
-                return new ListResponse<List<Notificacao>, NotificacaoMeta>(result, meta);
+                return new ListResponse<List<Notificacao>, NotificacaoMeta>(result, meta, count);
             }
             catch
             {
@@ -87,7 +88,7 @@ namespace DescarTec.Api.Core.Impl.Service
             try
             {
                 var notificacoes = await _notificacaoRepository.GetByUserIdAsync(curretUser.Id);
-                var naoLidos = notificacoes.Where(x => x.Lido!);
+                var naoLidos = notificacoes.Where(x => !x.Lido);
 
                 foreach(var n in naoLidos)
                 {

@@ -5,7 +5,7 @@
     bottom: 24px;
     right: 24px;
     z-index: 1000;
-    
+
 }
 
 .tooltip {
@@ -24,23 +24,25 @@
 .tooltip .tooltiptext::after {
     content: "  ";
     position: absolute;
-    top: 10%;
-    left: 100%; /* To the right of the tooltip */
+    bottom: 6%;
+    left: 100%;
+    /* To the right of the tooltip */
     margin-top: -10px;
     border-width: 8px;
     border-style: solid;
     border-color: transparent transparent transparent black;
-  }
+}
 
-.tooltip.show .tooltiptext.show{
+.tooltip.show .tooltiptext.show {
     display: block;
-    width: 240px;
+    width: 280px;
+    height: 140px;
     padding: 5px 0;
     background-color: $cor-terciaria;
     color: black;
     text-align: center;
     border-radius: 1px;
-    top: 5px;
+    top: -105px;
     right: 45px;
     /* Position the tooltip text - see examples below! */
     position: absolute;
@@ -64,6 +66,26 @@
     align-items: center;
     font-size: 10px;
     font-weight: bold;
-    z-index: 1001; /* Garanta que a contagem esteja acima de outros elementos */
+    z-index: 1001;
+    /* Garanta que a contagem esteja acima de outros elementos */
     border: 1px solid black;
-  }
+}
+
+.custom-scrollbar {
+    width: auto;
+    max-height: 127px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.unit-notificacao {
+    border-top: 1px solid $cor-fundo-footer-escuro;   
+    border-bottom: 1px solid $cor-fundo-footer-escuro;    
+ 
+}
+.custom-container-notificacao {
+    margin-block: 5px;
+    &:hover {
+        background-color: $cor-terciaria-hover;
+    }
+}
