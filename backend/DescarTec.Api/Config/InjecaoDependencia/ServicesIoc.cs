@@ -8,6 +8,8 @@ namespace DescarTec.Api.Config.InjecaoDependencia
         public static void Config(IServiceCollection services)
         {
             services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<IEmailService, EmailService>();
+            services.AddScoped<INotificacaoService, NotificacaoService>();
         }
     }
 }

@@ -15,15 +15,21 @@ namespace DescarTec.Api.Core.Impl.Service;
 public class AuthService : IAuthService
 {
     private readonly IUserRepository _userRepository;
+    private readonly IColetorUserRepository _coletorUserRepository;
 
     private readonly IConfiguration _configuration;
     private readonly IHttpContextAccessor _httpContextAccessor;
-    private readonly UserManager<ApplicationUser> _userManager;
+    private readonly UserManager<UserBase> _userManager;
 
-    public AuthService(IUserRepository userRepository, IConfiguration configuration, UserManager<ApplicationUser> userManager,
+    public AuthService(
+        IUserRepository userRepository,
+        IColetorUserRepository coletorUserRepository, 
+        IConfiguration configuration, 
+        UserManager<UserBase> userManager,
         IHttpContextAccessor httpContextAccessor)
     {
         _userRepository = userRepository;
+        _coletorUserRepository = coletorUserRepository;
 
         _configuration = configuration;
         _httpContextAccessor = httpContextAccessor;
@@ -41,17 +47,18 @@ public class AuthService : IAuthService
     {
         ApplicationUser user = await _userRepository.GetByIdAsync(userId);
 
-        if (user == null)
-            throw new ArgumentException("Usuário não existe!");
+        return user ?? throw new ArgumentException("Usuário não existe.");
+    }
+    public async Task<List<ApplicationUser>> GetListUserByCep(string cep)
+    {
+        var users = await _userRepository.GetListUserByCep(cep);
 
-        return user;
+        return users ?? new List<ApplicationUser>();
     }
 
     public async Task<int> UpdateUser(ApplicationUser user)
     {
-        ApplicationUser findUser = await _userRepository.GetByIdAsync(user.Id);
-        if (findUser == null)
-            throw new ArgumentException("Usuário não encontrado");
+        ApplicationUser findUser = await _userRepository.GetByIdAsync(user.Id) ?? throw new ArgumentException("Usuário não encontrado.");
 
         findUser.Email = user.Email;
         findUser.UserName = user.UserName;
@@ -61,10 +68,7 @@ public class AuthService : IAuthService
 
     public async Task<bool> DeleteUser(Guid userId)
     {
-        ApplicationUser findUser = await _userRepository.GetByIdAsync(userId);
-        if (findUser == null)
-            throw new ArgumentException("Usuário não encontrado");
-
+        ApplicationUser findUser = await _userRepository.GetByIdAsync(userId) ?? throw new ArgumentException("Usuário não encontrado.");
         await _userRepository.DeleteAsync(findUser);
 
         return true;
@@ -88,13 +92,13 @@ public class AuthService : IAuthService
 
     public async Task<bool> SignUp(SignUpDto signUpDto)
     {
-        ApplicationUser? userExists = await _userManager.FindByNameAsync(signUpDto.Username);
+        ApplicationUser? userExists = (ApplicationUser)await _userManager.FindByNameAsync(signUpDto.Username);
         if (userExists != null)
-            throw new ArgumentException("Username already exists!");
+            throw new ArgumentException("Username já existe");
 
-        userExists = await _userManager.FindByEmailAsync(signUpDto.Email);
+        userExists = (ApplicationUser)await _userManager.FindByEmailAsync(signUpDto.Email);
         if (userExists != null)
-            throw new ArgumentException("Email already exists!");
+            throw new ArgumentException("Email já existe");
 
         ApplicationUser user = new()
         {
@@ -104,8 +108,8 @@ public class AuthService : IAuthService
             DataNascimento = signUpDto.DataNascimento,
             Nome = signUpDto.NomeCompleto,
             PhoneNumber = signUpDto.PhoneNumber,
+            Endereco = CreateEndereco(signUpDto)
         };
-        user.Endereco = CreateEndereco(signUpDto);
 
         var result = await _userManager.CreateAsync(user, signUpDto.Password);
 
@@ -129,9 +133,46 @@ public class AuthService : IAuthService
         return true;
     }
 
+    public async Task<bool> SignUpColetor(SignUpColetorDto signUpColetorDto)
+    {
+        ColetorUser? userColetorExists = (ColetorUser)await _userManager.FindByNameAsync(signUpColetorDto.Username);
+        if (userColetorExists != null)
+            throw new ArgumentException("Username já existe");
+
+        userColetorExists = (ColetorUser)await _userManager.FindByEmailAsync(signUpColetorDto.Email);
+        if (userColetorExists != null)
+            throw new ArgumentException("Email já existe");
+
+        ColetorUser user = new()
+        {
+            Email = signUpColetorDto.Email,
+            SecurityStamp = Guid.NewGuid().ToString(),
+            UserName = signUpColetorDto.Username,
+            Nome = signUpColetorDto.NomeCompleto,
+            PhoneNumber = signUpColetorDto.PhoneNumber            
+        };
+
+        var result = await _userManager.CreateAsync(user, signUpColetorDto.Password);
+
+        if (!result.Succeeded)
+            if (result.Errors.ToList().Count > 0)
+                throw new ArgumentException(result.Errors.ToList()[0].Description);
+            else
+                throw new ArgumentException("Cadastro do usuário falhou.");
+
+        var roleResult = await _userManager.AddToRoleAsync(user, "Coletor");
+        if (!roleResult.Succeeded)
+        {
+            _ = _userManager.DeleteAsync(user);
+            throw new ArgumentException("Falha ao adicionar o usuário ao papel de coletor.");
+        }
+
+        return true;
+    }
+
     private async Task AddUserToRoleAsync(Guid userId, string roleName)
     {
-        ApplicationUser user = await _userManager.FindByIdAsync(userId.ToString());
+        ApplicationUser user = (ApplicationUser)await _userManager.FindByIdAsync(userId.ToString());
         if (user == null)
             throw new ArgumentException("User not found.");
 
@@ -146,7 +187,7 @@ public class AuthService : IAuthService
 
     public async Task<SsoDto> SignIn(SignInDto signInDto)
     {
-        ApplicationUser? user = await _userManager.FindByNameAsync(signInDto.Username);
+        var user = await _userManager.FindByNameAsync(signInDto.Username);
         if (user == null)
             throw new ArgumentException("Usuário não encontrado.");
 
@@ -181,9 +222,9 @@ public class AuthService : IAuthService
         return new SsoDto(new JwtSecurityTokenHandler().WriteToken(token), user);
     }
 
-    public async Task<ApplicationUser> GetCurrentUser()
+    public async Task<UserBase> GetCurrentUser()
     {
-        ApplicationUser? user = await _userManager.GetUserAsync(_httpContextAccessor.HttpContext!.User);
+        UserBase? user = await _userManager.GetUserAsync(_httpContextAccessor.HttpContext!.User);
 
         return user;
     }

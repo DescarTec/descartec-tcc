@@ -5,7 +5,6 @@ namespace DescarTec.Api.Models
     public class Endereco
     {
         public Guid Id { get; set; }
-        [Required]
         public string Cep { get; set; } = null!;
         public string Logradouro { get; set; } = null!;
         public string? Bairro { get; set; }

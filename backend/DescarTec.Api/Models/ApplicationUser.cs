@@ -1,21 +1,14 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
 namespace DescarTec.Api.Models
 {
-    public class ApplicationUser : IdentityUser<Guid>
+    public class ApplicationUser : UserBase
     {
-        public string Nome { get; set; } = null!;
         public DateTime DataNascimento { get; set; }
         public Guid EnderecoId { get; set; }
-
-        [ForeignKey("EnderecoId")]
-        public Endereco Endereco { get; set; } = null!;
-
+        public Endereco? Endereco { get; set; }
         [JsonIgnore]
-        [ForeignKey("PosicaoId")]
-        public Posicao Posicao{ get; set; } = null!;
+        public List<Notificacao> Notificacao{ get; set; }
     }
 }

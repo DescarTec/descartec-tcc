@@ -4,9 +4,9 @@
     {
         public string Access_token { get; set; }
         public DayOfWeek Expiration { get; set; }
-        public ApplicationUser User { get; set; }
+        public UserBase User { get; set; }
 
-        public SsoDto(string access_token, ApplicationUser user)
+        public SsoDto(string access_token, UserBase user)
         {
             this.Access_token = access_token;
             this.Expiration = DateTime.Now.DayOfWeek;

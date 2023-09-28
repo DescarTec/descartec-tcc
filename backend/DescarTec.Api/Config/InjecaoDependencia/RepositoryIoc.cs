@@ -8,7 +8,9 @@ namespace DescarTec.Api.Config.InjecaoDependencia
         public static void Config(IServiceCollection services)
         {
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IColetorUserRepository, ColetorUserRepository>();
             services.AddScoped<IEnderecoRepository, EnderecoRepository>();
+            services.AddScoped<INotificacaoRepository, NotificacaoRepository>();
         }
     }
 }
