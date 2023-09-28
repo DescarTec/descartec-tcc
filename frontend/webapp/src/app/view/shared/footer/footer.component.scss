@@ -5,14 +5,24 @@
     text-align: center;    
 }
 
-.custom-copyright{
-    border-top: 3px solid black;
-    border-bottom: 3px solid black;
-
-    background-color: $cor-fundo-footer-claro;
-}
-
 .custom-footer{
     border-top: 3px solid black;
     background-color: $cor-fundo-footer-escuro;
+    height: 800px;
+}
+
+.custom-copyright{
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+    background-color: $cor-fundo-footer-claro;
+    text-align: center;
+    padding: 10px;
+    height: 120px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.custom-link{
+    color: rgb(255, 0, 0);
 }
