@@ -10,9 +10,6 @@ namespace DescarTec.Api.Models.Dto
         [Required(ErrorMessage = "NomeCompleto is required")]
         public string NomeCompleto { get; set; }
 
-        [Required(ErrorMessage = "DataNascimento is required")]
-        public DateTime DataNascimento { get; set; }
-
         [EmailAddress]
         [Required(ErrorMessage = "Email is required")]
         public string Email { get; set; }
@@ -25,8 +22,5 @@ namespace DescarTec.Api.Models.Dto
 
         [Required(ErrorMessage = "PhoneNumber is required")]
         public string PhoneNumber { get; set; }
-
-        [Required(ErrorMessage = "Ddd is required")]
-        public string Ddd { get; set; }
     }
 }

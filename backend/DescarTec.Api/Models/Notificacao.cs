@@ -1,4 +1,6 @@
-﻿namespace DescarTec.Api.Models
+﻿using System.Text.Json.Serialization;
+
+namespace DescarTec.Api.Models
 {
     public class Notificacao
     {
@@ -11,10 +13,12 @@
         public Guid Id { get; set; }
         public string Titulo { get; private set; }
         public string Body { get; private set; }
-        public bool Lido { get; private set; }
+        public bool Lido { get; set; }
         public DateTime Data { get; private set; }
 
         public Guid ApplicationUserId { get; set; }
+
+        [JsonIgnore]
         public ApplicationUser ApplicationUser { get; private set; }
 
         public Notificacao NotificacaoRota(ApplicationUser userOwner, ColetorUser coletor)
@@ -25,5 +29,10 @@
             Body = $"{coletor.Nome} iniciou uma rota e passará em sua residência de CEP:{userOwner.Endereco!.Cep}";
             return this;
         }
+    }
+    public class NotificacaoMeta
+    {
+        public int TotalNaoLidos { get; set; }
+        public NotificacaoMeta() { }
     }
 }

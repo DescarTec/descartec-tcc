@@ -39,9 +39,24 @@ namespace DescarTec.Api.Controllers
         {
             try
             {
-                await _notificacaoService.GetNotificacoes();
+                var result = await _notificacaoService.GetNotificacoes();
 
-                return Ok(true);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPost("ler-notificacoes")]
+        public async Task<ActionResult> LerNotificacoes()
+        {
+            try
+            {
+                var result = await _notificacaoService.LerNotificacoes();
+
+                return Ok(result);
             }
             catch (Exception ex)
             {

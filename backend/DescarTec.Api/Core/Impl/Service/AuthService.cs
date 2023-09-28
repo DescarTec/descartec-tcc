@@ -135,12 +135,12 @@ public class AuthService : IAuthService
 
     public async Task<bool> SignUpColetor(SignUpColetorDto signUpColetorDto)
     {
-        ColetorUser? userColetorExists = (ColetorUser)await _userManager.FindByNameAsync(signUpColetorDto.Username);
-        if (userColetorExists != null)
+        UserBase? userExists = await _userManager.FindByNameAsync(signUpColetorDto.Username);
+        if (userExists != null)
             throw new ArgumentException("Username já existe");
 
-        userColetorExists = (ColetorUser)await _userManager.FindByEmailAsync(signUpColetorDto.Email);
-        if (userColetorExists != null)
+        userExists = await _userManager.FindByEmailAsync(signUpColetorDto.Email);
+        if (userExists != null)
             throw new ArgumentException("Email já existe");
 
         ColetorUser user = new()
