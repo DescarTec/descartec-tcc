@@ -1,0 +1,16 @@
+<div *ngIf="notificacao" class="notificacao">
+    <img (click)="toggleTooltip()" [src]="relativePath + 'assets/svg/Mail.svg'" style="width: 40px; height: 40px; cursor: pointer;">
+    <div class="notification-count" *ngIf="notificationCount > 0">{{ notificationCount }}</div>
+    <div class="tooltip" [ngClass]="{ 'show': showTooltip }">
+        <span class="tooltiptext" [ngClass]="{ 'show': showTooltip }">
+            <div class="custom-scrollbar">
+                <div class="row custom-container-notificacao" *ngFor="let notif of notificacao.data">
+                    <div class="col-12 unit-notificacao">                        
+                        <strong>{{ notif.titulo }}</strong><br>
+                        {{ notif.body }}
+                    </div>
+                </div>                
+            </div>              
+        </span>
+    </div>
+</div>

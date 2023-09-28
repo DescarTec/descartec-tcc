@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from 'src/app/domain/services/account.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-menu',
@@ -10,6 +11,8 @@ export class MenuComponent implements OnInit {
   
   isLogged = false;
   selected?: string = "";
+  relativePath = environment.relativePath
+
   
   constructor(
     private accountService: AccountService

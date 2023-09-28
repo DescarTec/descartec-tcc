@@ -27,14 +27,14 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: myAllowSpecificOrigins,
         policyBuilder =>
         {
-            policyBuilder.WithOrigins(/*"http://localhost:5006", */"https://descartec.github.io");
+            policyBuilder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();;
         });
 });
 
 builder.Services.AddDbContextPool<MySqlContext>(options =>
     options.UseMySql(mySqlConnection, ServerVersion.AutoDetect(mySqlConnection)));
 
-builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()
+builder.Services.AddIdentity<UserBase, ApplicationRole>()
     .AddEntityFrameworkStores<MySqlContext>()
     .AddDefaultTokenProviders();
 
@@ -112,6 +112,17 @@ builder.Services.AddSwaggerGen(c => {
     c.AddSecurityRequirement(securityRequirement);
 });
 
+using (var scope = builder.Services.BuildServiceProvider().CreateScope())
+{
+    using(var dbContext = scope.ServiceProvider.GetRequiredService<MySqlContext>())
+    {
+        if (dbContext.Database.GetPendingMigrations().Any())
+        {
+            dbContext.Database.Migrate();
+        }
+    }
+}
+
 WebApplication app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -129,16 +140,12 @@ app.UseHsts();
 
 app.UseRouting();
 
-app.UseCors(p =>
-{
-    p.AllowAnyMethod();
-    p.AllowAnyHeader();
-    p.AllowAnyOrigin();
-});
+app.UseCors("corsapp");
 
 using (var scope = app.Services.CreateScope())
 {
     await scope.AddAdminRole();
+    await scope.AddColetorRole();
 }
 
 app.UseAuthentication();
