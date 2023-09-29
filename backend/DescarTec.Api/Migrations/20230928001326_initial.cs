@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DescarTec.Api.Migrations
 {
-    public partial class Initial : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -61,8 +61,7 @@ namespace DescarTec.Api.Migrations
                 name: "Posicao",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "varchar(255)", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
                     Latitude = table.Column<decimal>(type: "decimal(65,30)", nullable: false),
                     Longetude = table.Column<decimal>(type: "decimal(65,30)", nullable: false)
                 },
@@ -103,10 +102,11 @@ namespace DescarTec.Api.Migrations
                     Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
                     Nome = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    DataNascimento = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    EnderecoId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    PosicaoId = table.Column<string>(type: "varchar(255)", nullable: false)
+                    Discriminator = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
+                    DataNascimento = table.Column<DateTime>(type: "datetime(6)", nullable: true),
+                    EnderecoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
+                    PosicaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
                     UserName = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     NormalizedUserName = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true)
@@ -143,8 +143,7 @@ namespace DescarTec.Api.Migrations
                         name: "FK_AspNetUsers_Posicao_PosicaoId",
                         column: x => x.PosicaoId,
                         principalTable: "Posicao",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -245,6 +244,31 @@ namespace DescarTec.Api.Migrations
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
+            migrationBuilder.CreateTable(
+                name: "Notificacao",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    Titulo = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Body = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Lido = table.Column<bool>(type: "tinyint(1)", nullable: false),
+                    Data = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    ApplicationUserId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Notificacao", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Notificacao_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -291,6 +315,11 @@ namespace DescarTec.Api.Migrations
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Notificacao_ApplicationUserId",
+                table: "Notificacao",
+                column: "ApplicationUserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -309,6 +338,9 @@ namespace DescarTec.Api.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Notificacao");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

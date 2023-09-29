@@ -1,5 +1,6 @@
 ﻿using DescarTec.Api.Models;
 using DescarTec.Api.Models.Dto;
+using DescarTec.Api.Models.Request;
 
 namespace DescarTec.Api.Core.Interfaces.Service
 {
@@ -10,8 +11,10 @@ namespace DescarTec.Api.Core.Interfaces.Service
         Task<int> UpdateUser(ApplicationUser user);
         Task<bool> DeleteUser(Guid userId);
         Task<bool> SignUp(SignUpDto signUpDto);
+        Task<bool> SignUpColetor(SignUpColetorDto signUpColetorDto);
         Task<SsoDto> SignIn(SignInDto signInDto);
         Task AddUserToAdminRole(Guid userId);
-        Task<ApplicationUser> GetCurrentUser();
+        Task<UserBase> GetCurrentUser();
+        Task<List<ApplicationUser>> GetListUserByCep(string cep);
     }
 }

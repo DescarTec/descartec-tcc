@@ -17,7 +17,7 @@ export class MapaComponent implements OnInit {
 
 
   driverIcon = {
-    url: `${this.relativePath}assets/mapa/icon1.png`, // caminho para o ícone
+    url: `${this.relativePath}assets/images/mapa/icon1.png`, // caminho para o ícone
     scaledSize: new google.maps.Size(50, 50), // tamanho do ícone
     origin: new google.maps.Point(0, 0), // ponto de origem
     anchor: new google.maps.Point(25, 25) // ponto de ancoragem

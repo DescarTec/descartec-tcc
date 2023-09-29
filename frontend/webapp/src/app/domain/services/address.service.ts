@@ -26,7 +26,6 @@ export class AddressService {
       })
     );
   }
-
 }
 
 export class Address {

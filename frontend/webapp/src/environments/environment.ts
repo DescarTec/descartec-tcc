@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://144.22.138.210:5005',
+  apiUrl: 'https://descartec-api.ddns.net:5005',
   //apiUrl: 'https://host.docker.internal:5005',
   //apiUrl: 'https://localhost:443',
   port: 5006,
