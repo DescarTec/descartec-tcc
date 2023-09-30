@@ -16,8 +16,6 @@ export class AccountService {
   private accessTokenSubject: BehaviorSubject<string>;
   public accessTokenObservable: Observable<string>;
 
-  language!: number
-
   constructor(
     private accountRepository: AccountRepository,
     private router: Router
@@ -31,27 +29,10 @@ export class AccountService {
       localStorage.getItem('accessToken') || null!
     );
     this.accessTokenObservable = this.accessTokenSubject.asObservable();
-
-    this.getLanguage();
     
-  }
-  getLanguage() {
-    if(localStorage.getItem('language') == "pt-BR") {
-      this.language = 1;
-    } else if(localStorage.getItem('language') == "en-US" || localStorage.getItem('language') == null){
-      this.language = 2;
-    }
-  }
-  
+  }  
   public get currentUser(): User {
     return this.currentUserSubject.value;
-  }
-
-  public updateUserDiamonds(value: number) {
-    let user = JSON.parse(JSON.stringify(this.currentUser));
-    user.diamonds += value;
-    this.currentUserSubject.next(user);
-    localStorage.setItem('currentUser', JSON.stringify(user));
   }
 
   public get access_token(): string {
@@ -62,10 +43,11 @@ export class AccountService {
     return this.accountRepository.login(name, password).pipe(
       map((data) => {
         localStorage.setItem('currentUser', JSON.stringify(data.user));
+        console.log(data.access_token);
         localStorage.setItem('accessToken', data.access_token);
 
-        this.currentUserSubject.next(data.user);
         this.accessTokenSubject.next(data.access_token);
+        this.currentUserSubject.next(data.user);
 
         return data;
       })

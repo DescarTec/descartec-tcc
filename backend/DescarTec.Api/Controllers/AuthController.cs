@@ -1,12 +1,9 @@
 ﻿using DescarTec.Api.Core.Interfaces.Service;
 using DescarTec.Api.Models;
-using DescarTec.Api.Models.Dto;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Cors;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+using DescarTec.Api.Models.Dto;
 
 namespace DescarTec.Api.Controllers
 {
@@ -25,11 +22,27 @@ namespace DescarTec.Api.Controllers
 
         [AllowAnonymous]
         [HttpPost("sign-up")]
-        public async Task<ActionResult> SignUp([FromBody] SignUpDto signUpDTO)
+        public async Task<ActionResult> SignUp([FromBody] SignUpDto signUpDto)
         {
             try
             {
-                bool ret = await _authService.SignUp(signUpDTO);
+                bool ret = await _authService.SignUp(signUpDto);
+
+                return Ok(ret);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [AllowAnonymous]
+        [HttpPost("sign-up-coletor")]
+        public async Task<ActionResult> SignUpColetor([FromBody] SignUpColetorDto signUpDTO)
+        {
+            try
+            {
+                bool ret = await _authService.SignUpColetor(signUpDTO);
 
                 return Ok(ret);
             }
@@ -76,7 +89,7 @@ namespace DescarTec.Api.Controllers
         {
             try
             {
-                ApplicationUser currentUser = await _authService.GetCurrentUser();
+                var currentUser = await _authService.GetCurrentUser();
 
                 return Ok(currentUser);
             }
@@ -115,6 +128,5 @@ namespace DescarTec.Api.Controllers
                 return BadRequest(ex.Message);
             }
         }
-
     }
 }

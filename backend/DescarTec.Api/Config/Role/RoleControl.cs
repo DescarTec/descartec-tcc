@@ -34,5 +34,34 @@ namespace DescarTec.Api.Config.Role
                 Console.WriteLine($"Ocorreu um erro: {ex.Message}");
             }
         }
+        public static async Task AddColetorRole(this IServiceScope scope)
+        {
+            try
+            {
+                var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<ApplicationRole>>();
+                // Obter o serviço de gerenciamento de roles
+
+                // Verificar se a role "Admin" já existe
+                var coletorRoleExists = await roleManager.RoleExistsAsync("Coletor");
+
+                if (!coletorRoleExists)
+                {
+                    // Criar uma nova instância da classe "ApplicationRole"
+                    var coletorRole = new ApplicationRole
+                    {
+                        Name = "Coletor",
+                        NormalizedName = "COLETOR"
+                    };
+
+                    // Criar a role "Admin"
+                    await roleManager.CreateAsync(coletorRole);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Lidar com o erro aqui
+                Console.WriteLine($"Ocorreu um erro: {ex.Message}");
+            }
+        }
     }
 }

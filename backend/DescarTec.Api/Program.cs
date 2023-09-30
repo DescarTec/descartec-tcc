@@ -34,7 +34,7 @@ builder.Services.AddCors(options =>
 builder.Services.AddDbContextPool<MySqlContext>(options =>
     options.UseMySql(mySqlConnection, ServerVersion.AutoDetect(mySqlConnection)));
 
-builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()
+builder.Services.AddIdentity<UserBase, ApplicationRole>()
     .AddEntityFrameworkStores<MySqlContext>()
     .AddDefaultTokenProviders();
 
@@ -145,6 +145,7 @@ app.UseCors("corsapp");
 using (var scope = app.Services.CreateScope())
 {
     await scope.AddAdminRole();
+    await scope.AddColetorRole();
 }
 
 app.UseAuthentication();
