@@ -1,8 +1,6 @@
 using DescarTec.Api.Config.Context;
 using DescarTec.Api.Config.InjecaoDependencia;
 using DescarTec.Api.Models;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using DescarTec.Api.Config.Role;
@@ -12,6 +10,7 @@ using Microsoft.OpenApi.Models;
 using System.Net;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -57,9 +56,9 @@ builder.Services.Configure<KestrelServerOptions>(options =>
 
 builder.Services.AddAuthentication(options =>
 {
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultAuthenticateScheme   = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme      = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultScheme               = JwtBearerDefaults.AuthenticationScheme;
 })
     .AddJwtBearer(options =>
     {

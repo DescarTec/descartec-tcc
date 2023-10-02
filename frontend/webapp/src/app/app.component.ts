@@ -30,6 +30,9 @@ export class AppComponent {
     script.defer = true;
     script.src = `https://maps.googleapis.com/maps/api/js?key=${environment.googleMapsApiKey}`;
     document.head.appendChild(script);
+    console.log(script);
+    console.log("\n\n")
+    console.log(document.head);
   }
   
   logout() {

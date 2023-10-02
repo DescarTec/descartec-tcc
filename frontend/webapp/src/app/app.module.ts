@@ -18,6 +18,7 @@ import { AlertComponent } from './view/shared/alert';
 import { MapaComponent } from './view/pages/mapa/mapa.component';
 import { InformacaoComponent } from './view/pages/informacao/informacao.component';
 import { NotificacaoComponent } from './view/shared/notificacao/notificacao.component';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { NotificacaoComponent } from './view/shared/notificacao/notificacao.comp
     MdbCollapseModule,     
     TypeaheadModule.forRoot(),
     BrowserAnimationsModule,
-    CollapseModule.forRoot()
+    CollapseModule.forRoot(),
+    LeafletModule
   ],
   providers: [
     { provide: Window, useValue: window },

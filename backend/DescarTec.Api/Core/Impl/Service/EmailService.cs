@@ -31,10 +31,9 @@ namespace DescarTec.Api.Core.Impl.Service
                 IsBodyHtml = true
             };
 
-            string pathEmail = "";
+            string pathEmail = "./File/Email/email-rota.html";
             try
             {
-                pathEmail = "./EmailView/email-html/email-validation-html/email-validate-pt-br.html";
                 var body = @File.ReadAllText(pathEmail);
                 body = body.Replace("{NOME}", user.Nome);
                 message.Body = body;
@@ -62,7 +61,6 @@ namespace DescarTec.Api.Core.Impl.Service
 
             SmtpClient client = new("smtp.gmail.com")
             {
-                UseDefaultCredentials = false,
                 EnableSsl = true,
                 Credentials = new System.Net.NetworkCredential(emailFrom, password)
             };
