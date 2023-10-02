@@ -13,6 +13,7 @@
       </div>
       <div class="navbar-nav ">
         <button *ngIf="isLogged" class="nav-link" (click)="logout()" class="custom-center">Logout</button>
+        <button *ngIf="!isLogged" class="custom-button-card custom-center" routerLink="/account/register">Cadastre-se</button>
         <button *ngIf="!isLogged" class="nav-link" routerLink="/account/login" class="custom-center">Login</button>
       </div>
       <div class="navbar-toggler" type="button" (click)="toggleMenu()" aria-expanded="false" aria-label="Toggle navigation" style="border-color: transparent; padding: 0;">
