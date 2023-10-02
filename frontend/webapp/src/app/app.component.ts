@@ -21,20 +21,7 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    this.loadMapsScript();
-  }
-
-  loadMapsScript() {
-    const script = document.createElement('script');
-    script.async = true;
-    script.defer = true;
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${environment.googleMapsApiKey}`;
-    document.head.appendChild(script);
-    console.log(script);
-    console.log("\n\n")
-    console.log(document.head);
-  }
-  
+  }  
   logout() {
       this.accountService.reset();
   }
