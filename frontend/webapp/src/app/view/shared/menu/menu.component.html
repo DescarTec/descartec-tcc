@@ -12,8 +12,9 @@
         </div>
       </div>
       <div class="navbar-nav ">
-        <button *ngIf="isLogged" class="nav-link" (click)="logout()" class="custom-center">Logout</button>
-        <button *ngIf="!isLogged" class="nav-link" routerLink="/account/login" class="custom-center">Login</button>
+        <button *ngIf="isLogged" class="nav-link" (click)="logout()" class="custom-center" style="margin-left: 0px;">Logout</button>
+        <button *ngIf="!isLogged" class="custom-button-card custom-center only-desktop" routerLink="/account/register">Cadastre-se</button>
+        <button *ngIf="!isLogged" class="nav-link" routerLink="/account/login" class="custom-center" style="margin-left: 0px;">Login</button>
       </div>
       <div class="navbar-toggler" type="button" (click)="toggleMenu()" aria-expanded="false" aria-label="Toggle navigation" style="border-color: transparent; padding: 0;">
         <img [src]="relativePath + 'assets/svg/Menu.svg'" style="width: 40px; height: 40px;">

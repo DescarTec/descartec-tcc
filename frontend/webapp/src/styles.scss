@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'colors';
 @import 'fonts';
+@import "~leaflet/dist/leaflet.css";
 
 body {
   background-color: $cor-fundo;
@@ -126,12 +127,12 @@ button {
   }
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 974px) {
   .only-desktop {
     display:none;
   }
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 973px) {
   .only-mobile {
     display:none;
   }

@@ -1,5 +1,9 @@
 <div>
     <br>
     <p *ngIf="!lat || !lng">Buscando sua localização... Para visualização, autorizar localização em seu navegador</p>
-    <div id="map" style="height: 500px"></div>
+    <div *ngIf="options" class="map-container" leaflet [leafletOptions]="options" (leafletMapReady)="onMapReady($event)"
+        (leafletClick)="mapClicked($event)" style="height: 500px;">
+    </div>
+    <button *ngIf="options" (click)="updateDriverPosition"></button>
+    <!-- <div id="map" style="height: 500px"></div> -->
 </div>

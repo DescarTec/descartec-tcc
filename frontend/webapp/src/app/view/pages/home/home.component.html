@@ -1,19 +1,15 @@
 <div class="custom-topic">
     <div class="row">
-        <div class="col-md-8">
-            <h1>BEM-VINDO</h1>
+        <div class="col-lg-8" style="text-align: center;">
+            <h1><p class="spaced-text">SEJAM BEM-VINDOS</p></h1>
             <br>
-            <h2>Temos uma solução inteligente para obter informações e controle da coleta do seu lixo inservível!</h2>
-            <p>Cadastre-se para ter acesso a todo o conteúdo de nossa página.</p>
-            <div class="row" style="margin-block:1%;">
-                <div class="col-lg-3">
-                    <button class="custom-button-card custom-center" routerLink="/account/register">Registre-se</button>
-                </div>
-            </div>
+            <h2>Temos uma solução inteligente para obter informações e controle da coleta do seu material inservível!</h2>
+            <br>
+            <h5><a [routerLink]="['/account/register']" class="custom-link">Cadastre-se</a> para ter acesso a todo o conteúdo de nossa página.</h5>
         </div>
-        <div class="col-md-4">
-            <div class="custom-card custom-center only-desktop">
-                <img [src]="relativePath + 'assets/images/home/caminhao-de-lixo.png'" style="width: 100%; height: 100%;" alt="home-page">
+        <div class="col-lg-4">
+            <div class="truck-container only-desktop">
+                <img [src]="relativePath + 'assets/images/home/caminhao-de-lixo.png'" style="width: 80%; height: 80%;" alt="home-page">
             </div>
         </div>
     </div>

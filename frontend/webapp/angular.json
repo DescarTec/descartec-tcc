@@ -34,9 +34,12 @@
               "src/assets/svg"
             ],
             "styles": [
+              "./node_modules/leaflet/dist/leaflet.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/leaflet/dist/leaflet.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -44,7 +47,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "2mb",
-                  "maximumError": "3mb"
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -106,7 +109,12 @@
               "src/assets/fonts",
               "src/assets/images/home",
               "src/assets/fonts/mapa",
-              "src/assets/svg"
+              "src/assets/svg",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/leaflet/dist/images",
+                "output": "assets/"
+            }
             ],
             "styles": [
               "src/styles.scss"

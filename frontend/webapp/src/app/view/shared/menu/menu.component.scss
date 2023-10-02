@@ -1,5 +1,9 @@
 @import '../../../../colors';
 
+.navbar{
+  padding: 35px;
+}
+
 .custom-titulo{
   display: flex;
   justify-content: center;
@@ -53,6 +57,8 @@
       font-family: 'ClashDisplay-Bold';
       color: white;
       border-radius: 1px;
+      margin-right: 10px;
+      margin-left: 10px;
 
       &:hover {
         background-color: $cor-primaria-escura;
