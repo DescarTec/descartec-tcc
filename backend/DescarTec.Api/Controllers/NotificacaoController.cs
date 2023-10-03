@@ -18,22 +18,6 @@ namespace DescarTec.Api.Controllers
             _notificacaoService = notificacaoService;
         }
 
-        [Authorize(Roles = "Coletor")]
-        [HttpPost("notificar-rota")]
-        public async Task<ActionResult> NotificarRota([FromBody] List<string> ceps)
-        {
-            try
-            {
-                await _notificacaoService.NotificarRota(ceps);
-
-                return Ok(true);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
-
         [HttpGet("get-notificacoes")]
         public async Task<ActionResult> GetNotificacoes()
         {
