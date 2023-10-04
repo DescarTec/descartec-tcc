@@ -18,4 +18,5 @@ public class MySqlContext : IdentityDbContext<UserBase, ApplicationRole, Guid>
     public DbSet<Notificacao> Notificacao { get; set; } = null!;
     public DbSet<Rota> Rota { get; set; } = null!;
     public DbSet<Cep> Cep { get; set; } = null!;
+    public DbSet<Posicao> Posicao { get; set; } = null!;
 }

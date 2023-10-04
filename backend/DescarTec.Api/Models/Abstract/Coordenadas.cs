@@ -3,6 +3,6 @@
     public abstract class Coordenadas
     {
         public decimal Latitude { get; set; }
-        public decimal Longetude { get; set; }
+        public decimal Longitude { get; set; }
     }
 }

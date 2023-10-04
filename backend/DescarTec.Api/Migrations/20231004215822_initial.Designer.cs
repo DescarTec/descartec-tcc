@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DescarTec.Api.Migrations
 {
     [DbContext(typeof(MySqlContext))]
-    [Migration("20231003224822_initial")]
+    [Migration("20231004215822_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -139,10 +139,15 @@ namespace DescarTec.Api.Migrations
                     b.Property<decimal>("Latitude")
                         .HasColumnType("decimal(65,30)");
 
-                    b.Property<decimal>("Longetude")
+                    b.Property<decimal>("Longitude")
                         .HasColumnType("decimal(65,30)");
 
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("char(36)");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Posicao");
                 });
@@ -405,6 +410,17 @@ namespace DescarTec.Api.Migrations
                         .IsRequired();
 
                     b.Navigation("ApplicationUser");
+                });
+
+            modelBuilder.Entity("DescarTec.Api.Models.Posicao", b =>
+                {
+                    b.HasOne("DescarTec.Api.Models.UserBase", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("DescarTec.Api.Models.Rota", b =>

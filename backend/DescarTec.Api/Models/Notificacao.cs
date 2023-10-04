@@ -30,9 +30,5 @@ namespace DescarTec.Api.Models
             return this;
         }
     }
-    public class NotificacaoMeta
-    {
-        public int TotalNaoLidos { get; set; }
-        public NotificacaoMeta() { }
-    }
+
 }

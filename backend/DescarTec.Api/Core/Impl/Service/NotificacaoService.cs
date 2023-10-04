@@ -1,6 +1,7 @@
 ﻿using DescarTec.Api.Core.Interfaces.Repository;
 using DescarTec.Api.Core.Interfaces.Service;
 using DescarTec.Api.Models;
+using DescarTec.Api.Models.Meta;
 using DescarTec.Api.Models.Response;
 
 namespace DescarTec.Api.Core.Impl.Service
@@ -58,7 +59,7 @@ namespace DescarTec.Api.Core.Impl.Service
             }
         }
 
-        public async Task<ListResponse<List<Notificacao>, NotificacaoMeta>> GetNotificacoes()
+        public async Task<ListResponse<Notificacao, NotificacaoMeta>> GetNotificacoes()
         {
             var curretUser = await _authService.GetCurrentUser();
             try
@@ -71,11 +72,11 @@ namespace DescarTec.Api.Core.Impl.Service
                 };
                 var count = result.Count;
 
-                return new ListResponse<List<Notificacao>, NotificacaoMeta>(result, meta, count);
+                return new ListResponse<Notificacao, NotificacaoMeta>(result, meta);
             }
             catch
             {
-                return new ListResponse<List<Notificacao>, NotificacaoMeta>(new ErroResponse()
+                return new ListResponse<Notificacao, NotificacaoMeta>(new ErroResponse()
                 {
                     Exception = new Exception("Context Error"),
                     Message = "Erro ao obter notificacoes no contexto"
