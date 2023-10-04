@@ -17,15 +17,31 @@ namespace DescarTec.Api.Controllers
             _posicaoService = posicaoService;
         }
 
-
-        [HttpPost("SetPosicao")]
+        [Authorize(Roles = "Coletor")]
+        [HttpPost("set-posicao")]
         public async Task<ActionResult> SetPosicao([FromBody] PosicaoRequest posicao)
         {
             try
             {
-                await _posicaoService.SetPosicao(posicao);
+                var result = await _posicaoService.SetPosicao(posicao);
 
-                return Ok(true);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [AllowAnonymous]
+        [HttpPost("listar-posicoes-coletores")]
+        public async Task<ActionResult> ListPosicoesColetores()
+        {
+            try
+            {
+                var result = await _posicaoService.ListPosicoesColetores();
+
+                return Ok(result);
             }
             catch (Exception ex)
             {

@@ -23,9 +23,9 @@ namespace DescarTec.Api.Controllers
         {
             try
             {
-                await _rotaService.IniciarRota(rotaRequest);
+                var result = await _rotaService.IniciarRota(rotaRequest);
 
-                return Ok(true);
+                return Ok(result);
             }
             catch (Exception ex)
             {
