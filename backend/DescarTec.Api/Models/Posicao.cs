@@ -9,8 +9,8 @@ namespace DescarTec.Api.Models
         public Guid Id { get; set; }
         public UserBase User { get; set; }
         public Posicao() { }
-        public Posicao(PosicaoRequest posicaoResquest, UserBase user) { 
-            User = user;
+        public Posicao(PosicaoRequest posicaoResquest, UserBase user) {
+            User = (ColetorUser)user;
             Latitude = posicaoResquest.Latitude;
             Longitude = posicaoResquest.Longitude;
         }

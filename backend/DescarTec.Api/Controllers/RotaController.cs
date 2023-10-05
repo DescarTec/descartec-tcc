@@ -32,5 +32,35 @@ namespace DescarTec.Api.Controllers
                 return BadRequest(ex.Message);
             }
         }
+        [Authorize(Roles = "Coletor")]
+        [HttpPost("encerrar-rota-ativa")]
+        public async Task<ActionResult> EncerrarRotaAtiva()
+        {
+            try
+            {
+                var result = await _rotaService.EncerrarRotaAtiva();
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [Authorize(Roles = "Coletor")]
+        [HttpGet("get-rota-ativa")]
+        public async Task<ActionResult> GetRotaAtiva()
+        {
+            try
+            {
+                var result = await _rotaService.GetRotaAtiva();
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

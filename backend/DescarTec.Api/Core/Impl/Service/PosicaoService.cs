@@ -1,5 +1,4 @@
-﻿using DescarTec.Api.Core.Impl.Repository;
-using DescarTec.Api.Core.Interfaces.Repository;
+﻿using DescarTec.Api.Core.Interfaces.Repository;
 using DescarTec.Api.Core.Interfaces.Service;
 using DescarTec.Api.Models.Request;
 using DescarTec.Api.Models.Response;
@@ -12,12 +11,14 @@ namespace DescarTec.Api.Core.Impl.Service
     public class PosicaoService : IPosicaoService
     {
         private readonly IAuthService _authService;
+        private readonly IRotaService _rotaService;
         private readonly IPosicaoRepository _posicaoRepository;
 
-        public PosicaoService(IAuthService authService, IPosicaoRepository posicaoRepository)
+        public PosicaoService(IAuthService authService, IPosicaoRepository posicaoRepository, IRotaService rotaService)
         {
             _authService = authService;
             _posicaoRepository = posicaoRepository;
+            _rotaService = rotaService;
         }
 
         public async Task<DataResponse<bool>> SetPosicao(PosicaoRequest posicaoRequest)
@@ -27,8 +28,18 @@ namespace DescarTec.Api.Core.Impl.Service
             {
                 try
                 {
-                    var posicao = new Posicao(posicaoRequest, currentUser);
-                    _ = await _posicaoRepository.InsertOrUpdateAsync(posicao);
+                    var posisaoExists = await _posicaoRepository.GetByUserIdAsync(currentUser.Id); 
+                    if (posisaoExists == null)
+                    {
+                        var posicao = new Posicao(posicaoRequest, currentUser);
+                        _ = await _posicaoRepository.CreateAsync(posicao);
+                    }
+                    else
+                    {
+                        posisaoExists.Longitude = posicaoRequest.Longitude;
+                        posisaoExists.Latitude = posicaoRequest.Latitude;
+                        _ = await _posicaoRepository.UpdateAsync(posisaoExists);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -61,7 +72,10 @@ namespace DescarTec.Api.Core.Impl.Service
                 var listPosicaoDto = new List<PosicaoDto>();
                 foreach (var posicao in result)
                 {
-                    listPosicaoDto.Add(new PosicaoDto(posicao));
+                    var rota = await _rotaService.GetRotaAtiva(posicao.User.Id);
+                    if (rota != null) { 
+                        listPosicaoDto.Add(new PosicaoDto(posicao, rota.DataFim)); 
+                    };
                 }
                 return new ListResponse<PosicaoDto, PosicaoMeta>(listPosicaoDto, new());
             }

@@ -7,9 +7,9 @@ namespace DescarTec.Api.Models.Dto
         public string ColetorName { get; set; }
         public DateTime DataFim { get; set; }
 
-        public PosicaoDto(Posicao posicao) {
+        public PosicaoDto(Posicao posicao, DateTime dataFim) {
             ColetorName = posicao.User.Nome;
-            DataFim = ((ColetorUser)posicao.User).Rota.First(r => r.DataFim >= DateTime.Now).DataFim;
+            DataFim = dataFim;
             Longitude = posicao.Longitude;
             Latitude = posicao.Latitude;
         }

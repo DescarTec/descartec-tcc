@@ -12,6 +12,7 @@ namespace DescarTec.Api.Config.InjecaoDependencia
             services.AddScoped<IEnderecoRepository, EnderecoRepository>();
             services.AddScoped<INotificacaoRepository, NotificacaoRepository>();
             services.AddScoped<IRotaRepository, RotaRepository>();
+            services.AddScoped<IPosicaoRepository, PosicaoRepository>();
         }
     }
 }

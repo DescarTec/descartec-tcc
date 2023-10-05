@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DescarTec.Api.Migrations
 {
     [DbContext(typeof(MySqlContext))]
-    [Migration("20231004215822_initial")]
+    [Migration("20231004232054_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

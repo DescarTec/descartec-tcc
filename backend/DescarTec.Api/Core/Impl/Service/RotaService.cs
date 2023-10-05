@@ -24,6 +24,8 @@ namespace DescarTec.Api.Core.Impl.Service
             var currentUser = await _authService.GetCurrentUser();
             try
             {
+                _ = await EncerrarRotaAtiva(currentUser.Id);
+
                 var rota = new Rota(rotaRequest, currentUser);
                 var result = await _rotaRepository.CreateAsync(rota);
                 _ = await _notificacaoService.NotificarRota(rotaRequest.Ceps);
@@ -37,6 +39,38 @@ namespace DescarTec.Api.Core.Impl.Service
                 );
             }
             return new DataResponse<bool>(true);
+        }
+
+        public async Task<Rota?> GetRotaAtiva(Guid? userId = null)
+        {
+            try
+            {
+                if (userId == null) { var user = await _authService.GetCurrentUser(); userId = user.Id; }
+                var result = await _rotaRepository.GetRotaAtiva((Guid)userId);
+                return result;
+            } catch (Exception ex)
+            {
+                throw new Exception("Erro ao buscar Rota ativa", ex);
+            }
+        }
+
+        public async Task<DataResponse<bool>> EncerrarRotaAtiva(Guid? userId = null)
+        {
+            try
+            {
+                if (userId == null) { var user = await _authService.GetCurrentUser(); userId = user.Id; }
+                var rotaAtivaExist = await GetRotaAtiva(userId);
+                if (rotaAtivaExist != null)
+                {
+                    rotaAtivaExist.DataFim = DateTime.Now;
+                    _ = await _rotaRepository.UpdateAsync(rotaAtivaExist);
+                }
+                return new(true);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao encerrar Rota ativa", ex);
+            }
         }
     }
 }

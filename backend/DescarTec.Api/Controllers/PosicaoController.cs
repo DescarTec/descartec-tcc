@@ -34,7 +34,7 @@ namespace DescarTec.Api.Controllers
         }
 
         [AllowAnonymous]
-        [HttpPost("listar-posicoes-coletores")]
+        [HttpGet("listar-posicoes-coletores")]
         public async Task<ActionResult> ListPosicoesColetores()
         {
             try
