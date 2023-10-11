@@ -7,11 +7,12 @@ COPY . .
 
 RUN dotnet restore
 RUN dotnet build
-
+COPY ./File ./bin/Debug/net6.0/File
 
 WORKDIR /usr/share/app/bin/Debug/net6.0
 
 EXPOSE 88
 EXPOSE 444
 
-ENTRYPOINT ["dotnet", "DescarTec.Api.dll"]
+ ENTRYPOINT ["dotnet", "DescarTec.Api.dll"]
+# ENTRYPOINT ["sleep", "6000"]
