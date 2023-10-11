@@ -2,7 +2,7 @@
 
 namespace DescarTec.Api.Models.Request
 {
-    public class SetPosicaoRequest : Coordenadas
+    public class PosicaoRequest : Coordenadas
     {
     }
 }

@@ -62,6 +62,7 @@ namespace DescarTec.Api.Core.Impl.Service
             SmtpClient client = new("smtp.gmail.com")
             {
                 EnableSsl = true,
+                Port = 587,
                 Credentials = new System.Net.NetworkCredential(emailFrom, password)
             };
 

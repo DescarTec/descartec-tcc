@@ -46,6 +46,21 @@ namespace DescarTec.Api.Migrations
                     b.ToTable("AspNetRoles", (string)null);
                 });
 
+            modelBuilder.Entity("DescarTec.Api.Models.Cep", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<string>("Value")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Cep");
+                });
+
             modelBuilder.Entity("DescarTec.Api.Models.Endereco", b =>
                 {
                     b.Property<Guid>("Id")
@@ -122,12 +137,65 @@ namespace DescarTec.Api.Migrations
                     b.Property<decimal>("Latitude")
                         .HasColumnType("decimal(65,30)");
 
-                    b.Property<decimal>("Longetude")
+                    b.Property<decimal>("Longitude")
                         .HasColumnType("decimal(65,30)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("char(36)");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("UserId");
+
                     b.ToTable("Posicao");
+                });
+
+            modelBuilder.Entity("DescarTec.Api.Models.Rota", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<Guid?>("ColetorUserId")
+                        .HasColumnType("char(36)");
+
+                    b.Property<DateTime>("DataFim")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("DataInicio")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("char(36)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ColetorUserId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Rota");
+                });
+
+            modelBuilder.Entity("DescarTec.Api.Models.RotaCep", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<Guid>("CepId")
+                        .HasColumnType("char(36)");
+
+                    b.Property<Guid>("RotaId")
+                        .HasColumnType("char(36)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CepId");
+
+                    b.HasIndex("RotaId");
+
+                    b.ToTable("RotaCep");
                 });
 
             modelBuilder.Entity("DescarTec.Api.Models.UserBase", b =>
@@ -342,6 +410,51 @@ namespace DescarTec.Api.Migrations
                     b.Navigation("ApplicationUser");
                 });
 
+            modelBuilder.Entity("DescarTec.Api.Models.Posicao", b =>
+                {
+                    b.HasOne("DescarTec.Api.Models.UserBase", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("DescarTec.Api.Models.Rota", b =>
+                {
+                    b.HasOne("DescarTec.Api.Models.ColetorUser", null)
+                        .WithMany("Rota")
+                        .HasForeignKey("ColetorUserId");
+
+                    b.HasOne("DescarTec.Api.Models.UserBase", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("DescarTec.Api.Models.RotaCep", b =>
+                {
+                    b.HasOne("DescarTec.Api.Models.Cep", "Cep")
+                        .WithMany()
+                        .HasForeignKey("CepId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DescarTec.Api.Models.Rota", "Rota")
+                        .WithMany("RotaCeps")
+                        .HasForeignKey("RotaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Cep");
+
+                    b.Navigation("Rota");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
                 {
                     b.HasOne("DescarTec.Api.Models.ApplicationRole", null)
@@ -413,9 +526,19 @@ namespace DescarTec.Api.Migrations
                     b.Navigation("Posicao");
                 });
 
+            modelBuilder.Entity("DescarTec.Api.Models.Rota", b =>
+                {
+                    b.Navigation("RotaCeps");
+                });
+
             modelBuilder.Entity("DescarTec.Api.Models.ApplicationUser", b =>
                 {
                     b.Navigation("Notificacao");
+                });
+
+            modelBuilder.Entity("DescarTec.Api.Models.ColetorUser", b =>
+                {
+                    b.Navigation("Rota");
                 });
 #pragma warning restore 612, 618
         }
