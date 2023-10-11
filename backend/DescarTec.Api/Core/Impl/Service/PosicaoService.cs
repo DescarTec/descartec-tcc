@@ -28,17 +28,17 @@ namespace DescarTec.Api.Core.Impl.Service
             {
                 try
                 {
-                    var posisaoExists = await _posicaoRepository.GetByUserIdAsync(currentUser.Id); 
-                    if (posisaoExists == null)
+                    var posicaoExists = await _posicaoRepository.GetByUserIdAsync(currentUser.Id); 
+                    if (posicaoExists == null)
                     {
                         var posicao = new Posicao(posicaoRequest, currentUser);
                         _ = await _posicaoRepository.CreateAsync(posicao);
                     }
                     else
                     {
-                        posisaoExists.Longitude = posicaoRequest.Longitude;
-                        posisaoExists.Latitude = posicaoRequest.Latitude;
-                        _ = await _posicaoRepository.UpdateAsync(posisaoExists);
+                        posicaoExists.Longitude = posicaoRequest.Longitude;
+                        posicaoExists.Latitude = posicaoRequest.Latitude;
+                        _ = await _posicaoRepository.UpdateAsync(posicaoExists);
                     }
                 }
                 catch (Exception ex)
