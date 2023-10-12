@@ -1,6 +1,7 @@
 ﻿using DescarTec.Api.Core.Interfaces.Service;
 using DescarTec.Api.Models.Request;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DescarTec.Api.Controllers
@@ -8,6 +9,8 @@ namespace DescarTec.Api.Controllers
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("_myAllowSpecificOrigins")]
+
     public class RotaController : ControllerBase
     {
         private readonly IRotaService _rotaService;
