@@ -9,15 +9,15 @@ export class SignUpDto {
   password:        string;
   passwordConfirm: string;
   phoneNumber:     string;
-  cep:             string;
-  logradouro:      string;
-  bairro:          string;
-  localidade:      string;
-  uf:              string;
-  ibge:            string;
-  ddd:             string;
+  cep?:             string;
+  logradouro?:      string;
+  bairro?:          string;
+  localidade?:      string;
+  uf?:              string;
+  ibge?:            string;
+  ddd?:             string;
 
-  constructor(form: FormGroup, address: Address){
+  constructor(form: FormGroup, address?: Address){
     this.username = form.get('username')!.value;
     this.nomeCompleto = form.get('completeName')!.value;
     this.dataNascimento = new Date();
@@ -25,14 +25,13 @@ export class SignUpDto {
     this.password = form.get('password')!.value;
     this.passwordConfirm = form.get('passwordConfirm')!.value;
     this.phoneNumber = form.get('phoneNumber')!.value;
-    this.cep = address.cep;
-    this.logradouro = address.logradouro;
-    this.bairro = address.bairro;
-    this.localidade = address.localidade;
-    this.uf = address.uf;
-    this.ibge = address.ibge;
-    this.ddd = address.ddd;
+    this.cep = address?.cep;
+    this.logradouro = address?.logradouro;
+    this.bairro = address?.bairro;
+    this.localidade = address?.localidade;
+    this.uf = address?.uf;
+    this.ibge = address?.ibge;
+    this.ddd = address?.ddd;
     this.dataNascimento = new Date();
-  }
-
+  };
 }

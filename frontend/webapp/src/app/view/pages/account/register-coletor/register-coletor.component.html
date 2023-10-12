@@ -1,0 +1,60 @@
+<div class="custom-card">
+    <h2>REGISTRO  DE COLETOR</h2>
+    <div class="card-body">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <label class="form-label">NOME COMPLETO</label>
+                <input type="text" formControlName="completeName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['completeName'].errors }" />
+                <div *ngIf="submitted && f['completeName'].errors" class="invalid-feedback" >
+                    <div *ngIf="f['completeName'].errors['required']"><span style="color: rgba(252, 71, 58, 0.979)">Nome Completo é obrigatório</span></div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">E-MAIL</label>
+                <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" />
+                <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                    <div *ngIf="f['email'].errors['required']"><span style="color: rgba(252, 71, 58, 0.979)">E-mail é obrigatório</span></div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">CELULAR</label>
+                <input type="text" formControlName="phoneNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['phoneNumber'].errors }" (keypress)="onPhoneKeyPress($event)" />
+                <div *ngIf="submitted && f['phoneNumber'].errors" class="invalid-feedback">
+                    <div *ngIf="f['phoneNumber'].errors['required']"><span style="color: rgba(252, 71, 58, 0.979)">Celular é obrigatório</span></div>
+                </div>
+            </div>
+                           
+            <div class="mb-3">
+                <label class="form-label">USUARIO</label>
+                <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['username'].errors }" />
+                <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
+                    <div *ngIf="f['username'].errors['required']"><span style="color: rgba(252, 71, 58, 0.979)">Username é obrigatório</span></div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">SENHA</label>
+                <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" />
+                <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+                    <div *ngIf="f['password'].errors['required']"><span style="color: rgba(252, 71, 58, 0.979)">Senha é obrigatório</span></div>
+                    <div *ngIf="f['password'].errors['minlength']"><span style="color: rgba(252, 71, 58, 0.979)">Senha deve conter no mínimo 6 caracteres</span></div>
+                    <div *ngIf="f['password'].errors['passwordInvalid']"><span style="color: rgba(252, 71, 58, 0.979)">Senha deve conter <br>- 1 carácter especial, <br>- 1 letra maiúscula, <br>- 1 letra minúscula <br>- 1 numero </span></div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">CONFIRMAR SENHA</label>
+                <input type="password" formControlName="passwordConfirm" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['passwordConfirm'].errors }" />
+                <div *ngIf="submitted && f['passwordConfirm'].errors" class="invalid-feedback">
+                    <div *ngIf="f['passwordConfirm'].errors['required']"><span style="color: rgba(252, 71, 58, 0.979)">Confirmar Senha é obrigatório</span></div>
+                    <div *ngIf="f['passwordConfirm'].errors['confirmPassword']"><span style="color: rgba(252, 71, 58, 0.979)">As senhas devem ser iguais</span></div>
+                </div>
+            </div>					
+            <div>
+                <button [disabled]="loading">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm me-1"></span>
+                    REGISTRAR
+                </button>
+                <a routerLink="../login" class="btn btn-link custom-link">Já registrado?</a>
+            </div>
+        </form>
+    </div>
+</div>

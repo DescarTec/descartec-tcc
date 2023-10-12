@@ -33,6 +33,21 @@ export class AccountRepository {
       );
   }
 
+  registerColetor(newUser: SignUpDto): Observable<SignUpDto> {
+    console.log(newUser);
+    return this.httpClient
+      .post<SignUpDto>(
+        `${this.apiUrl}/api/Auth/sign-up-coletor`,
+        newUser
+      )
+      .pipe(
+        map((ret) => {
+          console.log(ret);
+          return ret;
+        })
+      );
+  }
+
   login(username: string, password: string): Observable<SsoDto> {
     console.log({ username, password });
     console.log(`${this.apiUrl}/api/Auth/sign-in`);
