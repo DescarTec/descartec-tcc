@@ -11,6 +11,7 @@ export class User {
   enumUserType?: number;
   emailConfirmed: boolean = false;
   phoneNumber: string;
+  discriminator: string;
 
   token?: string;
 
@@ -22,6 +23,7 @@ export class User {
     endereco: string,
     cep: number,
     phoneNumber: string,
+    discriminator: string
   ) {
     this.id = id;
     this.email = email;
@@ -30,5 +32,6 @@ export class User {
     this.endereco = endereco;
     this.cep = cep;
     this.phoneNumber = phoneNumber;
+    this.discriminator = discriminator;
   }
 }

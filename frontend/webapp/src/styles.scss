@@ -113,7 +113,7 @@ button {
     font-family: ClashDisplay-Medium;
   }
   button {
-    background: $cor-sucesso;
+    background: $cor-primaria;
     border: 2px black solid;
     box-shadow: 3px 3px 0px black;
     font-family: 'ClashDisplay-Bold';
@@ -121,18 +121,18 @@ button {
     border-radius: 1px;
 
     &:hover {
-      background-color: $cor-destaque;
+      background-color: $cor-primaria-escura;
       color: white;
     }
   }
 }
 
-@media only screen and (max-width: 974px) {
+@media only screen and (max-width: 991px) {
   .only-desktop {
     display:none;
   }
 }
-@media only screen and (min-width: 973px) {
+@media only screen and (min-width: 991px) {
   .only-mobile {
     display:none;
   }

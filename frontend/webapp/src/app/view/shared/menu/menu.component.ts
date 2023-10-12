@@ -11,7 +11,8 @@ export class MenuComponent implements OnInit {
   
   isLogged = false;
   selected?: string = "";
-  relativePath = environment.relativePath
+  relativePath = environment.relativePath;
+  isColetor = false;
 
   
   constructor(
@@ -21,11 +22,12 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
     this.accountService.currentUserObservable.subscribe((currentUser) => {
       this.isLogged = currentUser !== null;
+      this.isColetor = currentUser.discriminator == "ColetorUser";
     });
   }
 
   logout(): void {
-    this.accountService.reset()
+    this.accountService.reset();
   }
 
   isMenuOpen = false;

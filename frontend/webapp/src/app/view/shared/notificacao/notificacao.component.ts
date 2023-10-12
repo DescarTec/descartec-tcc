@@ -28,7 +28,6 @@ export class NotificacaoComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.accountService.currentUserObservable.subscribe((currentUser) => {
-      console.log("atualizou");
       this.notificacao = undefined;
       this.notificationCount = 0; 
       if(currentUser !== null) {

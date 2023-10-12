@@ -19,6 +19,7 @@ import { MapaComponent } from './view/pages/mapa/mapa.component';
 import { InformacaoComponent } from './view/pages/informacao/informacao.component';
 import { NotificacaoComponent } from './view/shared/notificacao/notificacao.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { RotaComponent } from './view/pages/rota/rota.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
     AlertComponent,
     MapaComponent,
     InformacaoComponent,
-    NotificacaoComponent
+    NotificacaoComponent,
+    RotaComponent
   ],
   imports: [
     CommonModule,

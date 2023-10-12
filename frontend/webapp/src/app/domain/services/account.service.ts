@@ -68,4 +68,8 @@ export class AccountService {
     return this.accountRepository.register(user);
   }
 
+  registerColetor(user: SignUpDto) {
+    return this.accountRepository.registerColetor(user);
+  }
+
 }

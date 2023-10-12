@@ -34,7 +34,6 @@ export class MapaComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(Capacitor.isNativePlatform());
     if (Capacitor.isNativePlatform()) {
       this.getCurrentPositionMobile();
     } else {
@@ -44,7 +43,6 @@ export class MapaComponent implements OnInit {
 
   async getCurrentPositionMobile() {
     const loc = await Geolocation.getCurrentPosition();
-    console.log(loc);
     this.lat = loc.coords.latitude;
     this.lng = loc.coords.longitude;
     this.initializeMap();
