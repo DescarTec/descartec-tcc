@@ -1459,7 +1459,7 @@ button {
   font-family: ClashDisplay-Medium;
 }
 .custom-card button {
-  background: #AAF39E;
+  background: #fcae56;
   border: 2px black solid;
   box-shadow: 3px 3px 0px black;
   font-family: "ClashDisplay-Bold";
@@ -1467,16 +1467,16 @@ button {
   border-radius: 1px;
 }
 .custom-card button:hover {
-  background-color: #FFF;
+  background-color: #f39a14;
   color: white;
 }
 
-@media only screen and (max-width: 974px) {
+@media only screen and (max-width: 991px) {
   .only-desktop {
     display: none;
   }
 }
-@media only screen and (min-width: 973px) {
+@media only screen and (min-width: 991px) {
   .only-mobile {
     display: none;
   }
