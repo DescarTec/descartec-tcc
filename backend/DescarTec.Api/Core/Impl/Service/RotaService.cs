@@ -62,7 +62,7 @@ namespace DescarTec.Api.Core.Impl.Service
                 var rotaAtivaExist = await GetRotaAtiva(userId);
                 if (rotaAtivaExist != null)
                 {
-                    rotaAtivaExist.DataFim = DateTime.Now;
+                    rotaAtivaExist.DataFim = DateTime.UtcNow;
                     _ = await _rotaRepository.UpdateAsync(rotaAtivaExist);
                 }
                 return new(true);

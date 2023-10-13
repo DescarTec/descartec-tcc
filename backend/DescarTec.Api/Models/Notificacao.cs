@@ -7,7 +7,7 @@ namespace DescarTec.Api.Models
         public Notificacao() 
         {
             Lido = false;
-            Data = DateTime.Now;
+            Data = DateTime.UtcNow;
         }
 
         public Guid Id { get; set; }

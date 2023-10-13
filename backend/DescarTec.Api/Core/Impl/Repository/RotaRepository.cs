@@ -15,7 +15,7 @@ namespace DescarTec.Api.Core.Impl.Repository
 
         public async Task<Rota?> GetRotaAtiva(Guid userId)
         {
-            var result = await _context.Rota.Where(r => userId == r.User.Id && r.DataFim >= DateTime.Now)
+            var result = await _context.Rota.Where(r => userId == r.User.Id && r.DataFim >= DateTime.UtcNow).Include(c => c.RotaCeps).ThenInclude(c => c.Cep)
                 .FirstOrDefaultAsync();
 
             return result;
