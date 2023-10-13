@@ -1,9 +1,13 @@
 <div>
     <br>
-    <p *ngIf="!lat || !lng">Buscando sua localização... Para visualização, autorizar localização em seu navegador</p>
-    <div *ngIf="options" class="map-container" leaflet [leafletOptions]="options" (leafletMapReady)="onMapReady($event)"
-        (leafletClick)="mapClicked($event)" style="height: 500px;">
+    <div class="container">
+        <p *ngIf="!lat || !lng">Buscando sua localização... Para visualização, autorizar localização em seu navegador ou aplicativo</p>
+        <div *ngIf="options" class="map-container" leaflet [leafletOptions]="options" (leafletMapReady)="onMapReady($event)"
+            (leafletClick)="mapClicked($event)" style="height: 500px;">
+        </div>
+        <br>
+        <button class="custom-button-card" *ngIf="options" (click)="updateDriverPosition">MockColetor</button>
+        <!-- <div id="map" style="height: 500px"></div> -->
+
     </div>
-    <button *ngIf="options" (click)="updateDriverPosition"></button>
-    <!-- <div id="map" style="height: 500px"></div> -->
 </div>

@@ -9,57 +9,73 @@
                     </li>
                     <li *ngFor="let cep of listCep" class="list-group-item">{{cep}}</li>
                 </ul>
-                <span *ngIf="iniciarRotaB && erroLista" style="color: rgba(252, 71, 58, 0.979)">Lista de ceps obrigatório</span>
+                <span *ngIf="iniciarRotaB && erroLista" style="color: rgba(252, 71, 58, 0.979)">Lista de ceps
+                    obrigatório</span>
 
                 <br>
-                <div class="cs-form">
+                <div class="cs-form" *ngIf="!rotaAtiva">
                     <label class="form-label">Por quanto tempo gostaria de compartilhar sua localização</label>
                     <input formControlName="tempo" type="time" class="form-control" />
-                    <span *ngIf="iniciarRotaB && erroTempo" style="color: rgba(252, 71, 58, 0.979)">Tempo de rota obrigatório</span>
+                    <span *ngIf="iniciarRotaB && erroTempo" style="color: rgba(252, 71, 58, 0.979)">Tempo de rota
+                        obrigatório</span>
                 </div>
                 <br>
-                <button type="button" class="custom-button-card" style="width: auto; height: auto;"
+                <button *ngIf="!rotaAtiva" type="button" class="custom-button-card" style="width: auto; height: auto;"
                     (click)="iniciarRota()">
                     INICIAR ROTA
                 </button>
+                <button *ngIf="rotaAtiva" type="button" class="custom-button-card" style="width: auto; height: auto;"
+                    (click)="encerrarRota()">
+                    ENCERRAR ROTA
+                </button>
             </div>
             <div class="col-md-8">
-                <label class="form-label">CEP</label>
-                <input type="text" formControlName="cep" class="form-control"
-                    [ngClass]="{ 'is-invalid': submitted && f['cep'].errors }" maxLength="9"
-                    (input)="formatarCep($event)" />
-                <div *ngIf="submitted && f['cep'].errors" class="invalid-feedback">
-                    <div *ngIf="f['cep'].errors['required']"><span style="color: rgba(252, 71, 58, 0.979)">CEP é
-                            obrigatório</span></div>
-                    <div *ngIf="f['cep'].errors['invalidCep']"><span style="color: rgba(252, 71, 58, 0.979)">CEP é
-                            inválido</span></div>
+                <div *ngIf="!rotaAtiva">
+
+                    <label class="form-label">CEP</label>
+                    <input type="text" formControlName="cep" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f['cep'].errors }" maxLength="9"
+                        (input)="formatarCep($event)" />
+                    <div *ngIf="submitted && f['cep'].errors" class="invalid-feedback">
+                        <div *ngIf="f['cep'].errors['required']"><span style="color: rgba(252, 71, 58, 0.979)">CEP é
+                                obrigatório</span></div>
+                        <div *ngIf="f['cep'].errors['invalidCep']"><span style="color: rgba(252, 71, 58, 0.979)">CEP é
+                                inválido</span></div>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="form-group">
+                            <label for="logradouro">RUA/LOGADOURO</label>
+                            <input type="text" id="logradouro" formControlName="logradouro" class="form-control"
+                                readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bairro">BAIRRO</label>
+                            <input type="text" id="bairro" formControlName="bairro" class="form-control" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="localidade">CIDADE</label>
+                            <input type="text" id="localidade" formControlName="localidade" class="form-control"
+                                readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="uf">ESTADO</label>
+                            <input type="text" id="uf" formControlName="uf" class="form-control" readonly>
+                        </div>
+                    </div>
+                    <div>
+                        <button class="custom-button-card" style="background-color: #D8FF4A; color: black;">
+                            ADICIONAR CEP
+                        </button>
+                    </div>
                 </div>
-
-                <div class="mb-3">
-                    <div class="form-group">
-                        <label for="logradouro">RUA/LOGADOURO</label>
-                        <input type="text" id="logradouro" formControlName="logradouro" class="form-control" readonly>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="bairro">BAIRRO</label>
-                        <input type="text" id="bairro" formControlName="bairro" class="form-control" readonly>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="localidade">CIDADE</label>
-                        <input type="text" id="localidade" formControlName="localidade" class="form-control" readonly>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="uf">ESTADO</label>
-                        <input type="text" id="uf" formControlName="uf" class="form-control" readonly>
-                    </div>
-                </div>
-                <div>
-                    <button class="custom-button-card" style="background-color: #D8FF4A; color: black;">
-                        ADICIONAR CEP
-                    </button>
+                <div *ngIf="rotaAtiva">
+                    <span>{{rotaAtiva.dataInicio}}</span><br>
+                    <span>{{rotaAtiva.dataFim}}</span><br>
+                    <span>{{getUserToString()}}</span>
                 </div>
             </div>
         </div>

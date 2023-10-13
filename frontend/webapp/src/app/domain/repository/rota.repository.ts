@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, lastValueFrom } from 'rxjs';
+import { Rota } from 'src/app/models/rota';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -15,6 +16,7 @@ export class RotaRepository {
   constructor(private httpClient: HttpClient) { }
 
   async iniciarRota(ceps : string[], dataFim : Date): Promise<boolean> {
+    console.log({ceps : ceps, dataFim: dataFim})
     return await lastValueFrom(this.httpClient
       .post<boolean>(
         `${this.apiUrl}/api/Rota/iniciar-rota`, {ceps : ceps, dataFim: dataFim}
@@ -24,7 +26,14 @@ export class RotaRepository {
   async encerrarRotaAtiva(): Promise<boolean> {
     return await lastValueFrom(this.httpClient
       .post<boolean>(
-        `${this.apiUrl}/api/Rota//api/Rota/encerrar-rota-ativa`, null
+        `${this.apiUrl}/api/Rota/encerrar-rota-ativa`, null
+      ));
+  }
+
+  async getRotaAtiva(): Promise<Rota> {
+    return await lastValueFrom(this.httpClient
+      .get<Rota>(
+        `${this.apiUrl}/api/Rota/get-rota-ativa`
       ));
   }
 }

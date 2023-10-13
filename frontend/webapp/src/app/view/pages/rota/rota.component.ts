@@ -6,6 +6,7 @@ import { Address, AddressService } from 'src/app/domain/services/address.service
 import { AlertService } from 'src/app/domain/services/alert.service';
 import { PositionTrackingService } from 'src/app/domain/services/position-tracking.service';
 import { RotaService } from 'src/app/domain/services/rota.service';
+import { Rota } from 'src/app/models/rota';
 
 @Component({
   selector: 'app-rota',
@@ -20,6 +21,12 @@ export class RotaComponent {
   iniciarRotaB = false;
   erroTempo = false;
   erroLista = false;
+  rotaAtiva: Rota | undefined = undefined;
+
+  getUserToString(){
+    return JSON.stringify(this.rotaAtiva?.user)
+  }
+
   constructor(
     private formBuilder: FormBuilder,
     private positionTrackingService: PositionTrackingService,
@@ -33,6 +40,7 @@ export class RotaComponent {
     if (this.accountService.currentUser.discriminator != "ColetorUser") {
       this.router.navigate(['/']);
     }
+    
   }
 
   async iniciarRota() {
@@ -44,10 +52,10 @@ export class RotaComponent {
     if (tempo == undefined || tempo === "") {
       this.erroTempo = true;
     } 
-    if (this.listCep.length === 0) {
-      this.erroLista = false;
+    if (this.listCep.length == 0) {
+      this.erroLista = true;
     }
-    if (!this.erroLista && !this.erroLista) {
+    if (!this.erroTempo && !this.erroLista) {
       await this.positionTrackingService.startPositionTracking();
 
       const [hours, minutes] = tempo.split(":").map(Number);
@@ -59,18 +67,28 @@ export class RotaComponent {
         currentDate.getHours() + hours,
         currentDate.getMinutes() + minutes
       )
-      console.log(dataFim)
-
       await this.rotaService.iniciarRota(
         this.listCep,
         dataFim
       );
+
+      this.rotaAtiva = await this.rotaService.getRotaAtiva();
+      if(this.rotaAtiva){
+        this.listCep = [];
+        this.rotaAtiva.rotaCeps.forEach(element => {
+          this.listCep.push(element.cep.value);
+        });
+      }
     }
+  }
+  async encerrarRota() {
+    await this.rotaService.encerrarRotaAtiva();
+    this.rotaAtiva = undefined;
   }
 
   get f() { return this.form.controls; }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.form = this.formBuilder.group({
       cep: ['', Validators.required,],
       logradouro: ['', Validators.required],
@@ -115,6 +133,13 @@ export class RotaComponent {
         });
       }
     });
+    this.rotaAtiva = await this.rotaService.getRotaAtiva();
+    if(this.rotaAtiva){
+      this.listCep = [];
+      this.rotaAtiva.rotaCeps.forEach(element => {
+        this.listCep.push(element.cep.value);
+      });
+    }
   }
 
   onSubmit() {
