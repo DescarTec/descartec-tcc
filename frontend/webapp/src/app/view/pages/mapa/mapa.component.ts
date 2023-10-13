@@ -6,6 +6,8 @@ import { environment } from 'src/environments/environment';
 import { Geolocation } from '@capacitor/geolocation';
 import { Capacitor } from '@capacitor/core';
 import * as Leaflet from 'leaflet';
+import { PosicaoService } from 'src/app/domain/services/posicao.service';
+import { Coletor } from 'src/app/models/posicao';
 @Component({
   selector: 'app-mapa',
   templateUrl: './mapa.component.html',
@@ -19,7 +21,8 @@ export class MapaComponent implements OnInit {
   map!: Leaflet.Map;
   markers: Leaflet.Marker[] = [];
   options: any;
-  html: string = /*html*/`<img src="${this.relativePath}assets/images/mapa/icon1.png" />`  
+  html: string = /*html*/`<img src="${this.relativePath}assets/images/mapa/icon1.png" />` 
+  coletores : Coletor[] = []
 
   iconColetor: Leaflet.Icon = new Leaflet.Icon(
     {
@@ -30,7 +33,8 @@ export class MapaComponent implements OnInit {
     }
   );
 
-  constructor(private alertService: AlertService) {     
+  constructor(private alertService: AlertService, private posicaoService: PosicaoService) {
+
   }
 
   ngOnInit() {
@@ -39,6 +43,32 @@ export class MapaComponent implements OnInit {
     } else {
       this.getCurrentPositionDesktop();
     }
+  }
+
+  async getPositionColetor(){
+    setInterval(async () => {
+      let listPosicaoColetor = await this.posicaoService.listarPosicaoColetor();
+      if(!listPosicaoColetor.erro){
+        this.coletores = listPosicaoColetor.data;
+        this.updateMapa(this.coletores);
+      }
+    }, 15000)
+  }
+
+  updateMapa(coletores: Coletor[]){
+    this.markers = [];
+    coletores.forEach((element, i) => {
+      let coletorMarker = {
+        position: { lat: element.latitude, lng: element.longitude },
+        draggable: false
+      }
+      console.log(element)
+      const marker = this.generateMarker(coletorMarker, i)
+      marker.addTo(this.map).bindPopup(`<b>${element.coletorName}</b><br> Até: ${element.dataFim} `);
+      marker.setIcon(this.iconColetor);
+      this.markers.push(marker)
+    });  
+
   }
 
   async getCurrentPositionMobile() {
@@ -53,16 +83,12 @@ export class MapaComponent implements OnInit {
 
   getCurrentPositionDesktop() {
     if (navigator.geolocation) {
-      console.log(navigator.geolocation);
       navigator.geolocation.getCurrentPosition(
         position => {
           this.lat = position.coords.latitude;
           this.lng = position.coords.longitude;
 
           this.initializeMap();
-          setInterval(() => {
-            this.updateDriverPosition();
-          }, 15000);
 
         },
         error => {
@@ -109,9 +135,9 @@ export class MapaComponent implements OnInit {
       .on('dragend', (event) => this.markerDragEnd(event, index));
   }
 
-  onMapReady($event: Leaflet.Map) {
+  async onMapReady($event: Leaflet.Map) {
     this.map = $event;
-    this.initMarkers();
+    this.getPositionColetor();
   }
 
   mapClicked($event: any) {
