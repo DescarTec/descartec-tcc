@@ -1,5 +1,6 @@
 ﻿using DescarTec.Api.Models.Request;
 using System.Runtime.ConstrainedExecution;
+using System.Text.Json.Serialization;
 
 namespace DescarTec.Api.Models
 {
@@ -16,7 +17,7 @@ namespace DescarTec.Api.Models
         }
         public Rota(RotaRequest rotaRequest, UserBase user)
         {
-            DataInicio = DateTime.Now;
+            DataInicio = DateTime.UtcNow;
             DataFim = rotaRequest.DataFim;
             User = user;
 
@@ -34,6 +35,7 @@ namespace DescarTec.Api.Models
         public Guid RotaId { get; set; }
         public Guid CepId { get; set; }
 
+        [JsonIgnore]
         public Rota Rota { get; set; }
         public Cep Cep { get; set; }
     }

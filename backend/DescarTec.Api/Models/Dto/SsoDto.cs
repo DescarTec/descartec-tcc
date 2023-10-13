@@ -9,7 +9,7 @@
         public SsoDto(string access_token, UserBase user)
         {
             this.Access_token = access_token;
-            this.Expiration = DateTime.Now.DayOfWeek;
+            this.Expiration = DateTime.UtcNow.DayOfWeek;
             this.User = user;
         }
     }
