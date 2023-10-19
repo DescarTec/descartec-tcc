@@ -1935,6 +1935,28 @@ class AlertOptions {}
 
 /***/ }),
 
+/***/ 2439:
+/*!***********************************!*\
+  !*** ./src/app/models/posicao.ts ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Coletor": () => (/* binding */ Coletor)
+/* harmony export */ });
+class Coletor {
+  constructor(coletorName, dataFim, latitude, longitude) {
+    this.coletorName = coletorName;
+    this.dataFim = dataFim;
+    this.latitude = latitude;
+    this.longitude = longitude;
+  }
+}
+
+/***/ }),
+
 /***/ 3106:
 /*!***************************************************!*\
   !*** ./src/app/view/pages/home/home.component.ts ***!
@@ -2035,7 +2057,7 @@ let InformacaoComponent = /*#__PURE__*/(() => {
   InformacaoComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
     type: InformacaoComponent,
     selectors: [["app-informacao"]],
-    decls: 32,
+    decls: 56,
     vars: 0,
     consts: [[1, "custom-topic"], [1, "custom-topic-alt"], [1, "row"], [1, "col-md-12"]],
     template: function InformacaoComponent_Template(rf, ctx) {
@@ -2047,34 +2069,58 @@ let InformacaoComponent = /*#__PURE__*/(() => {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, "Como preparar seu lixo");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "p");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](6, "Preparar materiais inserv\u00EDveis para coleta \u00E9 uma pr\u00E1tica importante para a reciclagem e a preserva\u00E7\u00E3o do meio ambiente. O processo pode variar um pouco dependendo das pol\u00EDticas de coleta seletiva e reciclagem da sua regi\u00E3o, mas geralmente envolve os seguintes passos: Identifica\u00E7\u00E3o dos materiais inserv\u00EDveis: Primeiro, voc\u00EA precisa identificar quais materiais s\u00E3o considerados inserv\u00EDveis. Exemplos comuns incluem vidro quebrado, pl\u00E1sticos quebrados, eletr\u00F4nicos antigos, pilhas e baterias, l\u00E2mpadas queimadas, roupas desgastadas, entre outros. Separa\u00E7\u00E3o dos materiais: Separe os materiais inserv\u00EDveis dos demais res\u00EDduos. Use sacos pl\u00E1sticos resistentes ou caixas de papel\u00E3o para organizar os materiais de maneira limpa e segura. Limpeza e desmontagem (se aplic\u00E1vel): Alguns materiais, como eletr\u00F4nicos antigos, podem conter componentes t\u00F3xicos. Nesse caso, \u00E9 importante desmont\u00E1-los com cuidado, separando pe\u00E7as que podem ser recicladas de forma segura, como metais, pl\u00E1sticos e cabos, dos componentes que precisam de descarte especial, como baterias. Armazenamento seguro: Armazene os materiais inserv\u00EDveis em um local seguro e longe do alcance de crian\u00E7as e animais de estima\u00E7\u00E3o. Isso \u00E9 especialmente importante para materiais perigosos, como produtos qu\u00EDmicos dom\u00E9sticos.");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](6, "Preparar materiais inserv\u00EDveis para coleta \u00E9 uma pr\u00E1tica importante para a reciclagem e a preserva\u00E7\u00E3o do meio ambiente. O processo pode variar um pouco dependendo das pol\u00EDticas de coleta seletiva e reciclagem da sua regi\u00E3o, mas geralmente envolve os seguintes passos: ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](7, "br")(8, "br");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "strong");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](10, "Identifica\u00E7\u00E3o dos materiais inserv\u00EDveis:");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](11, "br");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](12, " Primeiro, voc\u00EA precisa identificar quais materiais s\u00E3o considerados inserv\u00EDveis. Exemplos comuns incluem vidro quebrado, pl\u00E1sticos quebrados, eletr\u00F4nicos antigos, pilhas e baterias, l\u00E2mpadas queimadas, roupas desgastadas, entre outros. ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](13, "br")(14, "br");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "strong");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](16, "Separa\u00E7\u00E3o dos materiais:");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](17, "br");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](18, " Separe os materiais inserv\u00EDveis dos demais res\u00EDduos. Use sacos pl\u00E1sticos resistentes ou caixas de papel\u00E3o para organizar os materiais de maneira limpa e segura. ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](19, "br")(20, "br");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](21, "strong");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](22, "Limpeza e desmontagem (se aplic\u00E1vel):");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](23, "br");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](24, " Alguns materiais, como eletr\u00F4nicos antigos, podem conter componentes t\u00F3xicos. Nesse caso, \u00E9 importante desmont\u00E1-los com cuidado, separando pe\u00E7as que podem ser recicladas de forma segura, como metais, pl\u00E1sticos e cabos, dos componentes que precisam de descarte especial, como baterias. ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](25, "br")(26, "br");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](27, "strong");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](28, "Armazenamento seguro:");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](29, "br");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](30, " Armazene os materiais inserv\u00EDveis em um local seguro e longe do alcance de crian\u00E7as e animais de estima\u00E7\u00E3o. Isso \u00E9 especialmente importante para materiais perigosos, como produtos qu\u00EDmicos dom\u00E9sticos.");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "div", 1)(8, "h1");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](9, "Sobre n\u00F3s");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](31, "div", 1)(32, "h1");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](33, "Sobre n\u00F3s");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "div", 2)(11, "div", 3)(12, "h2");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](13, "OBJETIVOS");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](34, "div", 2)(35, "div", 3)(36, "h2");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](37, "OBJETIVOS");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "p");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](15, "Uma aplica\u00E7\u00E3o web para que todos tenham acesso as informa\u00E7\u00F5es de coletade lixo de sua regi\u00E3o.");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](38, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](39, "Uma aplica\u00E7\u00E3o web para que todos tenham acesso as informa\u00E7\u00F5es de coleta de materiais inserv\u00EDveis em sua regi\u00E3o.");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()()();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "div", 2)(17, "div", 3)(18, "h2");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](19, "QUEM SOMOS?");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](40, "div", 2)(41, "div", 3)(42, "h2");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](43, "QUEM SOMOS?");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "p");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](21, "Alunos de Ci\u00EAncias da Computa\u00E7\u00E3o a UNIP da turma de 2023");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](44, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](45, "Alunos de Ci\u00EAncias da Computa\u00E7\u00E3o a UNIP da turma de 2023");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()()();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "div", 2)(23, "div", 3)(24, "h2");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](25, "FUNCIONALIDADES");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](46, "div", 2)(47, "div", 3)(48, "h2");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](49, "FUNCIONALIDADES");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](26, "p");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](27, "Cadastro e login para informa\u00E7\u00F5es personalizadas de usu\u00E1rio.");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](50, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](51, "Cadastro e login para informa\u00E7\u00F5es personalizadas de usu\u00E1rio.");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](28, "p");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](29, "Notifica\u00E7\u00E3o para todos que est\u00E3o na rota do Coletor");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](52, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](53, "Notifica\u00E7\u00E3o para todos que est\u00E3o na rota do Coletor");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](30, "p");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](31, "Mapa com localiza\u00E7\u00E3o atual dos coletores com rotas ativas");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](54, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](55, "Mapa com localiza\u00E7\u00E3o atual dos coletores com rotas ativas");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()()()();
       }
     }
@@ -2101,11 +2147,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _capacitor_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @capacitor/core */ 7423);
 /* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! leaflet */ 8407);
 /* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/core */ 4650);
-/* harmony import */ var src_app_domain_services_alert_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/domain/services/alert.service */ 2322);
-/* harmony import */ var src_app_domain_services_posicao_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/domain/services/posicao.service */ 8723);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/common */ 6895);
-/* harmony import */ var _asymmetrik_ngx_leaflet__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @asymmetrik/ngx-leaflet */ 580);
+/* harmony import */ var src_app_models_posicao__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/models/posicao */ 2439);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/core */ 4650);
+/* harmony import */ var src_app_domain_services_alert_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/domain/services/alert.service */ 2322);
+/* harmony import */ var src_app_domain_services_posicao_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/domain/services/posicao.service */ 8723);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/common */ 6895);
+/* harmony import */ var _asymmetrik_ngx_leaflet__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @asymmetrik/ngx-leaflet */ 580);
+
 
 
 
@@ -2118,42 +2166,58 @@ __webpack_require__.r(__webpack_exports__);
 
 function MapaComponent_p_3_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](0, "p");
-    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtext"](1, "Buscando sua localiza\u00E7\u00E3o... Para visualiza\u00E7\u00E3o, autorizar localiza\u00E7\u00E3o em seu navegador ou aplicativo");
-    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "p");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1, "Buscando sua localiza\u00E7\u00E3o... Para visualiza\u00E7\u00E3o, autorizar localiza\u00E7\u00E3o em seu navegador ou aplicativo");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
 }
 function MapaComponent_div_4_Template(rf, ctx) {
   if (rf & 1) {
-    const _r4 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](0, "div", 4);
-    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵlistener"]("leafletMapReady", function MapaComponent_div_4_Template_div_leafletMapReady_0_listener($event) {
-      _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r4);
-      const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"]();
-      return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"](ctx_r3.onMapReady($event));
+    const _r5 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 4);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("leafletMapReady", function MapaComponent_div_4_Template_div_leafletMapReady_0_listener($event) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵrestoreView"](_r5);
+      const ctx_r4 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"]();
+      return _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵresetView"](ctx_r4.onMapReady($event));
     })("leafletClick", function MapaComponent_div_4_Template_div_leafletClick_0_listener($event) {
-      _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r4);
-      const ctx_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"]();
-      return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"](ctx_r5.mapClicked($event));
+      _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵrestoreView"](_r5);
+      const ctx_r6 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"]();
+      return _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵresetView"](ctx_r6.mapClicked($event));
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
-    const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("leafletOptions", ctx_r1.options);
+    const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("leafletOptions", ctx_r1.options);
   }
 }
+const _c0 = function (a0) {
+  return {
+    "disabled": a0
+  };
+};
 function MapaComponent_button_6_Template(rf, ctx) {
   if (rf & 1) {
-    const _r7 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](0, "button", 5);
-    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵlistener"]("click", function MapaComponent_button_6_Template_button_click_0_listener() {
-      _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r7);
-      const ctx_r6 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"]();
-      return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"](ctx_r6.updateDriverPosition);
+    const _r8 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "button", 5);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function MapaComponent_button_6_Template_button_click_0_listener() {
+      _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵrestoreView"](_r8);
+      const ctx_r7 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"]();
+      return _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵresetView"](ctx_r7.buttonMock());
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtext"](1, "MockColetor");
-    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1, "MockColetor");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
+  }
+  if (rf & 2) {
+    const ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpureFunction1"](1, _c0, ctx_r2.mock));
+  }
+}
+function MapaComponent_span_7_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "span");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1, "devido a falta de demanda, temos este botao para representar a funcionalidade do mapa.");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
 }
 let MapaComponent = /*#__PURE__*/(() => {
@@ -2165,12 +2229,14 @@ let MapaComponent = /*#__PURE__*/(() => {
       this.markers = [];
       this.html = `<img src="${this.relativePath}assets/images/mapa/icon1.png" />`;
       this.coletores = [];
+      this.mock = false;
       this.iconColetor = new leaflet__WEBPACK_IMPORTED_MODULE_4__.Icon({
         iconUrl: `${this.relativePath}assets/images/mapa/icon1.png`,
         iconSize: new leaflet__WEBPACK_IMPORTED_MODULE_4__.Point(50, 50),
         iconAnchor: new leaflet__WEBPACK_IMPORTED_MODULE_4__.Point(25, 25),
         bgPos: new leaflet__WEBPACK_IMPORTED_MODULE_4__.Point(0, 0)
       });
+      this.mockColetores = [];
     }
     ngOnInit() {
       if (_capacitor_core__WEBPACK_IMPORTED_MODULE_3__.Capacitor.isNativePlatform()) {
@@ -2183,15 +2249,27 @@ let MapaComponent = /*#__PURE__*/(() => {
       var _this = this;
       return (0,C_Coding_descartec_tcc_frontend_webapp_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
         setInterval( /*#__PURE__*/(0,C_Coding_descartec_tcc_frontend_webapp_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
-          let listPosicaoColetor = yield _this.posicaoService.listarPosicaoColetor();
-          if (!listPosicaoColetor.erro) {
-            _this.coletores = listPosicaoColetor.data;
-            _this.updateMapa(_this.coletores);
+          if (_this.mock === false) {
+            let listPosicaoColetor = yield _this.posicaoService.listarPosicaoColetor();
+            if (!listPosicaoColetor.erro) {
+              _this.coletores = listPosicaoColetor.data;
+              _this.updateMapa(_this.coletores);
+            }
+          } else {
+            _this.mockColetores.forEach(element => {
+              element.latitude += (Math.random() - 0.5) / 500;
+              element.longitude += (Math.random() - 0.5) / 500;
+            });
+            _this.updateMapa(_this.mockColetores);
           }
-        }), 15000);
+        }), 5000);
       })();
     }
     updateMapa(coletores) {
+      // Limpe todos os marcadores existentes no mapa
+      this.markers.forEach(marker => {
+        this.map.removeLayer(marker);
+      });
       this.markers = [];
       coletores.forEach((element, i) => {
         let coletorMarker = {
@@ -2201,7 +2279,6 @@ let MapaComponent = /*#__PURE__*/(() => {
           },
           draggable: false
         };
-        console.log(element);
         const marker = this.generateMarker(coletorMarker, i);
         marker.addTo(this.map).bindPopup(`<b>${element.coletorName}</b><br> Até: ${element.dataFim} `);
         marker.setIcon(this.iconColetor);
@@ -2215,9 +2292,6 @@ let MapaComponent = /*#__PURE__*/(() => {
         _this2.lat = loc.coords.latitude;
         _this2.lng = loc.coords.longitude;
         _this2.initializeMap();
-        setInterval(() => {
-          _this2.updateDriverPosition();
-        }, 15000);
       })();
     }
     getCurrentPositionDesktop() {
@@ -2274,7 +2348,7 @@ let MapaComponent = /*#__PURE__*/(() => {
       var _this3 = this;
       return (0,C_Coding_descartec_tcc_frontend_webapp_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
         _this3.map = $event;
-        _this3.getPositionColetor();
+        yield _this3.getPositionColetor();
       })();
     }
     mapClicked($event) {
@@ -2306,37 +2380,45 @@ let MapaComponent = /*#__PURE__*/(() => {
         marker.setLatLng(newLatLng);
       });
     }
+    buttonMock() {
+      this.mockColetores = [new src_app_models_posicao__WEBPACK_IMPORTED_MODULE_5__.Coletor("Mock1", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 200, this.lng + (Math.random() - 0.5) / 200), new src_app_models_posicao__WEBPACK_IMPORTED_MODULE_5__.Coletor("Mock2", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 200, this.lng + (Math.random() - 0.5) / 200), new src_app_models_posicao__WEBPACK_IMPORTED_MODULE_5__.Coletor("Mock3", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 50, this.lng + (Math.random() - 0.5) / 50), new src_app_models_posicao__WEBPACK_IMPORTED_MODULE_5__.Coletor("Mock4", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 50, this.lng + (Math.random() - 0.5) / 50), new src_app_models_posicao__WEBPACK_IMPORTED_MODULE_5__.Coletor("Mock5", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 50, this.lng + (Math.random() - 0.5) / 50), new src_app_models_posicao__WEBPACK_IMPORTED_MODULE_5__.Coletor("Mock6", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 50, this.lng + (Math.random() - 0.5) / 50), new src_app_models_posicao__WEBPACK_IMPORTED_MODULE_5__.Coletor("Mock7", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 50, this.lng + (Math.random() - 0.5) / 50), new src_app_models_posicao__WEBPACK_IMPORTED_MODULE_5__.Coletor("Mock8", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 50, this.lng + (Math.random() - 0.5) / 50), new src_app_models_posicao__WEBPACK_IMPORTED_MODULE_5__.Coletor("Mock9", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 50, this.lng + (Math.random() - 0.5) / 50), new src_app_models_posicao__WEBPACK_IMPORTED_MODULE_5__.Coletor("Mock10", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 50, this.lng + (Math.random() - 0.5) / 50), new src_app_models_posicao__WEBPACK_IMPORTED_MODULE_5__.Coletor("Mock11", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 25, this.lng + (Math.random() - 0.5) / 25), new src_app_models_posicao__WEBPACK_IMPORTED_MODULE_5__.Coletor("Mock12", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 25, this.lng + (Math.random() - 0.5) / 25), new src_app_models_posicao__WEBPACK_IMPORTED_MODULE_5__.Coletor("Mock13", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 25, this.lng + (Math.random() - 0.5) / 25), new src_app_models_posicao__WEBPACK_IMPORTED_MODULE_5__.Coletor("Mock14", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 10, this.lng + (Math.random() - 0.5) / 10), new src_app_models_posicao__WEBPACK_IMPORTED_MODULE_5__.Coletor("Mock15", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 10, this.lng + (Math.random() - 0.5) / 10), new src_app_models_posicao__WEBPACK_IMPORTED_MODULE_5__.Coletor("Mock16", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 10, this.lng + (Math.random() - 0.5) / 10), new src_app_models_posicao__WEBPACK_IMPORTED_MODULE_5__.Coletor("Mock17", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 10, this.lng + (Math.random() - 0.5) / 10), new src_app_models_posicao__WEBPACK_IMPORTED_MODULE_5__.Coletor("Mock18", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 2, this.lng + (Math.random() - 0.5) / 2), new src_app_models_posicao__WEBPACK_IMPORTED_MODULE_5__.Coletor("Mock19", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 2, this.lng + (Math.random() - 0.5) / 2), new src_app_models_posicao__WEBPACK_IMPORTED_MODULE_5__.Coletor("Mock20", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 2, this.lng + (Math.random() - 0.5) / 2), new src_app_models_posicao__WEBPACK_IMPORTED_MODULE_5__.Coletor("Mock21", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 2, this.lng + (Math.random() - 0.5) / 2), new src_app_models_posicao__WEBPACK_IMPORTED_MODULE_5__.Coletor("Mock22", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 2, this.lng + (Math.random() - 0.5) / 2), new src_app_models_posicao__WEBPACK_IMPORTED_MODULE_5__.Coletor("Mock23", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 2, this.lng + (Math.random() - 0.5) / 2), new src_app_models_posicao__WEBPACK_IMPORTED_MODULE_5__.Coletor("Mock24", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 2, this.lng + (Math.random() - 0.5) / 2), new src_app_models_posicao__WEBPACK_IMPORTED_MODULE_5__.Coletor("Mock25", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 2, this.lng + (Math.random() - 0.5) / 2), new src_app_models_posicao__WEBPACK_IMPORTED_MODULE_5__.Coletor("Mock26", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 2, this.lng + (Math.random() - 0.5) / 2), new src_app_models_posicao__WEBPACK_IMPORTED_MODULE_5__.Coletor("Mock27", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 25, this.lng + (Math.random() - 0.5) / 25), new src_app_models_posicao__WEBPACK_IMPORTED_MODULE_5__.Coletor("Mock28", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 50, this.lng + (Math.random() - 0.5) / 10), new src_app_models_posicao__WEBPACK_IMPORTED_MODULE_5__.Coletor("Mock29", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 10, this.lng + (Math.random() - 0.5) / 10), new src_app_models_posicao__WEBPACK_IMPORTED_MODULE_5__.Coletor("Mock30", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 10, this.lng + (Math.random() - 0.5) / 10), new src_app_models_posicao__WEBPACK_IMPORTED_MODULE_5__.Coletor("Mock31", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 10, this.lng + (Math.random() - 0.5) / 10), new src_app_models_posicao__WEBPACK_IMPORTED_MODULE_5__.Coletor("Mock32", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 10, this.lng + (Math.random() - 0.5) / 10), new src_app_models_posicao__WEBPACK_IMPORTED_MODULE_5__.Coletor("Mock33", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 10, this.lng + (Math.random() - 0.5) / 10), new src_app_models_posicao__WEBPACK_IMPORTED_MODULE_5__.Coletor("Mock34", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 10, this.lng + (Math.random() - 0.5) / 10), new src_app_models_posicao__WEBPACK_IMPORTED_MODULE_5__.Coletor("Mock35", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 10, this.lng + (Math.random() - 0.5) / 10), new src_app_models_posicao__WEBPACK_IMPORTED_MODULE_5__.Coletor("Mock36", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 10, this.lng + (Math.random() - 0.5) / 10), new src_app_models_posicao__WEBPACK_IMPORTED_MODULE_5__.Coletor("Mock37", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 10, this.lng + (Math.random() - 0.5) / 10), new src_app_models_posicao__WEBPACK_IMPORTED_MODULE_5__.Coletor("Mock38", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 10, this.lng + (Math.random() - 0.5) / 10)];
+      this.mock = true;
+      this.updateMapa(this.mockColetores);
+    }
   }
   MapaComponent.ɵfac = function MapaComponent_Factory(t) {
-    return new (t || MapaComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](src_app_domain_services_alert_service__WEBPACK_IMPORTED_MODULE_5__.AlertService), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](src_app_domain_services_posicao_service__WEBPACK_IMPORTED_MODULE_6__.PosicaoService));
+    return new (t || MapaComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵdirectiveInject"](src_app_domain_services_alert_service__WEBPACK_IMPORTED_MODULE_6__.AlertService), _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵdirectiveInject"](src_app_domain_services_posicao_service__WEBPACK_IMPORTED_MODULE_7__.PosicaoService));
   };
-  MapaComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdefineComponent"]({
+  MapaComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵdefineComponent"]({
     type: MapaComponent,
     selectors: [["app-mapa"]],
-    decls: 7,
-    vars: 3,
-    consts: [[1, "container"], [4, "ngIf"], ["class", "map-container", "leaflet", "", "style", "height: 500px;", 3, "leafletOptions", "leafletMapReady", "leafletClick", 4, "ngIf"], ["class", "custom-button-card", 3, "click", 4, "ngIf"], ["leaflet", "", 1, "map-container", 2, "height", "500px", 3, "leafletOptions", "leafletMapReady", "leafletClick"], [1, "custom-button-card", 3, "click"]],
+    decls: 8,
+    vars: 4,
+    consts: [[1, "container"], [4, "ngIf"], ["class", "map-container", "leaflet", "", "style", "height: 500px;", 3, "leafletOptions", "leafletMapReady", "leafletClick", 4, "ngIf"], ["class", "custom-button-card", 3, "ngClass", "click", 4, "ngIf"], ["leaflet", "", 1, "map-container", 2, "height", "500px", 3, "leafletOptions", "leafletMapReady", "leafletClick"], [1, "custom-button-card", 3, "ngClass", "click"]],
     template: function MapaComponent_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](0, "div");
-        _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelement"](1, "br");
-        _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](2, "div", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplate"](3, MapaComponent_p_3_Template, 2, 0, "p", 1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplate"](4, MapaComponent_div_4_Template, 1, 1, "div", 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelement"](5, "br");
-        _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplate"](6, MapaComponent_button_6_Template, 2, 0, "button", 3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]()();
+        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div");
+        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](1, "br");
+        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](2, "div", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](3, MapaComponent_p_3_Template, 2, 0, "p", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](4, MapaComponent_div_4_Template, 1, 1, "div", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](5, "br");
+        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](6, MapaComponent_button_6_Template, 2, 3, "button", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](7, MapaComponent_span_7_Template, 2, 0, "span", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
       }
       if (rf & 2) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"](3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("ngIf", !ctx.lat || !ctx.lng);
-        _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"](1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("ngIf", ctx.options);
-        _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"](2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("ngIf", ctx.options);
+        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("ngIf", !ctx.lat || !ctx.lng);
+        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("ngIf", ctx.options);
+        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("ngIf", ctx.options);
+        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("ngIf", ctx.options);
       }
     },
-    dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_8__.NgIf, _asymmetrik_ngx_leaflet__WEBPACK_IMPORTED_MODULE_9__.LeafletDirective],
+    dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_9__.NgClass, _angular_common__WEBPACK_IMPORTED_MODULE_9__.NgIf, _asymmetrik_ngx_leaflet__WEBPACK_IMPORTED_MODULE_10__.LeafletDirective],
     styles: [".map-container[_ngcontent-%COMP%] {\n  height: 400px;\n}"]
   });
   return MapaComponent;
