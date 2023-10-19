@@ -2047,7 +2047,7 @@ let InformacaoComponent = /*#__PURE__*/(() => {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, "Como preparar seu lixo");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "p");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](6, "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit, aperiam. Quos porro iste ducimus laborum, dolorem ea, quaerat sed ipsam nihil explicabo ab eaque unde esse cum id est quam.");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](6, "Preparar materiais inserv\u00EDveis para coleta \u00E9 uma pr\u00E1tica importante para a reciclagem e a preserva\u00E7\u00E3o do meio ambiente. O processo pode variar um pouco dependendo das pol\u00EDticas de coleta seletiva e reciclagem da sua regi\u00E3o, mas geralmente envolve os seguintes passos: Identifica\u00E7\u00E3o dos materiais inserv\u00EDveis: Primeiro, voc\u00EA precisa identificar quais materiais s\u00E3o considerados inserv\u00EDveis. Exemplos comuns incluem vidro quebrado, pl\u00E1sticos quebrados, eletr\u00F4nicos antigos, pilhas e baterias, l\u00E2mpadas queimadas, roupas desgastadas, entre outros. Separa\u00E7\u00E3o dos materiais: Separe os materiais inserv\u00EDveis dos demais res\u00EDduos. Use sacos pl\u00E1sticos resistentes ou caixas de papel\u00E3o para organizar os materiais de maneira limpa e segura. Limpeza e desmontagem (se aplic\u00E1vel): Alguns materiais, como eletr\u00F4nicos antigos, podem conter componentes t\u00F3xicos. Nesse caso, \u00E9 importante desmont\u00E1-los com cuidado, separando pe\u00E7as que podem ser recicladas de forma segura, como metais, pl\u00E1sticos e cabos, dos componentes que precisam de descarte especial, como baterias. Armazenamento seguro: Armazene os materiais inserv\u00EDveis em um local seguro e longe do alcance de crian\u00E7as e animais de estima\u00E7\u00E3o. Isso \u00E9 especialmente importante para materiais perigosos, como produtos qu\u00EDmicos dom\u00E9sticos.");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "div", 1)(8, "h1");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](9, "Sobre n\u00F3s");
@@ -2068,13 +2068,13 @@ let InformacaoComponent = /*#__PURE__*/(() => {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](25, "FUNCIONALIDADES");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](26, "p");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](27, "Cadastro e login para informa\u00E7\u00F5es personalizadas de usu\u00E1rio");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](27, "Cadastro e login para informa\u00E7\u00F5es personalizadas de usu\u00E1rio.");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](28, "p");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](29, "Notifica\u00E7\u00E3o");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](29, "Notifica\u00E7\u00E3o para todos que est\u00E3o na rota do Coletor");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](30, "p");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](31, "Mapa com localiza\u00E7\u00E3o atual dos coletores");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](31, "Mapa com localiza\u00E7\u00E3o atual dos coletores com rotas ativas");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()()()();
       }
     }
@@ -3017,11 +3017,11 @@ function MenuComponent_a_11_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
   }
 }
-function MenuComponent_button_19_Template(rf, ctx) {
+function MenuComponent_button_17_Template(rf, ctx) {
   if (rf & 1) {
     const _r5 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "button", 17);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function MenuComponent_button_19_Template_button_click_0_listener() {
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function MenuComponent_button_17_Template_button_click_0_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵrestoreView"](_r5);
       const ctx_r4 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵnextContext"]();
       return _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵresetView"](ctx_r4.logout());
@@ -3030,14 +3030,14 @@ function MenuComponent_button_19_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
   }
 }
-function MenuComponent_button_20_Template(rf, ctx) {
+function MenuComponent_button_18_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "button", 18);
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](1, "Cadastre-se");
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
   }
 }
-function MenuComponent_button_21_Template(rf, ctx) {
+function MenuComponent_button_19_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "button", 19);
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](1, "Login");
@@ -3078,7 +3078,7 @@ let MenuComponent = /*#__PURE__*/(() => {
   MenuComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineComponent"]({
     type: MenuComponent,
     selectors: [["app-menu"]],
-    decls: 24,
+    decls: 22,
     vars: 8,
     consts: [[1, "row"], [1, "col-12"], [1, "navbar", "navbar-expand-lg", "navbar-light", "custom-top-bar"], [1, "container-fluid"], ["id", "navbarNavAltMarkup", 1, "collapse", "navbar-collapse", 3, "ngClass"], [1, "navbar-nav"], ["routerLink", "/", 1, "navbar-brand"], ["aria-current", "page", "routerLink", "/", 1, "nav-link"], ["class", "nav-link", "routerLink", "/rota", "aria-disabled", "false", 4, "ngIf"], ["routerLink", "/info", "aria-disabled", "false", 1, "nav-link"], ["routerLink", "/mapa", "aria-disabled", "false", 1, "nav-link"], ["class", "nav-link", "class", "custom-center", "style", "margin-left: 0px;", 3, "click", 4, "ngIf"], ["class", "custom-button-card custom-center only-desktop", "routerLink", "/account/register", 4, "ngIf"], ["class", "nav-link", "routerLink", "/account/login", "class", "custom-center", "style", "margin-left: 0px;", 4, "ngIf"], ["type", "button", "aria-expanded", "false", "aria-label", "Toggle navigation", 1, "navbar-toggler", 2, "border-color", "transparent", "padding", "0", 3, "click"], [2, "width", "40px", "height", "40px", 3, "src"], ["routerLink", "/rota", "aria-disabled", "false", 1, "nav-link"], [1, "custom-center", 2, "margin-left", "0px", 3, "click"], ["routerLink", "/account/register", 1, "custom-button-card", "custom-center", "only-desktop"], ["routerLink", "/account/login", 1, "custom-center", 2, "margin-left", "0px"]],
     template: function MenuComponent_Template(rf, ctx) {
@@ -3096,20 +3096,17 @@ let MenuComponent = /*#__PURE__*/(() => {
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](14, "a", 10);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](15, "MAPA");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](16, "a", 10);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](17, "SOBRE N\u00D3S");
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()()();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](18, "div", 5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](19, MenuComponent_button_19_Template, 2, 0, "button", 11);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](20, MenuComponent_button_20_Template, 2, 0, "button", 12);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](21, MenuComponent_button_21_Template, 2, 0, "button", 13);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](16, "div", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](17, MenuComponent_button_17_Template, 2, 0, "button", 11);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](18, MenuComponent_button_18_Template, 2, 0, "button", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](19, MenuComponent_button_19_Template, 2, 0, "button", 13);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](22, "div", 14);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function MenuComponent_Template_div_click_22_listener() {
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](20, "div", 14);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function MenuComponent_Template_div_click_20_listener() {
           return ctx.toggleMenu();
         });
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](23, "img", 15);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](21, "img", 15);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()()()()();
       }
       if (rf & 2) {
@@ -3117,7 +3114,7 @@ let MenuComponent = /*#__PURE__*/(() => {
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵpureFunction1"](6, _c0, ctx.isMenuOpen));
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](6);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngIf", ctx.isColetor);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](6);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngIf", ctx.isLogged);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngIf", !ctx.isLogged);
