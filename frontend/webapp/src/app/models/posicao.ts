@@ -12,9 +12,16 @@ export interface Meta {
 export interface Info {
 }
 
-export interface Coletor {
+export class Coletor {
   coletorName: string;
   dataFim: Date;
   latitude: number;
   longitude: number;
+  
+  constructor(coletorName: string, dataFim: Date, latitude: number, longitude: number){
+    this.coletorName = coletorName;
+    this.dataFim = dataFim;
+    this.latitude = latitude;
+    this.longitude = longitude;
+  }
 }

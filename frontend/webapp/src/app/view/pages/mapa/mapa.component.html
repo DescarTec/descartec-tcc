@@ -6,7 +6,8 @@
             (leafletClick)="mapClicked($event)" style="height: 500px;">
         </div>
         <br>
-        <button class="custom-button-card" *ngIf="options" (click)="updateDriverPosition">MockColetor</button>
+        <button class="custom-button-card" *ngIf="options" (click)="buttonMock()" [ngClass]="{'disabled': mock}" >MockColetor</button>
+        <span *ngIf="options">devido a falta de demanda, temos este botao para representar a funcionalidade do mapa.</span>
         <!-- <div id="map" style="height: 500px"></div> -->
 
     </div>

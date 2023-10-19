@@ -14,6 +14,8 @@ csharp_style_expression_bodied_local_functions = false:silent
 [*.{cs,vb}]
 dotnet_style_qualification_for_field = false:silent
 dotnet_style_qualification_for_property = false:silent
+dotnet_style_qualification_for_method = false:silent
+dotnet_style_qualification_for_event = false:silent
 [*.cs]
 #### Estilos de nomenclatura ####
 
@@ -61,6 +63,7 @@ dotnet_naming_style.pascal_case.required_prefix =
 dotnet_naming_style.pascal_case.required_suffix = 
 dotnet_naming_style.pascal_case.word_separator = 
 dotnet_naming_style.pascal_case.capitalization = pascal_case
+csharp_using_directive_placement = outside_namespace:silent
 
 [*.vb]
 #### Estilos de nomenclatura ####

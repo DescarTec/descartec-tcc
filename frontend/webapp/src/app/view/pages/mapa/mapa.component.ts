@@ -22,7 +22,8 @@ export class MapaComponent implements OnInit {
   markers: Leaflet.Marker[] = [];
   options: any;
   html: string = /*html*/`<img src="${this.relativePath}assets/images/mapa/icon1.png" />` 
-  coletores : Coletor[] = []
+  coletores : Coletor[] = [];
+  mock: boolean = false;
 
   iconColetor: Leaflet.Icon = new Leaflet.Icon(
     {
@@ -47,28 +48,40 @@ export class MapaComponent implements OnInit {
 
   async getPositionColetor(){
     setInterval(async () => {
-      let listPosicaoColetor = await this.posicaoService.listarPosicaoColetor();
-      if(!listPosicaoColetor.erro){
-        this.coletores = listPosicaoColetor.data;
-        this.updateMapa(this.coletores);
+      if(this.mock === false){
+        let listPosicaoColetor = await this.posicaoService.listarPosicaoColetor();
+        if(!listPosicaoColetor.erro){
+          this.coletores = listPosicaoColetor.data;
+          this.updateMapa(this.coletores);
+        }
       }
-    }, 15000)
+      else {
+        this.mockColetores.forEach(element => {
+          element.latitude += (Math.random() - 0.5) / 500;
+          element.longitude +=(Math.random() - 0.5) / 500;
+        });
+        this.updateMapa(this.mockColetores);
+      }
+    }, 5000)
   }
 
   updateMapa(coletores: Coletor[]){
+    // Limpe todos os marcadores existentes no mapa
+    this.markers.forEach(marker => {
+      this.map.removeLayer(marker);
+    });
     this.markers = [];
     coletores.forEach((element, i) => {
       let coletorMarker = {
         position: { lat: element.latitude, lng: element.longitude },
         draggable: false
       }
-      console.log(element)
+      
       const marker = this.generateMarker(coletorMarker, i)
       marker.addTo(this.map).bindPopup(`<b>${element.coletorName}</b><br> Até: ${element.dataFim} `);
       marker.setIcon(this.iconColetor);
       this.markers.push(marker)
     });  
-
   }
 
   async getCurrentPositionMobile() {
@@ -76,9 +89,6 @@ export class MapaComponent implements OnInit {
     this.lat = loc.coords.latitude;
     this.lng = loc.coords.longitude;
     this.initializeMap();
-    setInterval(() => {
-      this.updateDriverPosition();
-    }, 15000);
   }
 
   getCurrentPositionDesktop() {
@@ -137,7 +147,7 @@ export class MapaComponent implements OnInit {
 
   async onMapReady($event: Leaflet.Map) {
     this.map = $event;
-    this.getPositionColetor();
+    await this.getPositionColetor();
   }
 
   mapClicked($event: any) {
@@ -153,7 +163,6 @@ export class MapaComponent implements OnInit {
   }
 
   initializeMap() {
-
     this.options = {
       layers: [
         Leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -173,5 +182,22 @@ export class MapaComponent implements OnInit {
       // Use setLatLng para atualizar a posição do marcador
       marker.setLatLng(newLatLng);
     });
+  }
+  mockColetores: Coletor[] = [];
+  buttonMock(){
+    this.mockColetores = [ 
+      new Coletor("Mock1", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 200, this.lng+ (Math.random() - 0.5) / 200), 
+      new Coletor("Mock2", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 200, this.lng+ (Math.random() - 0.5) / 200), 
+      new Coletor("Mock3", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 200, this.lng+ (Math.random() - 0.5) / 200), 
+      new Coletor("Mock4", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 200, this.lng+ (Math.random() - 0.5) / 200), 
+      new Coletor("Mock5", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 200, this.lng+ (Math.random() - 0.5) / 200), 
+      new Coletor("Mock6", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 200, this.lng+ (Math.random() - 0.5) / 200), 
+      new Coletor("Mock7", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 200, this.lng+ (Math.random() - 0.5) / 200), 
+      new Coletor("Mock8", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 200, this.lng+ (Math.random() - 0.5) / 200), 
+      new Coletor("Mock9", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 200, this.lng+ (Math.random() - 0.5) / 200), 
+      new Coletor("Mock10", new Date(2090, 12, 12), this.lat + (Math.random() - 0.5) / 200, this.lng+ (Math.random() - 0.5) / 200) 
+    ];
+    this.mock = true;
+    this.updateMapa(this.mockColetores);
   }
 }
