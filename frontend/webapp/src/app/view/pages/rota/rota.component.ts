@@ -39,8 +39,7 @@ export class RotaComponent {
 
     if (this.accountService.currentUser.discriminator != "ColetorUser") {
       this.router.navigate(['/']);
-    }
-    
+    }    
   }
 
   async iniciarRota() {
@@ -56,7 +55,12 @@ export class RotaComponent {
       this.erroLista = true;
     }
     if (!this.erroTempo && !this.erroLista) {
-      await this.positionTrackingService.startPositionTracking();
+      this.compartilharRota(tempo)
+    }
+  }
+
+  async compartilharRota(tempo: any) {
+    await this.positionTrackingService.startPositionTracking();
 
       const [hours, minutes] = tempo.split(":").map(Number);
       const currentDate = new Date();
@@ -79,7 +83,6 @@ export class RotaComponent {
           this.listCep.push(element.cep.value);
         });
       }
-    }
   }
   async encerrarRota() {
     await this.rotaService.encerrarRotaAtiva();
@@ -170,5 +173,18 @@ export class RotaComponent {
     } else {
       event.target.value = cep;
     }
+  }
+
+  dataString(data : string){
+    let date = new Date(data);
+    let horas = date.getHours() - 3;
+
+    if (horas < 0) {
+      date.setDate(date.getDate() - 1); // Retrocede um dia
+      date.setHours(24 + horas); // Define as horas para as horas desejadas no dia anterior
+    } else {
+      date.setHours(horas);
+    }
+    return date.toLocaleString("pt-BR");
   }
 }

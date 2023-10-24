@@ -9,10 +9,10 @@ export class PositionTrackingService {
   lat!: number;
   lng!: number;
   options: any;
-  
+
   constructor(private alertService: AlertService, private posicaoService: PosicaoService) {
   }
-  
+
   async startPositionTracking() {
     if (Capacitor.isNativePlatform()) {
       await this.updateCurrentPositionMobile();
@@ -22,23 +22,25 @@ export class PositionTrackingService {
   }
   private async updateCurrentPositionMobile() {
     const loc = await Geolocation.getCurrentPosition();
-    this.lat = loc.coords.latitude;
-    this.lng = loc.coords.longitude;
+      this.lat = loc.coords.latitude;
+      this.lng = loc.coords.longitude;
+      await this.setPosicao();
     setInterval(async () => {
+      const loc = await Geolocation.getCurrentPosition();
+      this.lat = loc.coords.latitude;
+      this.lng = loc.coords.longitude;
       await this.setPosicao();
     }, 15000);
   }
 
   private async updateCurrentPositionDesktop() {
     if (navigator.geolocation) {
-      console.log(navigator.geolocation);
       navigator.geolocation.getCurrentPosition(
-        position => {
+        async position => {
+          console.log(position)
           this.lat = position.coords.latitude;
           this.lng = position.coords.longitude;
-          setInterval(async () => {
-            await this.setPosicao();
-          }, 15000);
+          await this.setPosicao();
 
         },
         error => {
@@ -46,17 +48,32 @@ export class PositionTrackingService {
           this.alertService.warn("Geolocalização não está habilitada. Habilite a geolocalização para visualizar corretamente esta página.");
         }
       );
-    } else {
-      console.log(navigator.geolocation);
+      setInterval(async () => {
+        navigator.geolocation.getCurrentPosition(
+          async position => {
+            console.log(position)
+            this.lat = position.coords.latitude;
+            this.lng = position.coords.longitude;
+            await this.setPosicao();
 
+          },
+          error => {
+            console.error(error);
+            this.alertService.warn("Geolocalização não está habilitada. Habilite a geolocalização para visualizar corretamente esta página.");
+          }
+        );
+      }, 15000);
+    } else {
       // Geolocalização não está habilitada
       this.alertService.warn("Geolocalização não está habilitada. Habilite a geolocalização para visualizar corretamente esta página.");
     }
   }
 
   private async setPosicao() {
-    try{
-        await this.posicaoService.setPosicao(this.lat, this.lng);
+    try {
+      console.log("Posição atualizada:", { lat: this.lat, lng: this.lng})
+
+      await this.posicaoService.setPosicao(this.lat, this.lng);
     } catch (e) {
       console.error(e);
     }

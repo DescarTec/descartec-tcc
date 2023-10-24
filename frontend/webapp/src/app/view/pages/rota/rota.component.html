@@ -1,37 +1,8 @@
 <div class="custom-topic">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
-        <div class="row">
-            <div class="col-md-4">
-                <label class="form-label">SUA ROTA</label>
-                <ul class="list-group">
-                    <li *ngIf="listCep.length == 0" class="list-group-item disabled" aria-disabled="true">
-                        ( LISTA VAZIA )
-                    </li>
-                    <li *ngFor="let cep of listCep" class="list-group-item">{{cep}}</li>
-                </ul>
-                <span *ngIf="iniciarRotaB && erroLista" style="color: rgba(252, 71, 58, 0.979)">Lista de ceps
-                    obrigatório</span>
-
-                <br>
-                <div class="cs-form" *ngIf="!rotaAtiva">
-                    <label class="form-label">Por quanto tempo gostaria de compartilhar sua localização</label>
-                    <input formControlName="tempo" type="time" class="form-control" />
-                    <span *ngIf="iniciarRotaB && erroTempo" style="color: rgba(252, 71, 58, 0.979)">Tempo de rota
-                        obrigatório</span>
-                </div>
-                <br>
-                <button *ngIf="!rotaAtiva" type="button" class="custom-button-card" style="width: auto; height: auto;"
-                    (click)="iniciarRota()">
-                    INICIAR ROTA
-                </button>
-                <button *ngIf="rotaAtiva" type="button" class="custom-button-card" style="width: auto; height: auto;"
-                    (click)="encerrarRota()">
-                    ENCERRAR ROTA
-                </button>
-            </div>
-            <div class="col-md-8">
+        <div class="row">            
+            <div class="col-md-8" style="margin-block: 20px;">
                 <div *ngIf="!rotaAtiva">
-
                     <label class="form-label">CEP</label>
                     <input type="text" formControlName="cep" class="form-control"
                         [ngClass]="{ 'is-invalid': submitted && f['cep'].errors }" maxLength="9"
@@ -73,10 +44,38 @@
                     </div>
                 </div>
                 <div *ngIf="rotaAtiva">
-                    <span>{{rotaAtiva.dataInicio}}</span><br>
-                    <span>{{rotaAtiva.dataFim}}</span><br>
-                    <span>{{getUserToString()}}</span>
+                    <div class="custom-card">
+                        Sua rota está sendo compartilhada até: <strong>{{dataString(rotaAtiva.dataFim)}}</strong>
+                    </div>
                 </div>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">SUA ROTA</label>
+                <ul class="list-group">
+                    <li *ngIf="listCep.length == 0" class="list-group-item disabled" aria-disabled="true">
+                        ( LISTA VAZIA )
+                    </li>
+                    <li *ngFor="let cep of listCep" class="list-group-item">{{cep}}</li>
+                </ul>
+                <span *ngIf="iniciarRotaB && erroLista" style="color: rgba(252, 71, 58, 0.979)">Lista de ceps
+                    obrigatório</span>
+
+                <br>
+                <div class="cs-form" *ngIf="!rotaAtiva">
+                    <label class="form-label">Por quanto tempo gostaria de compartilhar sua localização</label>
+                    <input formControlName="tempo" type="time" class="form-control" />
+                    <span *ngIf="iniciarRotaB && erroTempo" style="color: rgba(252, 71, 58, 0.979)">Tempo de rota
+                        obrigatório</span>
+                </div>
+                <br>
+                <button *ngIf="!rotaAtiva" type="button" class="custom-button-card" style="width: auto; height: auto;"
+                    (click)="iniciarRota()">
+                    INICIAR ROTA
+                </button>
+                <button *ngIf="rotaAtiva" type="button" class="custom-button-card" style="width: auto; height: auto;"
+                    (click)="encerrarRota()">
+                    ENCERRAR ROTA
+                </button>
             </div>
         </div>
     </form>

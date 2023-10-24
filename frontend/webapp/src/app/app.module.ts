@@ -20,6 +20,7 @@ import { InformacaoComponent } from './view/pages/informacao/informacao.componen
 import { NotificacaoComponent } from './view/shared/notificacao/notificacao.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { RotaComponent } from './view/pages/rota/rota.component';
+import { SeletorCadastroComponent } from './view/pages/seletor-cadastro/seletor-cadastro.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { RotaComponent } from './view/pages/rota/rota.component';
     MapaComponent,
     InformacaoComponent,
     NotificacaoComponent,
-    RotaComponent
+    RotaComponent,
+    SeletorCadastroComponent
   ],
   imports: [
     CommonModule,

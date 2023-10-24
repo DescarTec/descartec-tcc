@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from 'src/app/domain/services/account.service';
+import { PositionTrackingService } from 'src/app/domain/services/position-tracking.service';
+import { RotaService } from 'src/app/domain/services/rota.service';
+import { Rota } from 'src/app/models/rota';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -13,17 +16,31 @@ export class MenuComponent implements OnInit {
   selected?: string = "";
   relativePath = environment.relativePath;
   isColetor = false;
+  rotaAtiva: Rota | undefined = undefined;
 
   
   constructor(
-    private accountService: AccountService
+    private accountService: AccountService,
+    private rotaService: RotaService,
+    private positionTrackingService: PositionTrackingService
   ) {   }
 
-  ngOnInit(): void {
+  async ngOnInit() {
     this.accountService.currentUserObservable.subscribe((currentUser) => {
       this.isLogged = currentUser !== null;
-      this.isColetor = currentUser.discriminator == "ColetorUser";
+      if(this.isLogged){
+        this.isColetor = currentUser.discriminator == "ColetorUser";
+      }
     });
+    const currentURL = window.location.href;
+    if(!currentURL.includes("mapa")){
+      if(this.isColetor){
+        this.rotaAtiva = await this.rotaService.getRotaAtiva();
+        if(this.rotaAtiva){
+          await this.positionTrackingService.startPositionTracking();
+        }
+      }
+    }
   }
 
   logout(): void {

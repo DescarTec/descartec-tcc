@@ -1,0 +1,43 @@
+<br>
+<div class="row justify-content-md-center">
+    <div class="col-md-6">
+        <div class="custom-card">
+            <h2>Cadastro:</h2>
+            <div class="card-body">
+                <button class="custom-button-card" routerLink="/account/register" style="margin: 15px;">
+                    Usuario
+                </button>
+                <br>
+                <button type="button" class="custom-button-card" style="margin: 15px;" data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop">
+                    Coletor
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" >
+        <div class="modal-content" style="border: 4px solid black; background-color: #AAF39E;">
+            <div class="modal-header" style="border: none;">
+                <h3 class="modal-title" id="staticBackdropLabel"><strong>Cadastro de Coletor</strong></h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="border: none;">
+                <p>
+                    <strong>ATENÇÃO!</strong> Ao se cadastrar como Coletor, você poderá compartilhar sua localização com outros usuários e
+                    poderá ser mais efetivo em suas coletas de materiais inservíveis. Portanto prossiga apenas se realmente for fazer coletas.    
+                </p>
+            </div>
+            <div class="modal-footer" style="border: none;">
+                <button type="button" class="custom-button-card" style="background-color: #5f8169af; width: auto;" data-bs-dismiss="modal">Fechar</button>
+                <button type="button" class="custom-button-card" data-bs-dismiss="modal" style="width: auto;" routerLink="/account/register-coletor">Cadastro</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -47,6 +47,21 @@ export class MapaComponent implements OnInit {
   }
 
   async getPositionColetor(){
+    if(this.mock === false){
+      let listPosicaoColetor = await this.posicaoService.listarPosicaoColetor();
+      console.log(listPosicaoColetor)
+      if(!listPosicaoColetor.erro){
+        this.coletores = listPosicaoColetor.data;
+        this.updateMapa(this.coletores);
+      }
+    }
+    else {
+      this.mockColetores.forEach(element => {
+        element.latitude += (Math.random() - 0.5) / 500;
+        element.longitude +=(Math.random() - 0.5) / 500;
+      });
+      this.updateMapa(this.mockColetores);
+    }
     setInterval(async () => {
       if(this.mock === false){
         let listPosicaoColetor = await this.posicaoService.listarPosicaoColetor();
@@ -62,7 +77,7 @@ export class MapaComponent implements OnInit {
         });
         this.updateMapa(this.mockColetores);
       }
-    }, 5000)
+    }, 15000)
   }
 
   updateMapa(coletores: Coletor[]){
@@ -71,15 +86,16 @@ export class MapaComponent implements OnInit {
       this.map.removeLayer(marker);
     });
     this.markers = [];
+
     coletores.forEach((element, i) => {
       let coletorMarker = {
         position: { lat: element.latitude, lng: element.longitude },
         draggable: false
-      }
-      
+      }      
       const marker = this.generateMarker(coletorMarker, i)
       marker.addTo(this.map).bindPopup(`<b>${element.coletorName}</b><br> Até: ${element.dataFim} `);
       marker.setIcon(this.iconColetor);
+      
       this.markers.push(marker)
     });  
   }
