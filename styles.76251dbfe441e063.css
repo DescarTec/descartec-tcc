@@ -1419,10 +1419,10 @@ button {
 }
 
 .custom-link {
-  color: #FFF;
+  color: #40503d;
 }
 .custom-link:hover {
-  color: #fcae56;
+  color: rgba(95, 129, 105, 0.6862745098);
 }
 
 .custom-page {
