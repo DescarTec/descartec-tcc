@@ -34,48 +34,49 @@ export class RegisterComponent implements OnInit {
 			passwordConfirm: ['', [Validators.required]],
 			email: ['', [Validators.required, Validators.email]],
 			phoneNumber: ['', Validators.required],
-			cep: ['', Validators.required, ],
+			cep: ['', Validators.required,],
 			logradouro: ['', Validators.required],
 			bairro: ['', Validators.required],
 			localidade: ['', Validators.required],
 			uf: ['', Validators.required]
-		}, 
-		{  
-			validators: [
-				confirmPasswordValidator('password', 'passwordConfirm'), 
-				passwordValidator()
-			] 
-		});
+		},
+			{
+				validators: [
+					confirmPasswordValidator('password', 'passwordConfirm'),
+					passwordValidator()
+				]
+			});
 
 		this.form.get('cep')?.valueChanges.subscribe(value => {
 			if (value && value.length === 8 && value.includes('-')) { return }
 			if (value && value.length === 8) {
 				//this.alertService.info('Buscando endereço...');
-				this.addressService.getAddressByCep(value).subscribe( { next: (address) => {
-					this.address = address;
-					if (!address.logradouro) {
-						this.alertService.error('CEP não encontrado.');
+				this.addressService.getAddressByCep(value).subscribe({
+					next: (address) => {
+						this.address = address;
+						if (!address.logradouro) {
+							this.alertService.error('CEP não encontrado.');
+							this.showAddressFields = false;
+							this.f['cep'].setErrors({ invalidCep: true });
+							return;
+						}
+						this.showAddressFields = true;
+						this.f['cep'].setErrors(null);
+
+						this.form.patchValue({
+							logradouro: address.logradouro,
+							bairro: address.bairro,
+							localidade: address.localidade,
+							uf: address.uf,
+						});
+					},
+					error: (error) => {
+						this.alertService.error(error);
 						this.showAddressFields = false;
 						this.f['cep'].setErrors({ invalidCep: true });
-						return;
+
 					}
-					this.showAddressFields = true;
-					this.f['cep'].setErrors(null);
-
-					this.form.patchValue({
-						logradouro: address.logradouro,
-						bairro: address.bairro,
-						localidade: address.localidade,
-						uf: address.uf,
-					});
-				},
-				error: (error) => {
-					this.alertService.error(error);
-					this.showAddressFields = false;
-					this.f['cep'].setErrors({ invalidCep: true });
-
-				}			
-			});
+				});
 			} else {
 				this.showAddressFields = false;
 			}
@@ -95,10 +96,10 @@ export class RegisterComponent implements OnInit {
 		if (this.form.invalid) {
 			return;
 		}
-		
+
 		this.loading = true;
-		this.address?.cep.replace("-", "");
-		let user = new SignUpDto(this.form, this.address!) ;
+		this.address!.cep = this.address!.cep.replace("-", "");
+		let user = new SignUpDto(this.form, this.address!);
 		this.accountService.register(user)
 			.pipe(first())
 			.subscribe({
@@ -118,21 +119,21 @@ export class RegisterComponent implements OnInit {
 		const pattern = /[0-9]/;
 		const inputChar = String.fromCharCode(event.charCode);
 		if (!pattern.test(inputChar)) {
-		  event.preventDefault();
+			event.preventDefault();
 		} else {
-		  const input = event.target as HTMLInputElement;
-		  const inputLength = input.value.length;
-		  if (inputLength === 0) {
-			input.value = '(' + input.value;
-		  }
-		  if (inputLength === 3) {
-			input.value = input.value + ') ';
-		  }
-		  if (inputLength === 10) {
-			input.value = input.value + '-';
-		  }
+			const input = event.target as HTMLInputElement;
+			const inputLength = input.value.length;
+			if (inputLength === 0) {
+				input.value = '(' + input.value;
+			}
+			if (inputLength === 3) {
+				input.value = input.value + ') ';
+			}
+			if (inputLength === 10) {
+				input.value = input.value + '-';
+			}
 		}
-	  }
+	}
 
 	formatarCep(event: any) {
 		let cep = event.target.value.replace(/\D/g, '');
