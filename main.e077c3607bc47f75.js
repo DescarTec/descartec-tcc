@@ -2062,7 +2062,7 @@ let HomeComponent = /*#__PURE__*/(() => {
       }
     },
     dependencies: [_angular_router__WEBPACK_IMPORTED_MODULE_2__.RouterLink],
-    styles: [".spaced-text[_ngcontent-%COMP%] {\n  letter-spacing: 3px;\n  font-size: 48px;\n  font-family: \"ClashDisplay-light\";\n}\n\n.custom-link[_ngcontent-%COMP%] {\n  color: black;\n}\n\n.truck-container[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  position: relative;\n  bottom: 0;\n  right: -300px;\n  animation: _ngcontent-%COMP%_moveTruck 5s linear infinite;\n}\n\n@keyframes _ngcontent-%COMP%_moveTruck {\n  0% {\n    right: 0px;\n  }\n  50% {\n    right: 100;\n  }\n  100% {\n    right: -200px;\n  }\n}"]
+    styles: ["@charset \"UTF-8\";\n.spaced-text[_ngcontent-%COMP%] {\n  letter-spacing: 3px;\n  font-size: 48px;\n  font-family: \"ClashDisplay-light\";\n}\n\n.custom-link[_ngcontent-%COMP%] {\n  color: black;\n}\n\n.truck-container[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  position: relative;\n  bottom: 0;\n  animation: _ngcontent-%COMP%_moveTruck 5s linear infinite;\n}\n\n@keyframes _ngcontent-%COMP%_moveTruck {\n  0% {\n    transform: translateX(0);\n  }\n  50% {\n    transform: translateX(100px); \n  }\n  100% {\n    transform: translateX(0); \n  }\n}"]
   });
   return HomeComponent;
 })();
