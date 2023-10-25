@@ -97,6 +97,7 @@ export class RegisterComponent implements OnInit {
 		}
 		
 		this.loading = true;
+		this.address?.cep.replace("-", "");
 		let user = new SignUpDto(this.form, this.address!) ;
 		this.accountService.register(user)
 			.pipe(first())
