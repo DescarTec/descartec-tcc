@@ -1129,7 +1129,7 @@ let RegisterComponent = /*#__PURE__*/(() => {
         return;
       }
       this.loading = true;
-      this.address?.cep.replace("-", "");
+      this.address.cep = this.address.cep.replace("-", "");
       let user = new src_app_models_dto_signUpDTO__WEBPACK_IMPORTED_MODULE_0__.SignUpDto(this.form, this.address);
       this.accountService.register(user).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_7__.first)()).subscribe({
         next: () => {
