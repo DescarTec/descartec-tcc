@@ -13,19 +13,17 @@
 .truck-container img {
   position: relative;
   bottom: 0;
-  right: -300px;
   animation: moveTruck 5s linear infinite;
 }
 
 @keyframes moveTruck {
-  0%{
-    right: 0px;
+  0% {
+    transform: translateX(0);
   }
-  50%{
-    right: 100;
+  50% {
+    transform: translateX(100px); /* Move para a direita */
   }
-  100%{
-    right: -200px;
+  100% {
+    transform: translateX(0); /* Volta para a posição inicial (esquerda) */
   }
-  
 }
