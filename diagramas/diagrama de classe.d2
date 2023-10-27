@@ -1,0 +1,163 @@
+users: {
+  shape: sql_table
+
+  Id: char(36) {constraint: primary_key}
+
+  Nome: longtext
+
+  Discriminator: longtext
+
+  DataNascimento: datetime(6)
+
+  EnderecoId: char(36) {constraint: foreign_key}
+
+  PosicaoId: char(36) {constraint: foreign_key}
+
+  UserName: varchar(256)
+
+  NormalizedUserName: varchar(256)
+
+  Email: varchar(256)
+
+  NormalizedEmail: varchar(256) {constraint: unique}
+
+  EmailConfirmed: tinyint(1)
+
+  PasswordHash: longtext
+
+  SecurityStamp: longtext
+
+  ConcurrencyStamp: longtext
+
+  PhoneNumber: longtext
+
+  PhoneNumberConfirmed: tinyint(1)
+
+  TwoFactorEnabled: tinyint(1)
+
+  LockoutEnd: datetime(6)
+
+  LockoutEnabled: tinyint(1)
+
+  AccessFailedCount: int
+}
+
+users.EnderecoId -> endereco.id
+
+endereco: {
+  shape: sql_table
+
+  Id: char(36) {constraint: primary_key}
+
+  Cep: longtext {constraint: not_null}
+
+  Logradouro: longtext {constraint: not_null}
+
+  Bairro: longtext
+
+  Localidade: longtext
+
+  Uf: longtext {constraint: not_null}
+
+  Ibge: longtext {constraint: not_null}
+
+  Ddd: longtext {constraint: not_null}
+}
+
+posicao: {
+  shape: sql_table
+
+  Id: char(36) {constraint: primary_key}
+
+  UserId: char(36) {constraint: foreign_key}
+
+  Latitude: decimal(65,30) {constraint: not_null}
+
+  Longitude: decimal(65,30) {constraint: not_null}
+}
+
+users.posicaoId -> posicao.Id
+
+notificacao: {
+  shape: sql_table
+
+  Id: char(36) {constraint: primary_key}
+
+  Titulo: longtext {constraint: not_null}
+
+  Body: longtext {constraint: not_null}
+
+  Lido: tinyint(1) {constraint: not_null}
+
+  Data: datetime(6) {constraint: not_null}
+
+  ApplicationUserId: char(36) {constraint: foreign_key}
+}
+
+notificacao.ApplicationUserId -> users.Id
+
+rota: {
+  shape: sql_table
+
+  Id: char(36) {constraint: primary_key}
+
+  DataInicio: datetime(6) {constraint: not_null}
+
+  DataFim: datetime(6) {constraint: not_null}
+
+  UserId: char(36) {constraint: foreign_key}
+}
+
+rota.UserId -> users.Id
+
+rotacep: {
+  shape: sql_table
+
+  Id: char(36) {constraint: primary_key}
+
+  RotaId: char(36) {constraint: foreign_key}
+
+  CepId: char(36) {constraint: foreign_key}
+}
+
+rotacep.RotaId -> rota.Id
+rotacep.CepId -> cep.Id
+
+cep: {
+  shape: sql_table
+
+  Id: char(36) {constraint: primary_key}
+
+  Value: longtext {constraint: not_null}
+}
+
+aspnetuserroles: {
+  shape: sql_table
+
+  UserId: char(36) {constraint: not_null}
+
+  RoleId: char(36) {constraint: not_null}
+
+  UserId: {
+    constraint: foreign_key
+  }
+
+  RoleId: {
+    constraint: foreign_key
+  }
+}
+
+aspnetuserroles.UserId -> users.Id
+aspnetuserroles.RoleId -> aspnetroles.Id
+
+aspnetroles: {
+  shape: sql_table
+
+  Id: char(36) {constraint: primary_key}
+
+  Name: varchar(256)
+
+  NormalizedName: varchar(256)
+
+  ConcurrencyStamp: longtext
+}
